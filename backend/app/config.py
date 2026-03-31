@@ -11,7 +11,7 @@ class Settings(BaseSettings):
 
     # Qdrant
     qdrant_url: str = "https://27aff9e6-8dae-4699-8803-9ee4fd06af81.eu-central-1-0.aws.cloud.qdrant.io"
-    qdrant_api_key: str = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2Nlc3MiOlt7ImNvbGxlY3Rpb24iOiJwbGFudHMiLCJhY2Nlc3MiOiJydyJ9LHsiY29sbGVjdGlvbiI6InBsYW50LWltYWdlcyIsImFjY2VzcyI6InJ3In1dLCJleHAiOjE3NzcxNTcwNzZ9.4LibSPRSJmJ9FQcGTB6OnYfR7sYuNlGJE5qm2RHQfkk"
+    qdrant_api_key: str = ""
 
     # Collections
     plants_collection: str = "plants"

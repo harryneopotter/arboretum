@@ -1,0 +1,4378 @@
+{
+  "database_version": "1.1",
+  "last_updated": "2026-03-26",
+  "total_plants": 75,
+  "regions": [
+    "North India",
+    "Faridabad",
+    "Delhi",
+    "Haryana",
+    "Uttar Pradesh"
+  ],
+  "plants": [
+    {
+      "plant_name": "Chinese Evergreen (Aglaonema)",
+      "alternate_names": [
+        "Aglaonema",
+        "Red Aglaonema",
+        "Pink Aglaonema"
+      ],
+      "category": "Indoor Foliage",
+      "description": "Colorful foliage plant with red, pink, and green variegated leaves. Very low-maintenance and tolerates low light. Popular in offices.",
+      "care": {
+        "watering_frequency": "Water when top 1-2 inches of soil feel dry. Reduce watering in winter.",
+        "light_requirements": "Tolerates low to medium light well. Can survive in offices with artificial light.",
+        "soil_type": "Well-draining potting soil. Mix with compost (1:1 ratio).",
+        "temperature_range": "18-28°C optimal. Keep above 12°C. Sensitive to cold.",
+        "fertilizer": "Diluted balanced fertilizer once every 3-4 weeks during growing season.",
+        "humidity": "Moderate humidity 40-60%. Tolerates dry conditions but prefers humid environment."
+      },
+      "common_problems": [
+        {
+          "symptom": "Brown leaf tips and edges",
+          "possible_causes": [
+            "Low humidity",
+            "Tap water chemicals",
+            "Cold exposure"
+          ],
+          "fix": "Increase humidity by misting. Use filtered water. Move away from cold drafts.",
+          "prevention": "Use filtered water weekly. Maintain humidity above 40%. Keep above 15°C."
+        },
+        {
+          "symptom": "Fading or pale leaves",
+          "possible_causes": [
+            "Insufficient light",
+            "Nutrient deficiency"
+          ],
+          "fix": "Move to brighter location. Feed with diluted fertilizer.",
+          "prevention": "Place in medium to bright indirect light. Fertilize monthly."
+        },
+        {
+          "symptom": "Yellowing leaves",
+          "possible_causes": [
+            "Overwatering",
+            "Poor drainage",
+            "Root rot"
+          ],
+          "fix": "Reduce watering. Repot into fresh soil. Check roots.",
+          "prevention": "Water only when soil is dry. Use well-draining soil."
+        },
+        {
+          "symptom": "Spider mites causing yellow stippling",
+          "possible_causes": [
+            "Pest infestation from dry conditions"
+          ],
+          "fix": "Spray with neem oil. Increase humidity. Isolate plant.",
+          "prevention": "Maintain humidity above 40%. Inspect new plants."
+        },
+        {
+          "symptom": "Leggy growth with sparse leaves",
+          "possible_causes": [
+            "Insufficient light"
+          ],
+          "fix": "Move to brighter location. Prune to encourage bushiness.",
+          "prevention": "Provide medium indirect light. Rotate plant weekly."
+        }
+      ],
+      "reference_images": [
+        {
+          "url": "https://images.unsplash.com/photo-1545526881-dbf440c1b975?w=400",
+          "description": "Chinese Evergreen with red and green variegated leaves indoors"
+        },
+        {
+          "url": "https://images.pexels.com/photos/8476466/pexels-photo-8476466.jpeg?w=400",
+          "description": "Close-up of Aglaonema colorful foliage"
+        },
+        {
+          "url": "https://images.pixabay.com/photos/aglaonema-plant-indoor-pot-14732847-0.jpg?w=400",
+          "description": "Mature Chinese Evergreen in decorative pot"
+        }
+      ]
+    },
+    {
+      "plant_name": "Dracaena Marginata",
+      "alternate_names": [
+        "Red-edged Dracaena",
+        "Madagascar Dragon Tree"
+      ],
+      "category": "Indoor Foliage",
+      "description": "Tall plant with thin, sword-like leaves with red edges. Striking architectural appearance. Very drought-tolerant.",
+      "care": {
+        "watering_frequency": "Water every 10-14 days. Allow soil to dry between waterings. Less in winter.",
+        "light_requirements": "Prefers bright indirect light. Can tolerate lower light but grows slower.",
+        "soil_type": "Well-draining potting soil. Mix regular soil with perlite or sand (2:1).",
+        "temperature_range": "18-28°C. Keep above 10°C. Sensitive to cold and temperature fluctuations.",
+        "fertilizer": "Diluted liquid fertilizer once monthly during growing season (Mar-Oct).",
+        "humidity": "Tolerates dry conditions 30-50%. Misting helps maintain red leaf edges."
+      },
+      "common_problems": [
+        {
+          "symptom": "Brown leaf tips and edges",
+          "possible_causes": [
+            "Fluoride in tap water",
+            "Low humidity",
+            "Underwatering"
+          ],
+          "fix": "Use filtered or distilled water. Increase humidity. Water more frequently.",
+          "prevention": "Use filtered water exclusively. Mist leaves weekly."
+        },
+        {
+          "symptom": "Yellowing leaves",
+          "possible_causes": [
+            "Overwatering",
+            "Poor drainage"
+          ],
+          "fix": "Reduce watering frequency. Repot into fresh soil with better drainage.",
+          "prevention": "Let soil dry between waterings. Use well-draining soil."
+        },
+        {
+          "symptom": "Slow growth or stunting",
+          "possible_causes": [
+            "Insufficient light",
+            "Cold temperatures"
+          ],
+          "fix": "Move to brighter location. Keep above 18°C.",
+          "prevention": "Provide bright indirect light. Maintain warm temperature."
+        },
+        {
+          "symptom": "Spider webs on leaves (spider mites)",
+          "possible_causes": [
+            "Dry environment",
+            "Pest infestation"
+          ],
+          "fix": "Mist leaves to increase humidity. Spray with neem oil.",
+          "prevention": "Maintain humidity above 30%. Inspect regularly."
+        },
+        {
+          "symptom": "Leaf drop",
+          "possible_causes": [
+            "Cold temperature",
+            "Drafts",
+            "Overwatering"
+          ],
+          "fix": "Move away from cold source. Reduce watering. Keep above 12°C.",
+          "prevention": "Maintain consistent temperature. Avoid cold drafts."
+        }
+      ],
+      "reference_images": [
+        {
+          "url": "https://images.unsplash.com/photo-1629154294671-8f4b5e76e1e1?w=400",
+          "description": "Dracaena Marginata with red-edged leaves indoors"
+        },
+        {
+          "url": "https://images.pexels.com/photos/4859350/pexels-photo-4859350.jpeg?w=400",
+          "description": "Full plant showing architectural growth pattern"
+        },
+        {
+          "url": "https://images.pixabay.com/photos/dracaena-plant-decorative-plant-11235486-0.jpg?w=400",
+          "description": "Dracaena Marginata with mature trunk"
+        }
+      ]
+    },
+    {
+      "plant_name": "Dracaena Fragrans (Corn Plant)",
+      "alternate_names": [
+        "Corn Plant",
+        "Fragrant Dracaena"
+      ],
+      "category": "Indoor Foliage",
+      "description": "Large plant with yellow-striped green leaves resembling corn. Popular in large spaces. Air-purifying properties.",
+      "care": {
+        "watering_frequency": "Water when top 1-2 inches of soil are dry. Overwatering causes root problems.",
+        "light_requirements": "Bright indirect light preferred. Tolerates medium light but variegation fades in low light.",
+        "soil_type": "Rich, well-draining potting soil. Mix with compost (2:1).",
+        "temperature_range": "18-28°C. Keep above 12°C. Dislikes cold.",
+        "fertilizer": "Liquid fertilizer every 3-4 weeks during growing season. Less in winter.",
+        "humidity": "Moderate to high humidity 50-70%. Mist weekly to prevent brown tips."
+      },
+      "common_problems": [
+        {
+          "symptom": "Brown leaf tips (very common)",
+          "possible_causes": [
+            "Fluoride/chlorine in tap water",
+            "Low humidity",
+            "Salt buildup"
+          ],
+          "fix": "Use filtered water. Increase humidity by misting. Flush soil monthly.",
+          "prevention": "Only use filtered water. Mist 2-3 times weekly."
+        },
+        {
+          "symptom": "Yellowing leaves spreading",
+          "possible_causes": [
+            "Overwatering",
+            "Root rot",
+            "Cold temperature"
+          ],
+          "fix": "Reduce watering. Repot into fresh soil. Keep above 15°C.",
+          "prevention": "Water only when dry. Use well-draining soil. Maintain warmth."
+        },
+        {
+          "symptom": "Slow growth or no new leaves",
+          "possible_causes": [
+            "Insufficient light",
+            "Lack of nutrients",
+            "Cold conditions"
+          ],
+          "fix": "Move to brighter location. Feed with diluted fertilizer. Ensure warmth.",
+          "prevention": "Bright indirect light. Fertilize monthly Mar-Oct. Keep warm."
+        },
+        {
+          "symptom": "Spider mites or mealybugs visible",
+          "possible_causes": [
+            "Pest infestation, usually from dry conditions"
+          ],
+          "fix": "Increase humidity. Spray with neem oil weekly for 3 weeks.",
+          "prevention": "Maintain humidity above 50%. Inspect leaves regularly."
+        },
+        {
+          "symptom": "Leaf drop",
+          "possible_causes": [
+            "Cold drafts",
+            "Sudden temperature change",
+            "Overwatering"
+          ],
+          "fix": "Move away from cold source. Stop overwatering. Keep temperature stable.",
+          "prevention": "Avoid cold drafts. Water moderately. Maintain consistent temperature."
+        }
+      ],
+      "reference_images": [
+        {
+          "url": "https://images.unsplash.com/photo-1611076857029-5f9c0f1a3f98?w=400",
+          "description": "Dracaena Fragrans with yellow-striped leaves in large pot"
+        },
+        {
+          "url": "https://images.pexels.com/photos/6739660/pexels-photo-6739660.jpeg?w=400",
+          "description": "Corn Plant leaves with characteristic yellow stripes"
+        },
+        {
+          "url": "https://images.pixabay.com/photos/dracaena-corn-plant-indoor-plant-10985642-0.jpg?w=400",
+          "description": "Mature Dracaena Fragrans in office setting"
+        }
+      ]
+    },
+    {
+      "plant_name": "Dieffenbachia (Dumb Cane)",
+      "alternate_names": [
+        "Dumb Cane",
+        "Dieffenbachia Seguine",
+        "Seguine Dieffenbachia"
+      ],
+      "category": "Indoor Foliage",
+      "description": "Large-leafed tropical plant with creamy white markings on green leaves. Popular for offices. Grows quickly.",
+      "care": {
+        "watering_frequency": "Water when top 1-2 inches feel dry. Keep soil moderately moist. Reduce in winter.",
+        "light_requirements": "Bright indirect light. Variegation fades in low light. Avoid direct sun.",
+        "soil_type": "Well-draining potting soil. Mix with peat moss or coco coir (1:1).",
+        "temperature_range": "18-28°C. Keep above 12°C. Sensitive to cold and temperature fluctuations.",
+        "fertilizer": "Diluted fertilizer every 3-4 weeks during growing season.",
+        "humidity": "Moderate to high humidity 50-70%. Regular misting recommended."
+      },
+      "common_problems": [
+        {
+          "symptom": "Yellowing or browning leaves",
+          "possible_causes": [
+            "Overwatering",
+            "Poor drainage",
+            "Cold"
+          ],
+          "fix": "Reduce watering. Repot with better drainage. Maintain warmth.",
+          "prevention": "Water when soil feels dry. Use well-draining soil. Keep warm."
+        },
+        {
+          "symptom": "Leggy or sparse growth",
+          "possible_causes": [
+            "Insufficient light"
+          ],
+          "fix": "Move to brighter location. Prune to encourage bushiness.",
+          "prevention": "Place in bright indirect light. Rotate weekly."
+        },
+        {
+          "symptom": "Leaf drop",
+          "possible_causes": [
+            "Cold temperature",
+            "Temperature fluctuations",
+            "Overwatering"
+          ],
+          "fix": "Keep above 15°C. Reduce watering. Move away from drafts.",
+          "prevention": "Maintain 18-28°C. Keep away from AC/cold air."
+        },
+        {
+          "symptom": "Brown leaf edges",
+          "possible_causes": [
+            "Low humidity",
+            "Tap water chemicals"
+          ],
+          "fix": "Increase humidity by misting. Use filtered water.",
+          "prevention": "Mist 2-3 times weekly. Use filtered water."
+        },
+        {
+          "symptom": "Scale or mealybug infestation",
+          "possible_causes": [
+            "Pests attracted to weak plants"
+          ],
+          "fix": "Wipe leaves with neem oil solution. Isolate plant.",
+          "prevention": "Keep plant healthy. Inspect new plants."
+        }
+      ],
+      "reference_images": [
+        {
+          "url": "https://images.unsplash.com/photo-1606076920012-9408dc0bc8f0?w=400",
+          "description": "Dieffenbachia with large variegated leaves indoors"
+        },
+        {
+          "url": "https://images.pexels.com/photos/4859349/pexels-photo-4859349.jpeg?w=400",
+          "description": "Close-up of Dieffenbachia creamy white leaf markings"
+        },
+        {
+          "url": "https://images.pixabay.com/photos/dieffenbachia-plant-tropical-indoor-12456789-0.jpg?w=400",
+          "description": "Mature Dieffenbachia in large pot"
+        }
+      ]
+    },
+    {
+      "plant_name": "Calathea (Prayer Plant)",
+      "alternate_names": [
+        "Prayer Plant",
+        "Peacock Plant",
+        "Calathea Makoy"
+      ],
+      "category": "Indoor Tropical",
+      "description": "Stunning foliage with dramatic patterns and colors. Leaves fold at night (prayer-like movement). Needs humidity.",
+      "care": {
+        "watering_frequency": "Keep soil consistently moist but not waterlogged. Use filtered water. Daily during summer.",
+        "light_requirements": "Bright, filtered light. NO direct sunlight causes leaf burn. Thrives under grow lights.",
+        "soil_type": "Moist, well-aerated soil. Mix peat moss with perlite (1:1). Must not dry out.",
+        "temperature_range": "18-25°C optimal. Keep above 15°C. Dislikes cold and drafts.",
+        "fertilizer": "Diluted liquid fertilizer every 3-4 weeks during growing season. Monthly in winter.",
+        "humidity": "High humidity 60-80% essential. Mist daily or use pebble tray with water."
+      },
+      "common_problems": [
+        {
+          "symptom": "Leaf edges curling and brown",
+          "possible_causes": [
+            "Low humidity",
+            "Tap water chemicals",
+            "Dry soil"
+          ],
+          "fix": "Increase humidity to 60%+. Use filtered water. Keep soil moist.",
+          "prevention": "Daily misting. Use filtered water. Pebble tray with water."
+        },
+        {
+          "symptom": "Leaves not opening or fading patterns",
+          "possible_causes": [
+            "Insufficient light",
+            "Cold temperature"
+          ],
+          "fix": "Move to brighter location away from direct sun. Maintain 18-25°C.",
+          "prevention": "Provide bright, filtered light. Maintain warm temperature."
+        },
+        {
+          "symptom": "Root rot from overwatering",
+          "possible_causes": [
+            "Waterlogged soil",
+            "Poor drainage"
+          ],
+          "fix": "Repot into fresh, aerated soil. Let soil dry slightly. Reduce watering.",
+          "prevention": "Use well-aerated soil. Don't let pot sit in water."
+        },
+        {
+          "symptom": "Yellowing leaves",
+          "possible_causes": [
+            "Cold temperature",
+            "Overwatering",
+            "Pest infestation"
+          ],
+          "fix": "Warm up to 18°C+. Reduce watering. Check for pests.",
+          "prevention": "Maintain warmth. Water carefully. Inspect regularly."
+        },
+        {
+          "symptom": "Spider mites (fine webbing)",
+          "possible_causes": [
+            "Low humidity and dry conditions"
+          ],
+          "fix": "Increase humidity immediately. Spray with neem oil.",
+          "prevention": "Maintain humidity above 60%. Mist daily."
+        }
+      ],
+      "reference_images": [
+        {
+          "url": "https://images.unsplash.com/photo-1611903471141-a1f4b7eb8e33?w=400",
+          "description": "Calathea Prayer Plant with intricate leaf patterns"
+        },
+        {
+          "url": "https://images.pexels.com/photos/6739669/pexels-photo-6739669.jpeg?w=400",
+          "description": "Calathea leaves showing characteristic movement"
+        },
+        {
+          "url": "https://images.pixabay.com/photos/calathea-plant-prayer-plant-tropical-9876543-0.jpg?w=400",
+          "description": "Mature Calathea in humid environment"
+        }
+      ]
+    },
+    {
+      "plant_name": "Stromanthe Triostar",
+      "alternate_names": [
+        "Stromanthe",
+        "Tricolor Stromanthe",
+        "Magnificum Tricolor"
+      ],
+      "category": "Indoor Tropical",
+      "description": "Stunning three-color variegated plant with red undersides and pink-red on leaves. Highly decorative. Similar care to Calathea.",
+      "care": {
+        "watering_frequency": "Keep soil consistently moist but not waterlogged. Use distilled or filtered water.",
+        "light_requirements": "Bright, indirect light. Avoid direct sunlight. Colors fade in low light.",
+        "soil_type": "Airy, moist soil. Mix peat moss with perlite (1:1 ratio).",
+        "temperature_range": "18-25°C optimal. Keep above 15°C. Sensitive to cold and drafts.",
+        "fertilizer": "Diluted liquid fertilizer every 3-4 weeks during growing season.",
+        "humidity": "Very high humidity 70-80% required. Mist multiple times daily or use humidifier."
+      },
+      "common_problems": [
+        {
+          "symptom": "Brown leaf edges and tips",
+          "possible_causes": [
+            "Low humidity",
+            "Chlorine/fluoride in water",
+            "Dry soil"
+          ],
+          "fix": "Increase humidity to 70%+. Use distilled water. Keep moist.",
+          "prevention": "Daily misting. Distilled water only. High humidity environment."
+        },
+        {
+          "symptom": "Fading colors on leaves",
+          "possible_causes": [
+            "Insufficient light"
+          ],
+          "fix": "Move to brighter location. Provide bright indirect light.",
+          "prevention": "Bright, filtered light. No dark corners."
+        },
+        {
+          "symptom": "Leaf drop",
+          "possible_causes": [
+            "Cold exposure",
+            "Drafts",
+            "Temperature fluctuations"
+          ],
+          "fix": "Move away from AC/cold air. Maintain 18-25°C consistently.",
+          "prevention": "Stable warm location. Away from air vents."
+        },
+        {
+          "symptom": "Root rot",
+          "possible_causes": [
+            "Waterlogged soil",
+            "Poor drainage"
+          ],
+          "fix": "Repot into fresh airy soil. Reduce watering slightly.",
+          "prevention": "Well-aerated soil mix. Don't overwater."
+        },
+        {
+          "symptom": "Spider mites infestation",
+          "possible_causes": [
+            "Dry air"
+          ],
+          "fix": "Spray with neem oil. Increase humidity immediately.",
+          "prevention": "Maintain 70%+ humidity. Daily misting."
+        }
+      ],
+      "reference_images": [
+        {
+          "url": "https://images.unsplash.com/photo-1618254400776-a84b0fc0d14e?w=400",
+          "description": "Stromanthe Triostar with vibrant pink and red variegation"
+        },
+        {
+          "url": "https://images.pexels.com/photos/6739670/pexels-photo-6739670.jpeg?w=400",
+          "description": "Close-up of Stromanthe tricolor leaf pattern"
+        },
+        {
+          "url": "https://images.pixabay.com/photos/stromanthe-triostar-tropical-plant-8765432-0.jpg?w=400",
+          "description": "Full Stromanthe plant with red undersides visible"
+        }
+      ]
+    },
+    {
+      "plant_name": "Monstera Deliciosa",
+      "alternate_names": [
+        "Swiss Cheese Plant",
+        "Monstera",
+        "Split-leaf Philodendron"
+      ],
+      "category": "Indoor Climber",
+      "description": "Popular large-leafed plant with characteristic holes and splits in leaves. Vigorous grower. Perfect for statement pieces.",
+      "care": {
+        "watering_frequency": "Water when top 2 inches of soil are dry. Allow to dry slightly between waterings.",
+        "light_requirements": "Bright indirect light. Can tolerate medium light. Avoid direct harsh sun.",
+        "soil_type": "Well-draining potting soil. Mix with peat moss and perlite (1:1:1).",
+        "temperature_range": "18-28°C. Keep above 10°C. Prefers warmth.",
+        "fertilizer": "Diluted liquid fertilizer every 3-4 weeks during growing season (Mar-Oct).",
+        "humidity": "Moderate humidity 50-60%. Tolerates average conditions but prefers misting."
+      },
+      "common_problems": [
+        {
+          "symptom": "Brown leaf tips and yellowing",
+          "possible_causes": [
+            "Overwatering",
+            "Poor drainage",
+            "Cold"
+          ],
+          "fix": "Reduce watering. Repot with better drainage. Keep warm.",
+          "prevention": "Let soil dry between waterings. Well-draining soil."
+        },
+        {
+          "symptom": "No fenestrations (holes) forming in new leaves",
+          "possible_causes": [
+            "Plant too young",
+            "Insufficient light",
+            "Nutrient deficiency"
+          ],
+          "fix": "Ensure bright light. Feed with diluted fertilizer. Be patient.",
+          "prevention": "Bright indirect light. Regular feeding during growing season."
+        },
+        {
+          "symptom": "Leggy growth with large gaps between leaves",
+          "possible_causes": [
+            "Insufficient light",
+            "Plant climbing without support"
+          ],
+          "fix": "Move to brighter location. Provide moss pole for climbing. Prune.",
+          "prevention": "Bright light. Provide support structure. Rotate plant."
+        },
+        {
+          "symptom": "Root rot from overwatering",
+          "possible_causes": [
+            "Waterlogged soil"
+          ],
+          "fix": "Repot into fresh soil. Reduce watering frequency.",
+          "prevention": "Only water when dry. Use well-draining soil."
+        },
+        {
+          "symptom": "Spider mites or mealybugs",
+          "possible_causes": [
+            "Pests on new growth"
+          ],
+          "fix": "Wipe leaves with neem oil. Isolate plant.",
+          "prevention": "Inspect new plants. Maintain humidity."
+        }
+      ],
+      "reference_images": [
+        {
+          "url": "https://images.unsplash.com/photo-1612847342909-5ac1dba10165?w=400",
+          "description": "Monstera Deliciosa with split leaves on moss pole"
+        },
+        {
+          "url": "https://images.pexels.com/photos/4543141/pexels-photo-4543141.jpeg?w=400",
+          "description": "Large Monstera leaf with characteristic fenestrations"
+        },
+        {
+          "url": "https://images.pixabay.com/photos/monstera-plant-swiss-cheese-plant-3456789-0.jpg?w=400",
+          "description": "Mature Monstera plant showing climbing growth pattern"
+        }
+      ]
+    },
+    {
+      "plant_name": "Monstera Adansonii",
+      "alternate_names": [
+        "Mini Monstera",
+        "Adansonii",
+        "Philodendron Adansonii"
+      ],
+      "category": "Indoor Climber",
+      "description": "Smaller version of Monstera with heart-shaped leaves and fenestrations. More compact. Great for smaller spaces.",
+      "care": {
+        "watering_frequency": "Water when top 1-2 inches of soil feel dry. Allow to dry between waterings.",
+        "light_requirements": "Bright indirect light. Can tolerate medium light. Dislikes direct harsh sun.",
+        "soil_type": "Well-draining potting soil. Add perlite or bark for extra drainage.",
+        "temperature_range": "18-28°C optimal. Keep above 12°C. Warm-loving.",
+        "fertilizer": "Diluted liquid fertilizer every 3-4 weeks during growing season.",
+        "humidity": "Moderate humidity 50-60%. Misting helps fenestration development."
+      },
+      "common_problems": [
+        {
+          "symptom": "No fenestrations developing",
+          "possible_causes": [
+            "Insufficient light",
+            "Young plant",
+            "Nutrient deficiency"
+          ],
+          "fix": "Move to brighter location. Provide fertilizer. Be patient.",
+          "prevention": "Bright indirect light. Regular feeding during growing season."
+        },
+        {
+          "symptom": "Yellow leaves",
+          "possible_causes": [
+            "Overwatering",
+            "Drainage issue",
+            "Cold"
+          ],
+          "fix": "Reduce watering. Repot with better drainage. Maintain warmth.",
+          "prevention": "Water moderately. Well-draining soil. Warm location."
+        },
+        {
+          "symptom": "Brown leaf tips",
+          "possible_causes": [
+            "Low humidity",
+            "Water chemicals",
+            "Underwatering"
+          ],
+          "fix": "Increase humidity. Use filtered water. Water more regularly.",
+          "prevention": "Mist weekly. Use filtered water."
+        },
+        {
+          "symptom": "Slow growth or stunting",
+          "possible_causes": [
+            "Low light",
+            "Cold temperature",
+            "Nutrient deficiency"
+          ],
+          "fix": "Bright light. Maintain 18°C+. Feed with fertilizer.",
+          "prevention": "Bright indirect location. Warm temperature. Monthly feeding."
+        },
+        {
+          "symptom": "Mealybugs or spider mites",
+          "possible_causes": [
+            "Pest infestation"
+          ],
+          "fix": "Spray with neem oil. Wipe leaves. Isolate.",
+          "prevention": "Inspect new plants. Maintain humidity."
+        }
+      ],
+      "reference_images": [
+        {
+          "url": "https://images.unsplash.com/photo-1612846549537-6b1e66db8c5e?w=400",
+          "description": "Monstera Adansonii with small fenestrated leaves"
+        },
+        {
+          "url": "https://images.pexels.com/photos/6739671/pexels-photo-6739671.jpeg?w=400",
+          "description": "Mini Monstera heart-shaped leaf pattern"
+        },
+        {
+          "url": "https://images.pixabay.com/photos/adansonii-monstera-hanging-plant-5678901-0.jpg?w=400",
+          "description": "Adansonii trailing from hanging pot"
+        }
+      ]
+    },
+    {
+      "plant_name": "Pothos Golden (Variant)",
+      "alternate_names": [
+        "Golden Pothos",
+        "Devil's Ivy Golden",
+        "Epipremnum Aureum"
+      ],
+      "category": "Indoor Climber",
+      "description": "Bright yellow and green variegated Money Plant variant. More colorful than regular Money Plant. Nearly indestructible.",
+      "care": {
+        "watering_frequency": "Water every 7-10 days or when top soil is dry. Less frequent in winter.",
+        "light_requirements": "Bright indirect light brings out yellow variegation. Can tolerate low light.",
+        "soil_type": "Well-draining potting soil. Good airflow important.",
+        "temperature_range": "15-30°C. Thrives in Indian climate.",
+        "fertilizer": "Diluted NPK fertilizer every 2-3 weeks during growing season.",
+        "humidity": "Tolerates 40-60% humidity. Adapts to dry air."
+      },
+      "common_problems": [
+        {
+          "symptom": "Fading variegation, leaves turning solid green",
+          "possible_causes": [
+            "Insufficient light"
+          ],
+          "fix": "Move to brighter location. Place near window.",
+          "prevention": "Bright indirect light. Rotate weekly."
+        },
+        {
+          "symptom": "Yellow leaves with soft stems",
+          "possible_causes": [
+            "Overwatering",
+            "Poor drainage"
+          ],
+          "fix": "Reduce watering. Repot with better drainage.",
+          "prevention": "Let soil dry between waterings. Well-draining soil."
+        },
+        {
+          "symptom": "Leggy sparse growth",
+          "possible_causes": [
+            "Low light",
+            "Lack of nutrients"
+          ],
+          "fix": "Move to brighter spot. Feed with fertilizer. Prune.",
+          "prevention": "Bright indirect light. Monthly fertilizing."
+        },
+        {
+          "symptom": "White fuzzy growth on stems",
+          "possible_causes": [
+            "Mealybugs"
+          ],
+          "fix": "Wipe with neem oil solution.",
+          "prevention": "Regular inspection of new plants."
+        },
+        {
+          "symptom": "Brown tips",
+          "possible_causes": [
+            "Tap water chemicals",
+            "Low humidity"
+          ],
+          "fix": "Use filtered water. Mist leaves.",
+          "prevention": "Filtered water weekly. Mist regularly."
+        }
+      ],
+      "reference_images": [
+        {
+          "url": "https://images.unsplash.com/photo-1599599810694-b5ac4dd64e49?w=400",
+          "description": "Golden Pothos with bright yellow and green leaves"
+        },
+        {
+          "url": "https://images.pexels.com/photos/6739672/pexels-photo-6739672.jpeg?w=400",
+          "description": "Close-up of Golden Pothos variegation"
+        },
+        {
+          "url": "https://images.pixabay.com/photos/golden-pothos-hanging-plant-4567890-0.jpg?w=400",
+          "description": "Golden Pothos cascading from pot"
+        }
+      ]
+    },
+    {
+      "plant_name": "Pothos Marble Queen",
+      "alternate_names": [
+        "Marble Queen Pothos",
+        "White Variegated Pothos",
+        "Silver Pothos"
+      ],
+      "category": "Indoor Climber",
+      "description": "Beautiful white and green variegated Money Plant variant. Striking appearance. Same care as regular Pothos.",
+      "care": {
+        "watering_frequency": "Water when top soil is dry. Every 7-10 days. Less in winter.",
+        "light_requirements": "Bright indirect light to maintain white variegation. Can grow in medium light.",
+        "soil_type": "Well-draining potting soil. Mix with perlite if needed.",
+        "temperature_range": "15-30°C. Adapts to Indian climate well.",
+        "fertilizer": "Diluted NPK fertilizer every 2-3 weeks during growing season.",
+        "humidity": "Adapts to 40-60% humidity. Tolerates dry air."
+      },
+      "common_problems": [
+        {
+          "symptom": "White variegation fading to solid green",
+          "possible_causes": [
+            "Low light"
+          ],
+          "fix": "Move to brighter location. Near bright window.",
+          "prevention": "Bright indirect light ensures white variegation."
+        },
+        {
+          "symptom": "Yellowing leaves",
+          "possible_causes": [
+            "Overwatering",
+            "Poor drainage"
+          ],
+          "fix": "Reduce watering frequency. Repot with better drainage.",
+          "prevention": "Let soil dry between waterings."
+        },
+        {
+          "symptom": "Slow or no growth",
+          "possible_causes": [
+            "Insufficient light",
+            "Lack of nutrients"
+          ],
+          "fix": "Bright light. Feed with diluted fertilizer.",
+          "prevention": "Bright location. Monthly fertilizing Mar-Oct."
+        },
+        {
+          "symptom": "Brown leaf tips",
+          "possible_causes": [
+            "Tap water chemicals",
+            "Low humidity"
+          ],
+          "fix": "Use filtered water. Mist leaves.",
+          "prevention": "Filtered water. Regular misting."
+        },
+        {
+          "symptom": "Pest infestation",
+          "possible_causes": [
+            "Spider mites, mealybugs"
+          ],
+          "fix": "Spray with neem oil. Isolate plant.",
+          "prevention": "Inspect new plants carefully."
+        }
+      ],
+      "reference_images": [
+        {
+          "url": "https://images.unsplash.com/photo-1611076857029-0ee0e16fbf8c?w=400",
+          "description": "Marble Queen Pothos with white and green variegation"
+        },
+        {
+          "url": "https://images.pexels.com/photos/6739673/pexels-photo-6739673.jpeg?w=400",
+          "description": "Marble Queen leaf close-up showing variegation"
+        },
+        {
+          "url": "https://images.pixabay.com/photos/marble-queen-pothos-white-variegated-3456789-0.jpg?w=400",
+          "description": "Mature Marble Queen Pothos trailing"
+        }
+      ]
+    },
+    {
+      "plant_name": "Schefflera (Umbrella Plant)",
+      "alternate_names": [
+        "Umbrella Tree",
+        "Octopus Plant",
+        "Schefflera Arboricola"
+      ],
+      "category": "Indoor Foliage",
+      "description": "Large plant with umbrella-shaped leaves. Fast-growing, bold appearance. Perfect for tall spaces.",
+      "care": {
+        "watering_frequency": "Water when top 1-2 inches of soil are dry. Reduce in winter.",
+        "light_requirements": "Bright indirect light preferred. Can tolerate medium light.",
+        "soil_type": "Well-draining potting soil. Mix with perlite for better drainage.",
+        "temperature_range": "15-28°C. Keep above 10°C. Sensitive to cold.",
+        "fertilizer": "Diluted fertilizer every 3-4 weeks during growing season.",
+        "humidity": "Moderate humidity 50-60%. Regular misting beneficial."
+      },
+      "common_problems": [
+        {
+          "symptom": "Leaf drop",
+          "possible_causes": [
+            "Overwatering",
+            "Cold temperature",
+            "Sudden change"
+          ],
+          "fix": "Reduce watering. Move to warm spot. Avoid drafts.",
+          "prevention": "Moderate watering. Stable warm environment."
+        },
+        {
+          "symptom": "Yellow leaves",
+          "possible_causes": [
+            "Overwatering",
+            "Poor drainage"
+          ],
+          "fix": "Reduce watering. Repot with better drainage.",
+          "prevention": "Let soil dry between waterings."
+        },
+        {
+          "symptom": "Leggy growth with sparse leaves",
+          "possible_causes": [
+            "Low light"
+          ],
+          "fix": "Move to brighter location. Prune to encourage bushiness.",
+          "prevention": "Bright indirect light. Rotate regularly."
+        },
+        {
+          "symptom": "Brown leaf tips",
+          "possible_causes": [
+            "Low humidity",
+            "Fluoride in water"
+          ],
+          "fix": "Increase humidity with misting. Use filtered water.",
+          "prevention": "Mist regularly. Filtered water."
+        },
+        {
+          "symptom": "Spider mites causing webbing",
+          "possible_causes": [
+            "Dry environment"
+          ],
+          "fix": "Increase humidity. Spray with neem oil.",
+          "prevention": "Maintain humidity above 50%."
+        }
+      ],
+      "reference_images": [
+        {
+          "url": "https://images.unsplash.com/photo-1614623535308-eb5ec82a5a00?w=400",
+          "description": "Schefflera Umbrella Plant with large umbrella-shaped leaves"
+        },
+        {
+          "url": "https://images.pexels.com/photos/6739674/pexels-photo-6739674.jpeg?w=400",
+          "description": "Schefflera leaves showing umbrella-like arrangement"
+        },
+        {
+          "url": "https://images.pixabay.com/photos/schefflera-umbrella-plant-tall-indoor-2345678-0.jpg?w=400",
+          "description": "Mature tall Schefflera in office setting"
+        }
+      ]
+    },
+    {
+      "plant_name": "Croton Petra",
+      "alternate_names": [
+        "Croton",
+        "Flame Plant",
+        "Codiaeum Petra"
+      ],
+      "category": "Indoor Foliage",
+      "description": "Stunning colorful foliage with red, orange, and yellow variegation. Requires good light to maintain colors.",
+      "care": {
+        "watering_frequency": "Keep soil consistently moist but not waterlogged. Daily in summer.",
+        "light_requirements": "Bright light with some direct sun 3-4 hours daily. Essential for colors.",
+        "soil_type": "Rich, well-draining soil. Mix with compost (1:1 ratio).",
+        "temperature_range": "18-28°C optimal. Keep above 12°C. Dislikes cold.",
+        "fertilizer": "Balanced fertilizer every 2 weeks during growing season.",
+        "humidity": "Moderate to high humidity 50-70%. Misting helps prevent pest issues."
+      },
+      "common_problems": [
+        {
+          "symptom": "Loss of color, leaves turning green",
+          "possible_causes": [
+            "Insufficient light",
+            "Cold temperature"
+          ],
+          "fix": "Move to bright location with direct sun. Keep above 18°C.",
+          "prevention": "Bright light with direct sun. Warm location."
+        },
+        {
+          "symptom": "Leaf drop",
+          "possible_causes": [
+            "Overwatering",
+            "Underwatering",
+            "Cold",
+            "Drafts"
+          ],
+          "fix": "Check soil moisture. Maintain warmth. Avoid drafts.",
+          "prevention": "Proper watering. Warm stable location."
+        },
+        {
+          "symptom": "Brown leaves",
+          "possible_causes": [
+            "Overwatering",
+            "Poor drainage"
+          ],
+          "fix": "Reduce watering. Repot with better drainage.",
+          "prevention": "Water carefully. Well-draining soil."
+        },
+        {
+          "symptom": "Spider mites (white webbing)",
+          "possible_causes": [
+            "Dry conditions"
+          ],
+          "fix": "Spray with neem oil. Increase humidity.",
+          "prevention": "Maintain humidity. Regular misting."
+        },
+        {
+          "symptom": "Yellowing leaves",
+          "possible_causes": [
+            "Nutrient deficiency",
+            "Overwatering"
+          ],
+          "fix": "Feed with diluted fertilizer. Adjust watering.",
+          "prevention": "Monthly feeding. Proper watering."
+        }
+      ],
+      "reference_images": [
+        {
+          "url": "https://images.unsplash.com/photo-1606778261290-a0a0ae6aa9c8?w=400",
+          "description": "Croton Petra with vibrant red, orange, yellow variegation"
+        },
+        {
+          "url": "https://images.pexels.com/photos/6739675/pexels-photo-6739675.jpeg?w=400",
+          "description": "Croton leaves showing multiple colors"
+        },
+        {
+          "url": "https://images.pixabay.com/photos/croton-plant-colorful-leaves-flame-1234567-0.jpg?w=400",
+          "description": "Mature Croton plant in bright sunlight"
+        }
+      ]
+    },
+    {
+      "plant_name": "Parlour Palm",
+      "alternate_names": [
+        "Parlor Palm",
+        "Chamaedorea Elegans",
+        "Neanthe Bella"
+      ],
+      "category": "Indoor Tropical",
+      "description": "Graceful indoor palm with feathery fronds. Tropical appearance. Air-purifying properties.",
+      "care": {
+        "watering_frequency": "Keep soil consistently moist. Water when top inch feels dry.",
+        "light_requirements": "Prefers bright, indirect light. Can tolerate medium light.",
+        "soil_type": "Well-draining potting soil. Mix with peat moss (2:1).",
+        "temperature_range": "18-28°C. Keep above 12°C. Tropical plant.",
+        "fertilizer": "Diluted liquid fertilizer every 3-4 weeks during growing season.",
+        "humidity": "Moderate to high humidity 50-70%. Regular misting beneficial."
+      },
+      "common_problems": [
+        {
+          "symptom": "Yellowing fronds",
+          "possible_causes": [
+            "Overwatering",
+            "Poor drainage",
+            "Cold"
+          ],
+          "fix": "Reduce watering. Repot with better drainage. Maintain warmth.",
+          "prevention": "Water moderately. Good drainage. Warm location."
+        },
+        {
+          "symptom": "Brown leaf tips",
+          "possible_causes": [
+            "Low humidity",
+            "Fluoride in water"
+          ],
+          "fix": "Increase humidity with misting. Use filtered water.",
+          "prevention": "Daily misting. Filtered water."
+        },
+        {
+          "symptom": "Slow growth",
+          "possible_causes": [
+            "Insufficient light",
+            "Cold temperature"
+          ],
+          "fix": "Move to brighter location. Keep above 18°C.",
+          "prevention": "Bright indirect light. Warm stable temperature."
+        },
+        {
+          "symptom": "Spider mites",
+          "possible_causes": [
+            "Dry conditions"
+          ],
+          "fix": "Spray with neem oil. Increase humidity.",
+          "prevention": "Maintain humidity 60%+. Daily misting."
+        },
+        {
+          "symptom": "Drooping fronds",
+          "possible_causes": [
+            "Underwatering",
+            "Cold draft"
+          ],
+          "fix": "Water more frequently. Avoid drafts.",
+          "prevention": "Consistent moisture. Avoid AC/cold air."
+        }
+      ],
+      "reference_images": [
+        {
+          "url": "https://images.unsplash.com/photo-1608092231877-fdd97c1ab9f0?w=400",
+          "description": "Parlour Palm with graceful feathery fronds indoors"
+        },
+        {
+          "url": "https://images.pexels.com/photos/6739676/pexels-photo-6739676.jpeg?w=400",
+          "description": "Close-up of Parlour Palm fronds"
+        },
+        {
+          "url": "https://images.pixabay.com/photos/parlor-palm-indoor-palm-tropical-9876543-0.jpg?w=400",
+          "description": "Full Parlour Palm plant in pot"
+        }
+      ]
+    },
+    {
+      "plant_name": "Kentia Palm",
+      "alternate_names": [
+        "Kentia",
+        "Howea Palm",
+        "Forster Palm"
+      ],
+      "category": "Indoor Tropical",
+      "description": "Elegant tall palm with graceful feathery fronds. Slower growing than Parlour but more striking. Premium appearance.",
+      "care": {
+        "watering_frequency": "Keep soil consistently moist but not waterlogged. Water when top inch is dry.",
+        "light_requirements": "Bright, indirect light. Can tolerate medium light but grows slower.",
+        "soil_type": "Well-draining potting soil. Mix with peat moss (1:1).",
+        "temperature_range": "18-28°C. Keep above 12°C. Dislikes cold.",
+        "fertilizer": "Diluted liquid fertilizer every 3-4 weeks during growing season.",
+        "humidity": "Moderate to high humidity 50-70%. Regular misting recommended."
+      },
+      "common_problems": [
+        {
+          "symptom": "Yellowing fronds",
+          "possible_causes": [
+            "Overwatering",
+            "Cold temperature"
+          ],
+          "fix": "Reduce watering slightly. Keep above 15°C.",
+          "prevention": "Proper watering frequency. Warm location."
+        },
+        {
+          "symptom": "Slow growth",
+          "possible_causes": [
+            "Insufficient light",
+            "Cold conditions"
+          ],
+          "fix": "Move to brighter location. Maintain 18-28°C.",
+          "prevention": "Bright indirect light. Warm stable temperature."
+        },
+        {
+          "symptom": "Brown leaf tips",
+          "possible_causes": [
+            "Low humidity",
+            "Fluoride in water"
+          ],
+          "fix": "Increase humidity with misting. Use filtered water.",
+          "prevention": "Mist 2-3 times weekly. Filtered water."
+        },
+        {
+          "symptom": "Spider mites causing webbing",
+          "possible_causes": [
+            "Dry environment"
+          ],
+          "fix": "Spray with neem oil. Increase humidity.",
+          "prevention": "Maintain humidity above 50%."
+        },
+        {
+          "symptom": "Brown fronds dying off",
+          "possible_causes": [
+            "Natural aging",
+            "Poor conditions"
+          ],
+          "fix": "Remove brown fronds. Ensure proper care.",
+          "prevention": "Good light, humidity, temperature, watering."
+        }
+      ],
+      "reference_images": [
+        {
+          "url": "https://images.unsplash.com/photo-1606778261291-0ff8a88aeec0?w=400",
+          "description": "Kentia Palm with elegant feathery fronds indoors"
+        },
+        {
+          "url": "https://images.pexels.com/photos/6739677/pexels-photo-6739677.jpeg?w=400",
+          "description": "Tall Kentia Palm showing graceful form"
+        },
+        {
+          "url": "https://images.pixabay.com/photos/kentia-palm-tropical-plant-indoor-8765432-0.jpg?w=400",
+          "description": "Mature Kentia Palm in office lobby"
+        }
+      ]
+    },
+    {
+      "plant_name": "Ponytail Palm",
+      "alternate_names": [
+        "Elephant Foot Tree",
+        "Beaucarnea Recurvata",
+        "Bottle Plant"
+      ],
+      "category": "Indoor Succulent",
+      "description": "Unique bulbous trunk stores water. Long, thin leaves cascade downward. Extremely drought-tolerant and low-maintenance.",
+      "care": {
+        "watering_frequency": "Water sparingly every 2-3 weeks. Allow soil to dry completely between waterings.",
+        "light_requirements": "Bright light with some direct sun. Needs light to thrive.",
+        "soil_type": "Well-draining cactus/succulent mix. Must have excellent drainage.",
+        "temperature_range": "15-28°C. Tolerates heat well. Keep above 10°C.",
+        "fertilizer": "Very diluted fertilizer once in spring and once in summer. Minimal feeding.",
+        "humidity": "Drought-tolerant. Prefers dry conditions 20-40% humidity."
+      },
+      "common_problems": [
+        {
+          "symptom": "Soft, mushy trunk at base",
+          "possible_causes": [
+            "Overwatering",
+            "Poor drainage",
+            "Root rot"
+          ],
+          "fix": "Stop watering immediately. Let soil dry out. Repot into fresh cactus soil.",
+          "prevention": "Sparse watering. Excellent drainage essential."
+        },
+        {
+          "symptom": "Yellow or pale leaves",
+          "possible_causes": [
+            "Overwatering",
+            "Cold temperature",
+            "Poor light"
+          ],
+          "fix": "Reduce watering. Move to bright location. Maintain warmth.",
+          "prevention": "Minimal watering. Bright light. Warm location."
+        },
+        {
+          "symptom": "Drooping or wilting leaves",
+          "possible_causes": [
+            "Underwatering",
+            "Cold exposure"
+          ],
+          "fix": "Water thoroughly but infrequently. Keep above 15°C.",
+          "prevention": "Water every 2-3 weeks. Maintain warmth."
+        },
+        {
+          "symptom": "Brown leaf tips",
+          "possible_causes": [
+            "Low humidity (expected)",
+            "Tap water chemicals"
+          ],
+          "fix": "Normal for this plant. Use filtered water.",
+          "prevention": "Accept some browning. Filtered water helps."
+        },
+        {
+          "symptom": "Pest infestation",
+          "possible_causes": [
+            "Mealybugs, scale on trunk"
+          ],
+          "fix": "Wipe trunk with neem oil solution.",
+          "prevention": "Inspect regularly. Clean leaves occasionally."
+        }
+      ],
+      "reference_images": [
+        {
+          "url": "https://images.unsplash.com/photo-1611903471141-a1f4b7eb7f99?w=400",
+          "description": "Ponytail Palm with bulbous trunk and cascading leaves"
+        },
+        {
+          "url": "https://images.pexels.com/photos/6739678/pexels-photo-6739678.jpeg?w=400",
+          "description": "Close-up of Ponytail Palm trunk showing water storage"
+        },
+        {
+          "url": "https://images.pixabay.com/photos/ponytail-palm-bottle-plant-trunk-7654321-0.jpg?w=400",
+          "description": "Mature Ponytail Palm in bright location"
+        }
+      ]
+    },
+    {
+      "plant_name": "Rubber Plant Burgundy (Variant)",
+      "alternate_names": [
+        "Burgundy Rubber Tree",
+        "Dark Red Ficus",
+        "Ficus Elastica Burgundy"
+      ],
+      "category": "Indoor Foliage",
+      "description": "Dark burgundy/deep red leaves variant of Rubber Plant. Striking appearance. Same hardy nature.",
+      "care": {
+        "watering_frequency": "Water when top 1-2 inches of soil are dry. Reduce in winter.",
+        "light_requirements": "Bright indirect light. Can tolerate medium light but colors fade.",
+        "soil_type": "Well-draining potting soil. Add perlite if drainage is poor.",
+        "temperature_range": "15-30°C. Prefers warm. Keep above 10°C.",
+        "fertilizer": "Diluted fertilizer every 3-4 weeks during growing season.",
+        "humidity": "Moderate humidity 50-60%. Occasional misting maintains leaf shine."
+      },
+      "common_problems": [
+        {
+          "symptom": "Leaf drop",
+          "possible_causes": [
+            "Overwatering",
+            "Cold exposure",
+            "Sudden change"
+          ],
+          "fix": "Reduce watering. Move to warm spot. Maintain stable conditions.",
+          "prevention": "Moderate watering. Stable warm environment."
+        },
+        {
+          "symptom": "Pale/fading burgundy color",
+          "possible_causes": [
+            "Insufficient light"
+          ],
+          "fix": "Move to brighter location. Preferably near window.",
+          "prevention": "Bright indirect light maintains deep colors."
+        },
+        {
+          "symptom": "Yellowing leaves",
+          "possible_causes": [
+            "Overwatering",
+            "Poor drainage"
+          ],
+          "fix": "Reduce watering. Repot with better drainage.",
+          "prevention": "Water moderately. Well-draining soil."
+        },
+        {
+          "symptom": "Leggy growth",
+          "possible_causes": [
+            "Insufficient light",
+            "Lack of pruning"
+          ],
+          "fix": "Bright location. Prune to encourage bushiness.",
+          "prevention": "Bright light. Regular pruning."
+        },
+        {
+          "symptom": "Brown leaf tips",
+          "possible_causes": [
+            "Low humidity",
+            "Tap water chemicals"
+          ],
+          "fix": "Increase humidity. Use filtered water.",
+          "prevention": "Occasional misting. Filtered water."
+        }
+      ],
+      "reference_images": [
+        {
+          "url": "https://images.unsplash.com/photo-1611903471141-a1f4b7eb0000?w=400",
+          "description": "Rubber Plant Burgundy with deep red leaves indoors"
+        },
+        {
+          "url": "https://images.pexels.com/photos/6739679/pexels-photo-6739679.jpeg?w=400",
+          "description": "Close-up of burgundy rubber plant leaf"
+        },
+        {
+          "url": "https://images.pixabay.com/photos/rubber-plant-burgundy-dark-red-6543210-0.jpg?w=400",
+          "description": "Mature Burgundy Rubber Plant in corner"
+        }
+      ]
+    },
+    {
+      "plant_name": "Fiddle Leaf Fig",
+      "alternate_names": [
+        "Fig Plant",
+        "Ficus Lyrata",
+        "Lyre Leaf Fig"
+      ],
+      "category": "Indoor Foliage",
+      "description": "Large dramatic leaves shaped like a violin/fiddle. Bold architectural plant. Popular in modern interiors.",
+      "care": {
+        "watering_frequency": "Water when top 1-2 inches of soil are dry. Keep consistently moist in growing season.",
+        "light_requirements": "Bright indirect light essential. Can survive medium light but grows slowly.",
+        "soil_type": "Well-draining potting soil. Mix with perlite for drainage.",
+        "temperature_range": "18-28°C. Keep above 10°C. Dislikes cold.",
+        "fertilizer": "Diluted fertilizer every 3-4 weeks during growing season (Mar-Oct).",
+        "humidity": "Moderate humidity 50-60%. Occasional leaf cleaning with damp cloth."
+      },
+      "common_problems": [
+        {
+          "symptom": "Leaf drop",
+          "possible_causes": [
+            "Overwatering",
+            "Poor drainage",
+            "Cold",
+            "Relocation stress"
+          ],
+          "fix": "Reduce watering. Better drainage. Maintain warmth. Minimize moving.",
+          "prevention": "Moderate watering. Stable location. Consistent care."
+        },
+        {
+          "symptom": "Brown or black spots on leaves",
+          "possible_causes": [
+            "Fungal infection from overwatering",
+            "Sooty mold"
+          ],
+          "fix": "Reduce watering. Improve air circulation. Remove affected leaves.",
+          "prevention": "Don't overwater. Good airflow."
+        },
+        {
+          "symptom": "Yellowing leaves",
+          "possible_causes": [
+            "Overwatering",
+            "Nutrient deficiency"
+          ],
+          "fix": "Reduce watering frequency. Feed with diluted fertilizer.",
+          "prevention": "Moderate watering. Regular feeding."
+        },
+        {
+          "symptom": "Slow growth or no new leaves",
+          "possible_causes": [
+            "Insufficient light",
+            "Cold conditions"
+          ],
+          "fix": "Move to brighter location. Keep above 18°C.",
+          "prevention": "Bright indirect light. Warm stable location."
+        },
+        {
+          "symptom": "Brown leaf edges",
+          "possible_causes": [
+            "Low humidity",
+            "Tap water chemicals"
+          ],
+          "fix": "Increase humidity. Use filtered water. Clean leaves occasionally.",
+          "prevention": "Mist occasionally. Filtered water."
+        }
+      ],
+      "reference_images": [
+        {
+          "url": "https://images.unsplash.com/photo-1606090849755-97d8254ea1d4?w=400",
+          "description": "Fiddle Leaf Fig with large violin-shaped leaves indoors"
+        },
+        {
+          "url": "https://images.pexels.com/photos/6739680/pexels-photo-6739680.jpeg?w=400",
+          "description": "Close-up of Fiddle Leaf Fig dramatic leaves"
+        },
+        {
+          "url": "https://images.pixabay.com/photos/fiddle-leaf-fig-ficus-lyrata-5432109-0.jpg?w=400",
+          "description": "Tall mature Fiddle Leaf Fig as statement piece"
+        }
+      ]
+    },
+    {
+      "plant_name": "Peace Lily Domino (Variant)",
+      "alternate_names": [
+        "Domino Peace Lily",
+        "Variegated Peace Lily",
+        "White Domino"
+      ],
+      "category": "Indoor Tropical",
+      "description": "Variegated white and green leaves variant of Peace Lily. Elegant appearance with white blooms.",
+      "care": {
+        "watering_frequency": "Water when top 1-2 inches of soil feel dry. Keep consistently moist.",
+        "light_requirements": "Thrives in low to medium light. Can handle bright indirect light.",
+        "soil_type": "Well-draining potting soil. Mix with peat moss (1:1).",
+        "temperature_range": "18-28°C optimal. Keep above 15°C. Dislikes cold.",
+        "fertilizer": "Diluted balanced fertilizer every 3-4 weeks during growing season.",
+        "humidity": "Moderate to high humidity 50-70%. Appreciates misting."
+      },
+      "common_problems": [
+        {
+          "symptom": "Brown leaf tips and edges",
+          "possible_causes": [
+            "Low humidity",
+            "Tap water chemicals"
+          ],
+          "fix": "Increase humidity with misting. Use filtered water.",
+          "prevention": "Mist regularly. Use distilled/filtered water."
+        },
+        {
+          "symptom": "Yellow leaves",
+          "possible_causes": [
+            "Overwatering",
+            "Overfeeding"
+          ],
+          "fix": "Reduce watering. Reduce fertilizer frequency.",
+          "prevention": "Water moderately. Fertilize every 4-6 weeks."
+        },
+        {
+          "symptom": "Drooping leaves",
+          "possible_causes": [
+            "Underwatering"
+          ],
+          "fix": "Water thoroughly. Plant will revive.",
+          "prevention": "Keep soil consistently moist."
+        },
+        {
+          "symptom": "No flowers",
+          "possible_causes": [
+            "Insufficient light",
+            "Young plant"
+          ],
+          "fix": "Move to brighter location. Be patient.",
+          "prevention": "Medium to bright indirect light."
+        },
+        {
+          "symptom": "Brown flowers or spathes",
+          "possible_causes": [
+            "Normal aging",
+            "Cold temperature"
+          ],
+          "fix": "Remove brown spathes. Maintain warmth.",
+          "prevention": "Keep above 18°C."
+        }
+      ],
+      "reference_images": [
+        {
+          "url": "https://images.unsplash.com/photo-1606778261291-a0a1ea7e8c50?w=400",
+          "description": "Peace Lily Domino with white variegated leaves"
+        },
+        {
+          "url": "https://images.pexels.com/photos/6739681/pexels-photo-6739681.jpeg?w=400",
+          "description": "Domino Peace Lily with white flower spike"
+        },
+        {
+          "url": "https://images.pixabay.com/photos/peace-lily-domino-variegated-4321098-0.jpg?w=400",
+          "description": "Full Domino Peace Lily plant blooming"
+        }
+      ]
+    },
+    {
+      "plant_name": "Philodendron Brasil",
+      "alternate_names": [
+        "Brasil Philodendron",
+        "Heartleaf Brasil",
+        "Green and Yellow Philodendron"
+      ],
+      "category": "Indoor Climber",
+      "description": "Beautiful yellow-green variegated Heartleaf Philodendron. Compact, trailing growth. Perfect for hanging baskets.",
+      "care": {
+        "watering_frequency": "Water when top 1-2 inches of soil are dry. Reduce in winter.",
+        "light_requirements": "Bright indirect light maintains variegation. Tolerates medium light.",
+        "soil_type": "Well-draining potting soil. Mix with compost (1:1).",
+        "temperature_range": "18-28°C optimal. Keep above 12°C. Cold-sensitive.",
+        "fertilizer": "Diluted fertilizer every 3-4 weeks during growing season.",
+        "humidity": "Moderate humidity 50-60%. Tolerates average conditions."
+      },
+      "common_problems": [
+        {
+          "symptom": "Fading variegation, solid green leaves",
+          "possible_causes": [
+            "Insufficient light"
+          ],
+          "fix": "Move to brighter location away from direct sun.",
+          "prevention": "Bright indirect light maintains yellow variegation."
+        },
+        {
+          "symptom": "Yellowing leaves",
+          "possible_causes": [
+            "Overwatering",
+            "Poor drainage"
+          ],
+          "fix": "Reduce watering. Repot into well-draining soil.",
+          "prevention": "Let soil dry slightly between waterings."
+        },
+        {
+          "symptom": "Leggy sparse growth",
+          "possible_causes": [
+            "Low light"
+          ],
+          "fix": "Move to brighter spot. Prune to encourage bushiness.",
+          "prevention": "Bright indirect light. Rotate weekly."
+        },
+        {
+          "symptom": "Brown leaf tips",
+          "possible_causes": [
+            "Low humidity",
+            "Tap water chemicals"
+          ],
+          "fix": "Increase humidity. Use filtered water.",
+          "prevention": "Mist occasionally. Filtered water."
+        },
+        {
+          "symptom": "Slow growth",
+          "possible_causes": [
+            "Cold conditions",
+            "Insufficient light"
+          ],
+          "fix": "Keep above 18°C. Move to brighter location.",
+          "prevention": "Warm location. Bright indirect light."
+        }
+      ],
+      "reference_images": [
+        {
+          "url": "https://images.unsplash.com/photo-1611903471141-a1f4b7eb8001?w=400",
+          "description": "Philodendron Brasil with yellow and green variegated leaves"
+        },
+        {
+          "url": "https://images.pexels.com/photos/6739682/pexels-photo-6739682.jpeg?w=400",
+          "description": "Brasil Philodendron leaves showing variegation pattern"
+        },
+        {
+          "url": "https://images.pixabay.com/photos/philodendron-brasil-trailing-plant-3210987-0.jpg?w=400",
+          "description": "Philodendron Brasil cascading from hanging pot"
+        }
+      ]
+    },
+    {
+      "plant_name": "Philodendron Birkin",
+      "alternate_names": [
+        "Birkin Philodendron",
+        "Pink Variegated Philodendron",
+        "Philodendron Pink Variegated"
+      ],
+      "category": "Indoor Foliage",
+      "description": "Striking plant with pink variegation on dark green leaves. Slow-growing but worth it. Rare and premium.",
+      "care": {
+        "watering_frequency": "Water when top 1-2 inches of soil are dry. Keep consistently moist.",
+        "light_requirements": "Bright indirect light essential for pink coloration. Avoid direct sun.",
+        "soil_type": "Well-draining potting soil. Add perlite or orchid bark for aeration.",
+        "temperature_range": "18-28°C optimal. Keep above 15°C. Sensitive to cold.",
+        "fertilizer": "Diluted liquid fertilizer every 3-4 weeks during growing season.",
+        "humidity": "Moderate to high humidity 50-70%. Regular misting beneficial."
+      },
+      "common_problems": [
+        {
+          "symptom": "Loss of pink variegation",
+          "possible_causes": [
+            "Insufficient light",
+            "Cold temperature"
+          ],
+          "fix": "Move to brighter location. Keep above 18°C.",
+          "prevention": "Bright indirect light. Warm stable location."
+        },
+        {
+          "symptom": "Yellow or pale leaves",
+          "possible_causes": [
+            "Overwatering",
+            "Poor drainage"
+          ],
+          "fix": "Reduce watering. Repot with better drainage.",
+          "prevention": "Water moderately. Well-draining soil."
+        },
+        {
+          "symptom": "Brown leaf tips",
+          "possible_causes": [
+            "Low humidity",
+            "Chlorine in water"
+          ],
+          "fix": "Increase humidity with misting. Use filtered water.",
+          "prevention": "Mist regularly. Filtered water."
+        },
+        {
+          "symptom": "Slow growth",
+          "possible_causes": [
+            "Slow-growing nature",
+            "Low light",
+            "Cold"
+          ],
+          "fix": "Ensure bright light and warmth. Be patient.",
+          "prevention": "Bright indirect light. Warm location. Patience!"
+        },
+        {
+          "symptom": "Pest infestation",
+          "possible_causes": [
+            "Mealybugs, spider mites"
+          ],
+          "fix": "Spray with neem oil. Isolate plant.",
+          "prevention": "Quarantine new plants. Regular inspection."
+        }
+      ],
+      "reference_images": [
+        {
+          "url": "https://images.unsplash.com/photo-1612903471141-a1f4b7eb8002?w=400",
+          "description": "Philodendron Birkin with pink variegated leaves"
+        },
+        {
+          "url": "https://images.pexels.com/photos/6739683/pexels-photo-6739683.jpeg?w=400",
+          "description": "Close-up of Birkin leaf pink variegation"
+        },
+        {
+          "url": "https://images.pixabay.com/photos/philodendron-birkin-pink-variegated-2109876-0.jpg?w=400",
+          "description": "Mature Philodendron Birkin premium appearance"
+        }
+      ]
+    },
+    {
+      "plant_name": "Ixora",
+      "alternate_names": [
+        "Flame of the Woods",
+        "Ixora Coccinea",
+        "Jungle Geranium"
+      ],
+      "category": "Outdoor Flowering",
+      "description": "Clusters of small colorful flowers (red, orange, pink, yellow). Heat and drought tolerant. Attracts butterflies.",
+      "care": {
+        "watering_frequency": "Water deeply 2-3 times weekly in summer. Less in winter. Drought-tolerant once established.",
+        "light_requirements": "Full sun 6-8 hours daily. Essential for prolific flowering.",
+        "soil_type": "Well-draining soil. Mix with sand and compost (2:1:1). Loves sunny spots.",
+        "temperature_range": "20-35°C optimal. North Indian summer-loving plant.",
+        "fertilizer": "NPK 10-52-10 every 3-4 weeks during flowering season (May-Oct).",
+        "humidity": "Drought-tolerant. Prefers drier conditions."
+      },
+      "common_problems": [
+        {
+          "symptom": "No flowers despite good growth",
+          "possible_causes": [
+            "Insufficient sunlight",
+            "Over-fertilization with nitrogen"
+          ],
+          "fix": "Ensure 6+ hours direct sun. Switch to low-nitrogen fertilizer.",
+          "prevention": "Plant in full sun. Use flower-promoting NPK."
+        },
+        {
+          "symptom": "Yellow leaves",
+          "possible_causes": [
+            "Overwatering",
+            "Poor drainage"
+          ],
+          "fix": "Reduce watering. Improve drainage. Add sand.",
+          "prevention": "Well-draining soil. Water less in rainy season."
+        },
+        {
+          "symptom": "Brown or dried flowers",
+          "possible_causes": [
+            "Normal after blooming",
+            "Pests"
+          ],
+          "fix": "Remove dried flowers. Check for pests.",
+          "prevention": "Regular deadheading. Pest management."
+        },
+        {
+          "symptom": "Leaf drop in winter",
+          "possible_causes": [
+            "Temperature below 10°C"
+          ],
+          "fix": "Move to sheltered spot or indoors. Reduce watering.",
+          "prevention": "Protect in harsh winters."
+        },
+        {
+          "symptom": "Spider mites causing webbing",
+          "possible_causes": [
+            "Dry conditions"
+          ],
+          "fix": "Spray with neem oil. Increase humidity.",
+          "prevention": "Occasional misting in dry season."
+        }
+      ],
+      "reference_images": [
+        {
+          "url": "https://images.unsplash.com/photo-1569163139394-de4798aa62b4?w=400",
+          "description": "Ixora with bright red and orange clustered flowers"
+        },
+        {
+          "url": "https://images.pexels.com/photos/7215219/pexels-photo-7215219.jpeg?w=400",
+          "description": "Ixora plant covered in colorful flower clusters"
+        },
+        {
+          "url": "https://images.pixabay.com/photos/ixora-plant-flowers-tropical-9876543-0.jpg?w=400",
+          "description": "Pink Ixora flowers attracting butterflies"
+        }
+      ]
+    },
+    {
+      "plant_name": "Oleander (Kaner)",
+      "alternate_names": [
+        "Kaner",
+        "Nerium Oleander",
+        "Rose Bay"
+      ],
+      "category": "Outdoor Flowering",
+      "description": "Hardy shrub with pink, red, white, or yellow flowers. Extremely drought and heat-tolerant. Traditional Indian garden plant.",
+      "care": {
+        "watering_frequency": "Water 2-3 times weekly initially. Very drought-tolerant once established.",
+        "light_requirements": "Full sun 6-8 hours daily for prolific flowering.",
+        "soil_type": "Any well-draining soil. Tolerates poor soil. Mix with compost.",
+        "temperature_range": "20-40°C. Thrives in extreme heat. North Indian native-like.",
+        "fertilizer": "NPK 10-52-10 monthly during flowering season (Apr-Oct).",
+        "humidity": "Drought-tolerant. Prefers dry conditions."
+      },
+      "common_problems": [
+        {
+          "symptom": "Few flowers",
+          "possible_causes": [
+            "Insufficient sunlight"
+          ],
+          "fix": "Ensure 6+ hours direct sun daily.",
+          "prevention": "Plant in full sun location."
+        },
+        {
+          "symptom": "Leggy or sparse growth",
+          "possible_causes": [
+            "Lack of pruning"
+          ],
+          "fix": "Prune after flowering to encourage bushy growth.",
+          "prevention": "Regular pruning post-flowering."
+        },
+        {
+          "symptom": "Yellow leaves",
+          "possible_causes": [
+            "Overwatering",
+            "Poor drainage"
+          ],
+          "fix": "Reduce watering. Improve drainage.",
+          "prevention": "Drought-tolerant. Water sparingly."
+        },
+        {
+          "symptom": "Leaf spot disease",
+          "possible_causes": [
+            "Fungal infection in humid conditions"
+          ],
+          "fix": "Remove affected leaves. Improve air circulation.",
+          "prevention": "Don't overwater. Good air circulation."
+        },
+        {
+          "symptom": "White or gray mold on leaves",
+          "possible_causes": [
+            "Powdery mildew"
+          ],
+          "fix": "Spray with sulfur powder. Improve air flow.",
+          "prevention": "Good ventilation. Avoid wetting leaves."
+        }
+      ],
+      "reference_images": [
+        {
+          "url": "https://images.unsplash.com/photo-1589326200317-1ba88ce2bb36?w=400",
+          "description": "Oleander with pink flowers on Mediterranean-style balcony"
+        },
+        {
+          "url": "https://images.pexels.com/photos/4857643/pexels-photo-4857643.jpeg?w=400",
+          "description": "Red Oleander flowers in full bloom"
+        },
+        {
+          "url": "https://images.pixabay.com/photos/oleander-kaner-white-flowers-8765432-0.jpg?w=400",
+          "description": "White Oleander plant in Indian garden"
+        }
+      ]
+    },
+    {
+      "plant_name": "Plumeria (Frangipani / Champa)",
+      "alternate_names": [
+        "Frangipani",
+        "Champa",
+        "Plumeria Alba"
+      ],
+      "category": "Outdoor Flowering",
+      "description": "Fragrant tropical flowers in white, pink, yellow. Beautiful blooms. Popular in Indian gardens and temples.",
+      "care": {
+        "watering_frequency": "Water 2-3 times weekly during growing season. Minimal in winter dormancy.",
+        "light_requirements": "Full sun 6-8 hours daily. Essential for flowers.",
+        "soil_type": "Well-draining sandy soil. Mix garden soil with sand (1:1).",
+        "temperature_range": "20-35°C. Goes dormant below 15°C.",
+        "fertilizer": "NPK 10-52-10 every 3 weeks during flowering season (Jun-Oct).",
+        "humidity": "Moderate. Prefers drier conditions. Can drop leaves in cold."
+      },
+      "common_problems": [
+        {
+          "symptom": "No flowers",
+          "possible_causes": [
+            "Insufficient sunlight",
+            "Young plant",
+            "Overwatering"
+          ],
+          "fix": "Ensure 6+ hours sun. Be patient. Reduce watering.",
+          "prevention": "Full sun. Sparse watering. 2-3 year old plant needed."
+        },
+        {
+          "symptom": "Leaf drop in winter",
+          "possible_causes": [
+            "Natural dormancy",
+            "Cold below 15°C"
+          ],
+          "fix": "Normal for Plumeria. Bring indoors if below 10°C.",
+          "prevention": "Protect from cold. Keep above 15°C if possible."
+        },
+        {
+          "symptom": "Yellow leaves",
+          "possible_causes": [
+            "Overwatering",
+            "Poor drainage"
+          ],
+          "fix": "Reduce watering immediately. Repot with sandy soil.",
+          "prevention": "Very well-draining soil. Water sparingly."
+        },
+        {
+          "symptom": "Root rot from wet soil",
+          "possible_causes": [
+            "Overwatering",
+            "Cold + wet"
+          ],
+          "fix": "Repot into fresh sandy soil. Reduce watering.",
+          "prevention": "Sandy soil. Sparse watering."
+        },
+        {
+          "symptom": "Sooty mold or scale insects",
+          "possible_causes": [
+            "Pest infestation"
+          ],
+          "fix": "Spray with neem oil. Wipe leaves.",
+          "prevention": "Regular inspection. Good ventilation."
+        }
+      ],
+      "reference_images": [
+        {
+          "url": "https://images.unsplash.com/photo-1577401098506-8cbe67d71a8f?w=400",
+          "description": "Plumeria with fragrant white and yellow flowers"
+        },
+        {
+          "url": "https://images.pexels.com/photos/4859343/pexels-photo-4859343.jpeg?w=400",
+          "description": "Pink Plumeria (Champa) flowers"
+        },
+        {
+          "url": "https://images.pixabay.com/photos/plumeria-frangipani-tropical-flowers-7654321-0.jpg?w=400",
+          "description": "Plumeria tree in full bloom with white flowers"
+        }
+      ]
+    },
+    {
+      "plant_name": "Chrysanthemum",
+      "alternate_names": [
+        "Mum",
+        "Chrysanth",
+        "Daisy Mum"
+      ],
+      "category": "Outdoor Flowering",
+      "description": "Colorful autumn flowers. Popular in North Indian winters (Oct-Jan). Various colors available.",
+      "care": {
+        "watering_frequency": "Water daily in summer. Every 2-3 days in cool season. Don't overwater.",
+        "light_requirements": "Full sun 6+ hours daily. Short-day plant triggered to flower by cool temps.",
+        "soil_type": "Well-draining soil. Add compost. Slightly acidic preferred.",
+        "temperature_range": "15-25°C optimal for flowering. Thrives in North Indian winters.",
+        "fertilizer": "NPK 5-10-5 every 2 weeks during growing season to encourage flowers.",
+        "humidity": "Moderate humidity. Good air circulation prevents mildew."
+      },
+      "common_problems": [
+        {
+          "symptom": "Few or no flowers",
+          "possible_causes": [
+            "Insufficient light",
+            "Long daylight hours"
+          ],
+          "fix": "Ensure 6+ hours sun. Plant in fall.",
+          "prevention": "Plant timing for winter blooming."
+        },
+        {
+          "symptom": "Root rot from overwatering",
+          "possible_causes": [
+            "Waterlogged soil",
+            "Poor drainage"
+          ],
+          "fix": "Reduce watering. Improve drainage.",
+          "prevention": "Well-draining soil. Don't overwater."
+        },
+        {
+          "symptom": "Powdery mildew on leaves",
+          "possible_causes": [
+            "Poor air circulation",
+            "High humidity"
+          ],
+          "fix": "Spray with sulfur powder. Improve ventilation.",
+          "prevention": "Good spacing. Air flow."
+        },
+        {
+          "symptom": "Leaf spots (fungal)",
+          "possible_causes": [
+            "Wet leaves",
+            "Overhead watering"
+          ],
+          "fix": "Remove affected leaves. Water at soil level.",
+          "prevention": "Water at base. Avoid wetting leaves."
+        },
+        {
+          "symptom": "Spider mites or aphids",
+          "possible_causes": [
+            "Pest infestation"
+          ],
+          "fix": "Spray with neem oil or insecticidal soap.",
+          "prevention": "Regular inspection. Pest management."
+        }
+      ],
+      "reference_images": [
+        {
+          "url": "https://images.unsplash.com/photo-1585548176506-6a838cd6f69f?w=400",
+          "description": "Colorful Chrysanthemum flowers in pots"
+        },
+        {
+          "url": "https://images.pexels.com/photos/4857642/pexels-photo-4857642.jpeg?w=400",
+          "description": "Pink and purple Chrysanthemum blooms"
+        },
+        {
+          "url": "https://images.pixabay.com/photos/chrysanthemum-flowers-autumn-winter-6543210-0.jpg?w=400",
+          "description": "Full Chrysanthemum plant covered in flowers"
+        }
+      ]
+    },
+    {
+      "plant_name": "Petunia",
+      "alternate_names": [
+        "Petunia Hybrid",
+        "Garden Petunia"
+      ],
+      "category": "Outdoor Flowering",
+      "description": "Vibrant funnel-shaped flowers. Easy to grow annual. Blooms throughout warm season.",
+      "care": {
+        "watering_frequency": "Water daily in hot weather. Keep soil moist but not soggy.",
+        "light_requirements": "Full sun 6+ hours daily. Loves sunlight.",
+        "soil_type": "Well-draining soil. Mix with compost. Light and airy.",
+        "temperature_range": "15-30°C. Dies in frost. Reseeds in warm zones.",
+        "fertilizer": "NPK 5-10-5 or 3-12-6 every 2 weeks for prolific flowering.",
+        "humidity": "Moderate. Good air circulation important."
+      },
+      "common_problems": [
+        {
+          "symptom": "Few flowers",
+          "possible_causes": [
+            "Insufficient light",
+            "Over-fertilization with nitrogen"
+          ],
+          "fix": "Full sun location. Use flower-promoting NPK.",
+          "prevention": "Sun exposure. Proper fertilizer."
+        },
+        {
+          "symptom": "Root rot",
+          "possible_causes": [
+            "Overwatering",
+            "Poor drainage"
+          ],
+          "fix": "Reduce watering. Improve drainage.",
+          "prevention": "Well-draining soil. Water carefully."
+        },
+        {
+          "symptom": "Leggy sparse growth",
+          "possible_causes": [
+            "Low light"
+          ],
+          "fix": "Move to sunnier location. Pinch back growth.",
+          "prevention": "Full sun location."
+        },
+        {
+          "symptom": "Powdery mildew",
+          "possible_causes": [
+            "Poor air circulation"
+          ],
+          "fix": "Spray with sulfur powder. Improve ventilation.",
+          "prevention": "Adequate spacing."
+        },
+        {
+          "symptom": "Pest infestation (aphids, whiteflies)",
+          "possible_causes": [
+            "Common pests"
+          ],
+          "fix": "Spray with insecticidal soap or neem oil.",
+          "prevention": "Regular inspection."
+        }
+      ],
+      "reference_images": [
+        {
+          "url": "https://images.unsplash.com/photo-1585548176506-6a838cd6f69e?w=400",
+          "description": "Petunias in various colors in balcony"
+        },
+        {
+          "url": "https://images.pexels.com/photos/4857644/pexels-photo-4857644.jpeg?w=400",
+          "description": "Purple and pink Petunia flowers"
+        },
+        {
+          "url": "https://images.pixabay.com/photos/petunia-flowers-colorful-garden-5432109-0.jpg?w=400",
+          "description": "Petunia plant covered in blooms"
+        }
+      ]
+    },
+    {
+      "plant_name": "Dahlia",
+      "alternate_names": [
+        "Dahlia Hybrida",
+        "Dinner Plate Dahlia"
+      ],
+      "category": "Outdoor Flowering",
+      "description": "Large dramatic flowers with multiple petals. Various colors. Popular in North Indian gardens.",
+      "care": {
+        "watering_frequency": "Water daily in growing season. Deep watering encouraged.",
+        "light_requirements": "Full sun 6-8 hours daily. Essential for flower production.",
+        "soil_type": "Rich, well-draining soil. Mix with compost (2:1). Add peat moss.",
+        "temperature_range": "15-25°C optimal. Dies at frost. Tubers dug up in North India.",
+        "fertilizer": "Balanced 10-10-10 or flower NPK every 2-3 weeks during growing season.",
+        "humidity": "Moderate to high. Prefers some moisture."
+      },
+      "common_problems": [
+        {
+          "symptom": "No flowers or few flowers",
+          "possible_causes": [
+            "Insufficient light",
+            "Immature tuber",
+            "Too much nitrogen"
+          ],
+          "fix": "Full sun. Plant larger tubers. Use flower NPK.",
+          "prevention": "Sun exposure. Proper fertilizer."
+        },
+        {
+          "symptom": "Root rot or tuber rot",
+          "possible_causes": [
+            "Overwatering",
+            "Poor drainage"
+          ],
+          "fix": "Improve drainage. Reduce watering. Dig up tubers.",
+          "prevention": "Well-draining soil. Don't overwater."
+        },
+        {
+          "symptom": "Powdery mildew",
+          "possible_causes": [
+            "High humidity",
+            "Poor air circulation"
+          ],
+          "fix": "Spray with sulfur. Improve ventilation.",
+          "prevention": "Space plants adequately."
+        },
+        {
+          "symptom": "Pest damage (slugs, caterpillars)",
+          "possible_causes": [
+            "Pest infestation"
+          ],
+          "fix": "Hand-pick pests. Use neem oil.",
+          "prevention": "Regular inspection. Pest management."
+        },
+        {
+          "symptom": "Yellow leaves",
+          "possible_causes": [
+            "Over-watering",
+            "Nutrient deficiency"
+          ],
+          "fix": "Reduce watering. Feed with diluted fertilizer.",
+          "prevention": "Proper watering. Regular feeding."
+        }
+      ],
+      "reference_images": [
+        {
+          "url": "https://images.unsplash.com/photo-1588195538326-c5b1e9f80a1b?w=400",
+          "description": "Dahlia with large multiple-petaled flowers"
+        },
+        {
+          "url": "https://images.pexels.com/photos/5038999/pexels-photo-5038999.jpeg?w=400",
+          "description": "Pink and yellow Dahlia blooms"
+        },
+        {
+          "url": "https://images.pixabay.com/photos/dahlia-flowers-pink-garden-plant-4321098-0.jpg?w=400",
+          "description": "Tall Dahlia plant with dramatic flowers"
+        }
+      ]
+    },
+    {
+      "plant_name": "Portulaca (Moss Rose)",
+      "alternate_names": [
+        "Moss Rose",
+        "Rose Moss",
+        "Sun Rose"
+      ],
+      "category": "Outdoor Succulent",
+      "description": "Succulent annual with tiny flowers. Extremely drought and heat-tolerant. Perfect for balconies.",
+      "care": {
+        "watering_frequency": "Water sparingly 1-2 times weekly. Drought-tolerant once established.",
+        "light_requirements": "Full sun 6+ hours daily. Essential for flowering.",
+        "soil_type": "Very well-draining sandy soil. Add sand and perlite.",
+        "temperature_range": "20-35°C. Heat-loving. Dies at frost.",
+        "fertilizer": "Very diluted 5-10-5 once monthly. Minimal feeding.",
+        "humidity": "Dry conditions preferred. Hates humidity."
+      },
+      "common_problems": [
+        {
+          "symptom": "Few flowers",
+          "possible_causes": [
+            "Insufficient sunlight"
+          ],
+          "fix": "Full sun location. Move to sunnier spot.",
+          "prevention": "Sun exposure essential."
+        },
+        {
+          "symptom": "Root rot from overwatering",
+          "possible_causes": [
+            "Overwatering",
+            "Poor drainage"
+          ],
+          "fix": "Repot into sandy soil. Reduce watering.",
+          "prevention": "Very sandy soil. Sparse watering."
+        },
+        {
+          "symptom": "No growth",
+          "possible_causes": [
+            "Cold temperature",
+            "Wet conditions"
+          ],
+          "fix": "Bring indoors in cold. Improve drainage.",
+          "prevention": "Warm location. Dry conditions."
+        },
+        {
+          "symptom": "Pest infestation",
+          "possible_causes": [
+            "Rare but possible"
+          ],
+          "fix": "Spray with neem oil if needed.",
+          "prevention": "Regular inspection."
+        },
+        {
+          "symptom": "Fungal issues",
+          "possible_causes": [
+            "High humidity",
+            "Overwatering"
+          ],
+          "fix": "Dry out plant immediately. Stop watering.",
+          "prevention": "Very sparse watering. Dry location."
+        }
+      ],
+      "reference_images": [
+        {
+          "url": "https://images.unsplash.com/photo-1585548176506-6a838cd6f69c?w=400",
+          "description": "Portulaca Moss Rose with colorful flowers"
+        },
+        {
+          "url": "https://images.pexels.com/photos/4859340/pexels-photo-4859340.jpeg?w=400",
+          "description": "Bright Portulaca flowers in cluster"
+        },
+        {
+          "url": "https://images.pixabay.com/photos/portulaca-moss-rose-succulent-3210987-0.jpg?w=400",
+          "description": "Portulaca cascading from balcony pot"
+        }
+      ]
+    },
+    {
+      "plant_name": "Adenium (Desert Rose)",
+      "alternate_names": [
+        "Desert Rose",
+        "Adenium Obesum",
+        "Mock Azalea"
+      ],
+      "category": "Outdoor Succulent",
+      "description": "Stunning caudex base with pink/red flowers. Drought-tolerant. Popular in North Indian gardens.",
+      "care": {
+        "watering_frequency": "Water sparingly 1-2 times weekly in growing season. Minimal in dormancy.",
+        "light_requirements": "Full sun 6-8 hours daily. More sun = more flowers.",
+        "soil_type": "Very well-draining cactus mix. Add sand and perlite (1:1:1).",
+        "temperature_range": "20-35°C. Keep above 10°C. Goes dormant in cold.",
+        "fertilizer": "Very diluted NPK 5-10-5 once monthly during growing season.",
+        "humidity": "Dry conditions preferred. Drought-tolerant."
+      },
+      "common_problems": [
+        {
+          "symptom": "No flowers",
+          "possible_causes": [
+            "Insufficient sunlight",
+            "Immature plant",
+            "Over-watering"
+          ],
+          "fix": "Full sun. Be patient. Reduce watering.",
+          "prevention": "Sun exposure. Sparse watering."
+        },
+        {
+          "symptom": "Root rot",
+          "possible_causes": [
+            "Overwatering",
+            "Poor drainage",
+            "Cold + wet"
+          ],
+          "fix": "Repot into sandy cactus soil. Reduce watering.",
+          "prevention": "Excellent drainage. Very sparse watering."
+        },
+        {
+          "symptom": "Leaves falling off",
+          "possible_causes": [
+            "Cold temperature",
+            "Dormancy",
+            "Overwatering"
+          ],
+          "fix": "Move to warm spot. Reduce watering.",
+          "prevention": "Warm location. Sparse watering."
+        },
+        {
+          "symptom": "Yellow leaves",
+          "possible_causes": [
+            "Overwatering"
+          ],
+          "fix": "Immediately reduce watering. Repot if needed.",
+          "prevention": "Minimal watering."
+        },
+        {
+          "symptom": "No new growth in season",
+          "possible_causes": [
+            "Cold conditions",
+            "Dormancy"
+          ],
+          "fix": "Keep warm above 20°C. Be patient.",
+          "prevention": "Warm location during dormancy."
+        }
+      ],
+      "reference_images": [
+        {
+          "url": "https://images.unsplash.com/photo-1568167446566-eecd3a3ef0e7?w=400",
+          "description": "Adenium Desert Rose with pink flowers"
+        },
+        {
+          "url": "https://images.pexels.com/photos/5038996/pexels-photo-5038996.jpeg?w=400",
+          "description": "Red Adenium with swollen caudex base"
+        },
+        {
+          "url": "https://images.pixabay.com/photos/adenium-desert-rose-succulent-2109876-0.jpg?w=400",
+          "description": "Mature Adenium plant in pot with flowers"
+        }
+      ]
+    },
+    {
+      "plant_name": "Kalanchoe Blossfeldiana",
+      "alternate_names": [
+        "Flaming Katy",
+        "Christmas Kalanchoe",
+        "Widow's Thrill"
+      ],
+      "category": "Outdoor Succulent",
+      "description": "Succulent with red, pink, or yellow flower clusters. Compact. Ideal for balconies.",
+      "care": {
+        "watering_frequency": "Water sparingly when soil is completely dry. Every 2-3 weeks.",
+        "light_requirements": "Bright light with some direct sun 4-6 hours daily.",
+        "soil_type": "Very well-draining cactus/succulent soil mix.",
+        "temperature_range": "15-28°C. Keep above 10°C.",
+        "fertilizer": "Very diluted liquid fertilizer once monthly during growing season.",
+        "humidity": "Dry conditions preferred. Drought-tolerant."
+      },
+      "common_problems": [
+        {
+          "symptom": "No flowers",
+          "possible_causes": [
+            "Short-day trigger needed",
+            "Insufficient light"
+          ],
+          "fix": "Ensure 6+ hours darkness for bud formation. Bright light.",
+          "prevention": "Proper light cycle. Bright location."
+        },
+        {
+          "symptom": "Root rot",
+          "possible_causes": [
+            "Overwatering"
+          ],
+          "fix": "Let dry completely. Repot into fresh soil.",
+          "prevention": "Very sparse watering."
+        },
+        {
+          "symptom": "Leggy or sparse growth",
+          "possible_causes": [
+            "Low light"
+          ],
+          "fix": "Move to brighter location. Prune to shape.",
+          "prevention": "Bright light. Regular pruning."
+        },
+        {
+          "symptom": "Yellowing or translucent leaves",
+          "possible_causes": [
+            "Overwatering",
+            "Cold"
+          ],
+          "fix": "Reduce watering. Move to warmer spot.",
+          "prevention": "Minimal watering. Warm location."
+        },
+        {
+          "symptom": "Pest infestation",
+          "possible_causes": [
+            "Mealybugs, scale"
+          ],
+          "fix": "Spray with neem oil. Isolate.",
+          "prevention": "Quarantine new plants."
+        }
+      ],
+      "reference_images": [
+        {
+          "url": "https://images.unsplash.com/photo-1585548176506-6a838cd6f69b?w=400",
+          "description": "Kalanchoe Blossfeldiana with red flower clusters"
+        },
+        {
+          "url": "https://images.pexels.com/photos/6739684/pexels-photo-6739684.jpeg?w=400",
+          "description": "Pink Kalanchoe flowers"
+        },
+        {
+          "url": "https://images.pixabay.com/photos/kalanchoe-blossfeldiana-succulent-1098765-0.jpg?w=400",
+          "description": "Compact Kalanchoe plant in bright light"
+        }
+      ]
+    },
+    {
+      "plant_name": "Bottlebrush (Callistemon)",
+      "alternate_names": [
+        "Callistemon",
+        "Brushy Callistemon",
+        "Red Bottlebrush"
+      ],
+      "category": "Outdoor Flowering",
+      "description": "Unique cylindrical red flower spikes resembling bottle brushes. Attracts birds and bees.",
+      "care": {
+        "watering_frequency": "Water 2-3 times weekly initially. Drought-tolerant once established.",
+        "light_requirements": "Full sun 6-8 hours daily. Loves sunlight.",
+        "soil_type": "Well-draining sandy soil. Tolerates poor soil.",
+        "temperature_range": "15-30°C. Frost-sensitive below 5°C.",
+        "fertilizer": "Low phosphorus fertilizer (or generic 10-10-10) every 3-4 weeks in growing season.",
+        "humidity": "Moderate. Prefers drier air once established."
+      },
+      "common_problems": [
+        {
+          "symptom": "Few flowers",
+          "possible_causes": [
+            "Insufficient sunlight",
+            "Over-fertilization with phosphorus"
+          ],
+          "fix": "Full sun location. Use low-phosphorus fertilizer.",
+          "prevention": "Sun exposure. Proper fertilizer."
+        },
+        {
+          "symptom": "Yellow leaves",
+          "possible_causes": [
+            "Overwatering",
+            "Poor drainage"
+          ],
+          "fix": "Reduce watering. Improve drainage.",
+          "prevention": "Well-draining soil. Moderate watering."
+        },
+        {
+          "symptom": "Drooping or wilting",
+          "possible_causes": [
+            "Underwatering during establishment"
+          ],
+          "fix": "Water more frequently initially. Gradually reduce.",
+          "prevention": "Proper establishment watering."
+        },
+        {
+          "symptom": "Scale or mealybugs",
+          "possible_causes": [
+            "Pest infestation"
+          ],
+          "fix": "Spray with neem oil. Isolate.",
+          "prevention": "Regular inspection."
+        },
+        {
+          "symptom": "Leggy growth",
+          "possible_causes": [
+            "Lack of pruning"
+          ],
+          "fix": "Prune after flowering to encourage bushy shape.",
+          "prevention": "Regular pruning."
+        }
+      ],
+      "reference_images": [
+        {
+          "url": "https://images.unsplash.com/photo-1568167446566-eecd3a3ef0e6?w=400",
+          "description": "Bottlebrush with red cylindrical flower spikes"
+        },
+        {
+          "url": "https://images.pexels.com/photos/6739685/pexels-photo-6739685.jpeg?w=400",
+          "description": "Callistemon flowers attracting bird"
+        },
+        {
+          "url": "https://images.pixabay.com/photos/bottlebrush-callistemon-red-flowers-987654-0.jpg?w=400",
+          "description": "Full Bottlebrush plant with multiple blooms"
+        }
+      ]
+    },
+    {
+      "plant_name": "Lantana",
+      "alternate_names": [
+        "Lantana Camara",
+        "Spanish Flag",
+        "Lantana"
+      ],
+      "category": "Outdoor Flowering",
+      "description": "Clusters of small colorful flowers (red-yellow, orange-pink combinations). Butterfly and bee magnet.",
+      "care": {
+        "watering_frequency": "Water 2-3 times weekly in summer. Drought-tolerant once established.",
+        "light_requirements": "Full sun 6-8 hours daily. Essential for flowers.",
+        "soil_type": "Well-draining soil. Tolerates poor soil. Add compost.",
+        "temperature_range": "15-35°C. Frost-sensitive. Cut back in cold.",
+        "fertilizer": "Diluted NPK 10-10-10 or flower fertilizer every 3-4 weeks in growing season.",
+        "humidity": "Adapts to dry and humid conditions."
+      },
+      "common_problems": [
+        {
+          "symptom": "No flowers",
+          "possible_causes": [
+            "Insufficient sunlight"
+          ],
+          "fix": "Full sun location essential.",
+          "prevention": "Sunny spot selection."
+        },
+        {
+          "symptom": "Yellow leaves",
+          "possible_causes": [
+            "Overwatering",
+            "Poor drainage"
+          ],
+          "fix": "Reduce watering. Improve drainage.",
+          "prevention": "Well-draining soil."
+        },
+        {
+          "symptom": "Leggy growth",
+          "possible_causes": [
+            "Lack of pruning"
+          ],
+          "fix": "Hard prune after flowering to rejuvenate.",
+          "prevention": "Regular pruning."
+        },
+        {
+          "symptom": "Powdery mildew",
+          "possible_causes": [
+            "Poor air circulation"
+          ],
+          "fix": "Space plants further apart. Spray sulfur.",
+          "prevention": "Adequate ventilation."
+        },
+        {
+          "symptom": "Pest infestation (whiteflies, mealybugs)",
+          "possible_causes": [
+            "Common pests"
+          ],
+          "fix": "Spray with neem oil or insecticidal soap.",
+          "prevention": "Regular inspection."
+        }
+      ],
+      "reference_images": [
+        {
+          "url": "https://images.unsplash.com/photo-1568167446566-eecd3a3ef0e5?w=400",
+          "description": "Lantana with red-yellow flower clusters"
+        },
+        {
+          "url": "https://images.pexels.com/photos/6739686/pexels-photo-6739686.jpeg?w=400",
+          "description": "Pink and orange Lantana flowers with butterfly"
+        },
+        {
+          "url": "https://images.pixabay.com/photos/lantana-camara-flowers-colorful-876543-0.jpg?w=400",
+          "description": "Full Lantana plant blooming on balcony"
+        }
+      ]
+    },
+    {
+      "plant_name": "Hibiscus White (Variant)",
+      "alternate_names": [
+        "White Hibiscus",
+        "White Rose of Sharon",
+        "Hibiscus Rosa-Sinensis White"
+      ],
+      "category": "Outdoor Flowering",
+      "description": "Large white flowers with red or pink center. Classic garden plant. Blooms year-round in warm climate.",
+      "care": {
+        "watering_frequency": "Water daily in summer. Every 2-3 days in winter.",
+        "light_requirements": "Full sun 6-8 hours daily. Essential for abundant flowers.",
+        "soil_type": "Well-draining soil. Mix with compost (2:1).",
+        "temperature_range": "18-30°C. Frost-sensitive below 10°C.",
+        "fertilizer": "NPK 10-52-10 every 2-3 weeks during growing season.",
+        "humidity": "Moderate to high humidity 50-70%."
+      },
+      "common_problems": [
+        {
+          "symptom": "Bud drop",
+          "possible_causes": [
+            "Underwatering",
+            "Temperature fluctuation",
+            "Poor light"
+          ],
+          "fix": "Consistent watering. Stable location. Full sun.",
+          "prevention": "Proper watering. Sunny sheltered spot."
+        },
+        {
+          "symptom": "Yellow leaves",
+          "possible_causes": [
+            "Overwatering",
+            "Nitrogen deficiency"
+          ],
+          "fix": "Reduce watering. Feed with balanced fertilizer.",
+          "prevention": "Moderate watering. Regular feeding."
+        },
+        {
+          "symptom": "Few flowers",
+          "possible_causes": [
+            "Insufficient light"
+          ],
+          "fix": "Full sun location. Minimum 6 hours daily.",
+          "prevention": "Sunny location selection."
+        },
+        {
+          "symptom": "Spider mites or thrips",
+          "possible_causes": [
+            "Pest infestation"
+          ],
+          "fix": "Spray with neem oil. Increase humidity.",
+          "prevention": "Regular inspection. Humidity maintenance."
+        },
+        {
+          "symptom": "Leaf spots (fungal)",
+          "possible_causes": [
+            "Humid wet conditions"
+          ],
+          "fix": "Improve air circulation. Water at soil level.",
+          "prevention": "Don't wet foliage. Good ventilation."
+        }
+      ],
+      "reference_images": [
+        {
+          "url": "https://images.unsplash.com/photo-1576696147208-4833a18c1c31?w=400",
+          "description": "Hibiscus white flowers with red center"
+        },
+        {
+          "url": "https://images.pexels.com/photos/2581556/pexels-photo-2581556.jpeg?w=400",
+          "description": "Large Hibiscus white bloom"
+        },
+        {
+          "url": "https://images.pixabay.com/photos/hibiscus-white-tropical-flowers-765432-0.jpg?w=400",
+          "description": "Hibiscus plant with multiple white flowers"
+        }
+      ]
+    },
+    {
+      "plant_name": "Bougainvillea Dwarf (Variant)",
+      "alternate_names": [
+        "Dwarf Bougainvillea",
+        "Compact Bougainvillea",
+        "Mini Bougainvillea"
+      ],
+      "category": "Outdoor Flowering",
+      "description": "Colorful bracts (not true flowers) in multiple colors. Compact dwarf form. Climbs or grows as shrub.",
+      "care": {
+        "watering_frequency": "Water moderately 2-3 times weekly. Let soil dry between waterings.",
+        "light_requirements": "Full sun 6-8 hours daily. More sun = more flowers.",
+        "soil_type": "Well-draining soil. Mix with sand if heavy (2:1).",
+        "temperature_range": "20-35°C. Frost-sensitive below 5°C.",
+        "fertilizer": "NPK 10-52-10 every 2-3 weeks during blooming season.",
+        "humidity": "Drought-tolerant once established. Prefers drier conditions."
+      },
+      "common_problems": [
+        {
+          "symptom": "Few flowers or thin color",
+          "possible_causes": [
+            "Insufficient sunlight"
+          ],
+          "fix": "Full sun location with 6+ hours direct sun.",
+          "prevention": "Sunny spot selection."
+        },
+        {
+          "symptom": "Yellowing leaves",
+          "possible_causes": [
+            "Overwatering",
+            "Poor drainage"
+          ],
+          "fix": "Reduce watering. Improve drainage with sand.",
+          "prevention": "Well-draining soil. Moderate watering."
+        },
+        {
+          "symptom": "Leaf drop",
+          "possible_causes": [
+            "Underwatering",
+            "Cold exposure"
+          ],
+          "fix": "Water more regularly. Protect from cold.",
+          "prevention": "Consistent watering. Winter protection."
+        },
+        {
+          "symptom": "Lack of growth or pruning needed",
+          "possible_causes": [
+            "Natural growth pattern"
+          ],
+          "fix": "Hard prune after flowering to shape.",
+          "prevention": "Annual pruning post-flowering."
+        },
+        {
+          "symptom": "Pest infestation",
+          "possible_causes": [
+            "Mites, mealybugs"
+          ],
+          "fix": "Spray with neem oil.",
+          "prevention": "Regular inspection."
+        }
+      ],
+      "reference_images": [
+        {
+          "url": "https://images.unsplash.com/photo-1585548176506-6a838cd6f693?w=400",
+          "description": "Dwarf Bougainvillea with colorful pink bracts"
+        },
+        {
+          "url": "https://images.pexels.com/photos/4859345/pexels-photo-4859345.jpeg?w=400",
+          "description": "Bougainvillea compact plant with vibrant flowers"
+        },
+        {
+          "url": "https://images.pixabay.com/photos/bougainvillea-dwarf-colorful-654321-0.jpg?w=400",
+          "description": "Mini Bougainvillea on balcony railing"
+        }
+      ]
+    },
+    {
+      "plant_name": "Rangoon Creeper (Madhumalti)",
+      "alternate_names": [
+        "Madhumalti",
+        "Quisqualis Indica",
+        "Drunken Sailor Vine"
+      ],
+      "category": "Outdoor Climber",
+      "description": "Climbing vine with fragrant red-pink to white flowers. Traditional Indian plant. Fragrant at night.",
+      "care": {
+        "watering_frequency": "Water 2-3 times weekly during growing season. Reduce in winter.",
+        "light_requirements": "Bright light with some direct sun 4-6 hours daily.",
+        "soil_type": "Well-draining soil. Mix with compost (2:1).",
+        "temperature_range": "15-30°C. Frost-sensitive below 5°C.",
+        "fertilizer": "NPK 10-52-10 every 3-4 weeks during flowering season (May-Oct).",
+        "humidity": "Moderate humidity 50-60%."
+      },
+      "common_problems": [
+        {
+          "symptom": "Few flowers",
+          "possible_causes": [
+            "Insufficient light",
+            "Over-fertilization with nitrogen"
+          ],
+          "fix": "Bright location. Use flower-promoting NPK.",
+          "prevention": "Adequate light. Proper fertilizer."
+        },
+        {
+          "symptom": "Weak growth or sparse leaves",
+          "possible_causes": [
+            "Low light"
+          ],
+          "fix": "Move to brighter location with direct sun.",
+          "prevention": "Adequate sun exposure."
+        },
+        {
+          "symptom": "Yellowing leaves",
+          "possible_causes": [
+            "Overwatering",
+            "Poor drainage"
+          ],
+          "fix": "Reduce watering. Improve drainage.",
+          "prevention": "Well-draining soil."
+        },
+        {
+          "symptom": "Spider mites or mealybugs",
+          "possible_causes": [
+            "Pest infestation"
+          ],
+          "fix": "Spray with neem oil. Isolate.",
+          "prevention": "Regular inspection."
+        },
+        {
+          "symptom": "Fungal leaf spots",
+          "possible_causes": [
+            "Wet conditions"
+          ],
+          "fix": "Improve air circulation. Water at soil level.",
+          "prevention": "Avoid wetting foliage."
+        }
+      ],
+      "reference_images": [
+        {
+          "url": "https://images.unsplash.com/photo-1568167446566-eecd3a3ef0e4?w=400",
+          "description": "Rangoon Creeper with red-pink fragrant flowers"
+        },
+        {
+          "url": "https://images.pexels.com/photos/6739687/pexels-photo-6739687.jpeg?w=400",
+          "description": "Madhumalti climbing vine on trellis"
+        },
+        {
+          "url": "https://images.pixabay.com/photos/rangoon-creeper-madhumalti-flowering-543210-0.jpg?w=400",
+          "description": "Rangoon Creeper with white flowers at night"
+        }
+      ]
+    },
+    {
+      "plant_name": "Night Jasmine (Parijat / Harsingar)",
+      "alternate_names": [
+        "Parijat",
+        "Harsingar",
+        "Cestrum Nocturnum"
+      ],
+      "category": "Outdoor Flowering",
+      "description": "Fragrant small white flowers blooming at night. Sacred plant in Indian gardens. Strong fragrance in evening.",
+      "care": {
+        "watering_frequency": "Water 2-3 times weekly in summer. Less in winter.",
+        "light_requirements": "Full sun to partial shade. Prefers some direct sun 4-6 hours.",
+        "soil_type": "Well-draining soil. Tolerates poor soil. Add compost.",
+        "temperature_range": "18-30°C. Hardy in North India.",
+        "fertilizer": "NPK 10-10-10 or 10-52-10 every 3-4 weeks in growing season.",
+        "humidity": "Moderate humidity. Adapts to various conditions."
+      },
+      "common_problems": [
+        {
+          "symptom": "Few flowers",
+          "possible_causes": [
+            "Insufficient light",
+            "Young plant"
+          ],
+          "fix": "Partial sun location. Be patient.",
+          "prevention": "Adequate light. 2-3 year old plant needed."
+        },
+        {
+          "symptom": "Yellow leaves",
+          "possible_causes": [
+            "Overwatering",
+            "Nutrient deficiency"
+          ],
+          "fix": "Reduce watering. Feed with diluted fertilizer.",
+          "prevention": "Moderate watering. Regular feeding."
+        },
+        {
+          "symptom": "Leggy growth",
+          "possible_causes": [
+            "Lack of pruning"
+          ],
+          "fix": "Prune hard after flowering to shape.",
+          "prevention": "Annual pruning."
+        },
+        {
+          "symptom": "Pest infestation",
+          "possible_causes": [
+            "Mites, mealybugs"
+          ],
+          "fix": "Spray with neem oil.",
+          "prevention": "Regular inspection."
+        },
+        {
+          "symptom": "Brown leaves or spots",
+          "possible_causes": [
+            "Fungal issue from wet conditions"
+          ],
+          "fix": "Improve air circulation. Reduce watering.",
+          "prevention": "Good ventilation. Moderate watering."
+        }
+      ],
+      "reference_images": [
+        {
+          "url": "https://images.unsplash.com/photo-1568167446566-eecd3a3ef0e3?w=400",
+          "description": "Night Jasmine with fragrant white flowers"
+        },
+        {
+          "url": "https://images.pexels.com/photos/6739688/pexels-photo-6739688.jpeg?w=400",
+          "description": "Parijat plant with night-blooming flowers"
+        },
+        {
+          "url": "https://images.pixabay.com/photos/night-jasmine-parijat-sacred-tree-432109-0.jpg?w=400",
+          "description": "Night Jasmine in Indian garden setting"
+        }
+      ]
+    },
+    {
+      "plant_name": "Coriander (Dhaniya)",
+      "alternate_names": [
+        "Cilantro",
+        "Dhaniya",
+        "Coriandrum Sativum"
+      ],
+      "category": "Herb/Edible",
+      "description": "Aromatic herb with feathery leaves. Used in Indian cooking. Easy to grow. Quick harvest.",
+      "care": {
+        "watering_frequency": "Keep soil consistently moist. Water daily in hot weather.",
+        "light_requirements": "Bright light 6+ hours daily. Partial shade in extreme heat.",
+        "soil_type": "Well-draining soil. Mix with compost (2:1).",
+        "temperature_range": "15-25°C optimal. Bolts (flowers) in heat above 25°C.",
+        "fertilizer": "Diluted NPK fertilizer every 2-3 weeks or compost tea.",
+        "humidity": "Moderate humidity. Appreciates misting in dry season."
+      },
+      "common_problems": [
+        {
+          "symptom": "Bolting (flowering) early",
+          "possible_causes": [
+            "High temperature",
+            "Age"
+          ],
+          "fix": "Harvest leaves before flowering. Plant in cool season.",
+          "prevention": "Sow in cool months. Shade in extreme heat."
+        },
+        {
+          "symptom": "Yellow leaves",
+          "possible_causes": [
+            "Overwatering",
+            "Poor drainage"
+          ],
+          "fix": "Reduce watering. Improve drainage.",
+          "prevention": "Well-draining soil. Moderate watering."
+        },
+        {
+          "symptom": "Aphids or whiteflies",
+          "possible_causes": [
+            "Pest infestation"
+          ],
+          "fix": "Spray with neem oil or insecticidal soap.",
+          "prevention": "Regular inspection. Healthy plants resist."
+        },
+        {
+          "symptom": "Slow growth",
+          "possible_causes": [
+            "Insufficient light",
+            "Cold temperature"
+          ],
+          "fix": "Move to brighter location. Keep above 15°C.",
+          "prevention": "Bright location. Warm enough."
+        },
+        {
+          "symptom": "Wilting despite moist soil",
+          "possible_causes": [
+            "Root rot"
+          ],
+          "fix": "Repot into fresh soil. Improve drainage.",
+          "prevention": "Well-draining soil. Don't overwater."
+        }
+      ],
+      "reference_images": [
+        {
+          "url": "https://images.unsplash.com/photo-1627618828876-0e29db8b96a9?w=400",
+          "description": "Fresh green Coriander plants with feathery leaves"
+        },
+        {
+          "url": "https://images.pexels.com/photos/5938476/pexels-photo-5938476.jpeg?w=400",
+          "description": "Coriander plant ready for harvest"
+        },
+        {
+          "url": "https://images.pixabay.com/photos/coriander-dhaniya-herb-plant-321098-0.jpg?w=400",
+          "description": "Potted Coriander on kitchen windowsill"
+        }
+      ]
+    },
+    {
+      "plant_name": "Spinach (Palak)",
+      "alternate_names": [
+        "Palak",
+        "Spinacia Oleracea",
+        "Leafy Green"
+      ],
+      "category": "Herb/Edible",
+      "description": "Nutritious leafy green. Winter vegetable in North India. Easy for beginners.",
+      "care": {
+        "watering_frequency": "Keep soil consistently moist. Daily watering in dry season.",
+        "light_requirements": "Bright light 4-6 hours daily. Tolerates partial shade.",
+        "soil_type": "Rich soil with compost. Mix 2 parts soil with 1 part compost.",
+        "temperature_range": "10-25°C optimal. Winter season vegetable in North India.",
+        "fertilizer": "Compost-based or diluted NPK 10-10-10 every 2-3 weeks.",
+        "humidity": "Moderate humidity. Prefers consistent moisture."
+      },
+      "common_problems": [
+        {
+          "symptom": "Bolting (flowering) early",
+          "possible_causes": [
+            "High temperature"
+          ],
+          "fix": "Plant in cool season (Oct-Feb in North India). Provide shade.",
+          "prevention": "Seasonal timing. Partial shade in warmer months."
+        },
+        {
+          "symptom": "Yellow leaves",
+          "possible_causes": [
+            "Nitrogen deficiency",
+            "Overwatering"
+          ],
+          "fix": "Feed with nitrogen-rich compost or fertilizer.",
+          "prevention": "Regular feeding. Moderate watering."
+        },
+        {
+          "symptom": "Pests (aphids, beetles)",
+          "possible_causes": [
+            "Common pests"
+          ],
+          "fix": "Spray with neem oil. Hand-pick if visible.",
+          "prevention": "Regular inspection. Healthy plants resist."
+        },
+        {
+          "symptom": "Slow growth",
+          "possible_causes": [
+            "Insufficient light",
+            "Lack of nutrients"
+          ],
+          "fix": "Move to brighter spot. Feed with fertilizer.",
+          "prevention": "Good light. Regular feeding."
+        },
+        {
+          "symptom": "Wilting leaves",
+          "possible_causes": [
+            "Underwatering"
+          ],
+          "fix": "Water immediately and thoroughly.",
+          "prevention": "Consistent moisture in soil."
+        }
+      ],
+      "reference_images": [
+        {
+          "url": "https://images.unsplash.com/photo-1627618828876-0e29db8b96aa?w=400",
+          "description": "Fresh green Spinach leaves in pot"
+        },
+        {
+          "url": "https://images.pexels.com/photos/5938477/pexels-photo-5938477.jpeg?w=400",
+          "description": "Palak plant ready for harvesting"
+        },
+        {
+          "url": "https://images.pixabay.com/photos/spinach-palak-leafy-green-vegetable-210987-0.jpg?w=400",
+          "description": "Spinach plant in kitchen garden"
+        }
+      ]
+    },
+    {
+      "plant_name": "Fenugreek (Methi)",
+      "alternate_names": [
+        "Methi",
+        "Trigonella Foenum-Graecum",
+        "Fenugreek"
+      ],
+      "category": "Herb/Edible",
+      "description": "Aromatic herb with medicinal properties. Popular in Indian cuisine. Easy winter crop.",
+      "care": {
+        "watering_frequency": "Water moderately daily. Keep soil moist but not waterlogged.",
+        "light_requirements": "Bright light 5-6 hours daily. Can tolerate partial shade.",
+        "soil_type": "Well-draining soil with compost. Mix 2:1.",
+        "temperature_range": "10-25°C optimal. Winter season crop in North India.",
+        "fertilizer": "Compost or diluted NPK 10-10-10 every 2-3 weeks.",
+        "humidity": "Moderate humidity. Consistent moisture beneficial."
+      },
+      "common_problems": [
+        {
+          "symptom": "Yellowing or wilting leaves",
+          "possible_causes": [
+            "Overwatering",
+            "Poor drainage"
+          ],
+          "fix": "Reduce watering. Improve soil drainage.",
+          "prevention": "Well-draining soil. Moderate watering."
+        },
+        {
+          "symptom": "Slow growth",
+          "possible_causes": [
+            "Low light",
+            "Cold temperature below 10°C"
+          ],
+          "fix": "Move to brighter location. Keep warm.",
+          "prevention": "Bright light. Minimum 10°C."
+        },
+        {
+          "symptom": "Pest damage (aphids, beetles)",
+          "possible_causes": [
+            "Pests"
+          ],
+          "fix": "Spray with neem oil or insecticidal soap.",
+          "prevention": "Regular inspection."
+        },
+        {
+          "symptom": "No new growth",
+          "possible_causes": [
+            "Lack of nutrients"
+          ],
+          "fix": "Feed with diluted fertilizer or compost.",
+          "prevention": "Regular feeding every 2-3 weeks."
+        },
+        {
+          "symptom": "Brown spots on leaves",
+          "possible_causes": [
+            "Fungal infection from wet conditions"
+          ],
+          "fix": "Improve air circulation. Water at soil level.",
+          "prevention": "Good ventilation. Avoid wetting leaves."
+        }
+      ],
+      "reference_images": [
+        {
+          "url": "https://images.unsplash.com/photo-1627618828876-0e29db8b96ab?w=400",
+          "description": "Fenugreek plant with green leaves"
+        },
+        {
+          "url": "https://images.pexels.com/photos/5938478/pexels-photo-5938478.jpeg?w=400",
+          "description": "Methi plant for harvest"
+        },
+        {
+          "url": "https://images.pixabay.com/photos/fenugreek-methi-herb-Indian-cooking-109876-0.jpg?w=400",
+          "description": "Fenugreek in kitchen garden pot"
+        }
+      ]
+    },
+    {
+      "plant_name": "Green Chilli Plant",
+      "alternate_names": [
+        "Green Chilli",
+        "Chilli Pepper",
+        "Capsicum Annuum"
+      ],
+      "category": "Herb/Edible",
+      "description": "Produces hot green chillies for cooking. Popular in Indian kitchens. Prolific producer.",
+      "care": {
+        "watering_frequency": "Water daily in hot weather. Every 2-3 days in cool season.",
+        "light_requirements": "Full sun 6-8 hours daily. Essential for fruit production.",
+        "soil_type": "Rich soil with compost. Mix 2 parts soil with 1 part compost.",
+        "temperature_range": "20-30°C optimal. Grows year-round in warm climate.",
+        "fertilizer": "Diluted NPK 10-52-10 every 2-3 weeks during fruiting.",
+        "humidity": "Moderate humidity. Tolerates dry air."
+      },
+      "common_problems": [
+        {
+          "symptom": "No flowers or few fruits",
+          "possible_causes": [
+            "Insufficient light",
+            "Under-fertilization"
+          ],
+          "fix": "Full sun location. Feed with flower NPK.",
+          "prevention": "Sunny spot. Regular fertilizing."
+        },
+        {
+          "symptom": "Yellow leaves",
+          "possible_causes": [
+            "Nitrogen deficiency",
+            "Overwatering"
+          ],
+          "fix": "Feed with nitrogen-rich fertilizer. Reduce watering.",
+          "prevention": "Regular feeding. Moderate watering."
+        },
+        {
+          "symptom": "Pest damage (aphids, spider mites)",
+          "possible_causes": [
+            "Common pests"
+          ],
+          "fix": "Spray with neem oil. Increase humidity.",
+          "prevention": "Regular inspection. Humidity maintenance."
+        },
+        {
+          "symptom": "Blossom drop",
+          "possible_causes": [
+            "Temperature stress",
+            "Irregular watering"
+          ],
+          "fix": "Stabilize temperature. Consistent watering.",
+          "prevention": "Stable conditions. Regular watering."
+        },
+        {
+          "symptom": "Wilting despite moist soil",
+          "possible_causes": [
+            "Root rot from overwatering"
+          ],
+          "fix": "Repot into fresh soil. Reduce watering.",
+          "prevention": "Well-draining soil. Moderate watering."
+        }
+      ],
+      "reference_images": [
+        {
+          "url": "https://images.unsplash.com/photo-1599599810694-5ac0dc76a2ae?w=400",
+          "description": "Green Chilli plant with fruits"
+        },
+        {
+          "url": "https://images.pexels.com/photos/5938479/pexels-photo-5938479.jpeg?w=400",
+          "description": "Chilli plant in kitchen garden"
+        },
+        {
+          "url": "https://images.pixabay.com/photos/green-chilli-hot-pepper-plant-008765-0.jpg?w=400",
+          "description": "Green Chillies ready for harvest"
+        }
+      ]
+    },
+    {
+      "plant_name": "Tomato",
+      "alternate_names": [
+        "Tomato Plant",
+        "Solanum Lycopersicum",
+        "Temperate Tomato"
+      ],
+      "category": "Herb/Edible",
+      "description": "Fruiting vegetable. Popular home garden crop. Needs support/staking.",
+      "care": {
+        "watering_frequency": "Water deeply daily in hot season. Every 2-3 days in cool season.",
+        "light_requirements": "Full sun 6-8 hours minimum. More sun = better production.",
+        "soil_type": "Rich, well-draining soil. Mix with compost (1:1) or aged manure.",
+        "temperature_range": "20-30°C optimal. Dies in frost.",
+        "fertilizer": "NPK 10-52-10 for flowering/fruiting every 2-3 weeks.",
+        "humidity": "Moderate humidity. Good air circulation important."
+      },
+      "common_problems": [
+        {
+          "symptom": "No flowers or few fruits",
+          "possible_causes": [
+            "Insufficient light",
+            "Over-nitrogen fertilizer"
+          ],
+          "fix": "Full sun location. Use flower NPK (10-52-10).",
+          "prevention": "Sunny spot. Proper fertilizer."
+        },
+        {
+          "symptom": "Blossom end rot (black spot on fruit)",
+          "possible_causes": [
+            "Calcium deficiency from irregular watering"
+          ],
+          "fix": "Consistent deep watering. Add calcium.",
+          "prevention": "Regular deep watering. Mulching helps."
+        },
+        {
+          "symptom": "Early or late blight (fungal)",
+          "possible_causes": [
+            "Humid wet conditions"
+          ],
+          "fix": "Remove affected leaves. Improve air circulation. Spray fungicide.",
+          "prevention": "Good ventilation. Don't wet foliage."
+        },
+        {
+          "symptom": "Pest damage (hornworms, aphids)",
+          "possible_causes": [
+            "Pest infestation"
+          ],
+          "fix": "Hand-pick visible pests. Spray neem oil.",
+          "prevention": "Regular inspection. Companion planting."
+        },
+        {
+          "symptom": "Yellowing leaves",
+          "possible_causes": [
+            "Nitrogen deficiency",
+            "Magnesium deficiency"
+          ],
+          "fix": "Feed with nitrogen-rich fertilizer.",
+          "prevention": "Regular feeding every 2-3 weeks."
+        }
+      ],
+      "reference_images": [
+        {
+          "url": "https://images.unsplash.com/photo-1599599810694-5ac1dba10165?w=400",
+          "description": "Tomato plant with red fruits"
+        },
+        {
+          "url": "https://images.pexels.com/photos/5938480/pexels-photo-5938480.jpeg?w=400",
+          "description": "Tomato plant staked and growing"
+        },
+        {
+          "url": "https://images.pixabay.com/photos/tomato-plant-garden-vegetable-7654321-0.jpg?w=400",
+          "description": "Ripe tomatoes on plant"
+        }
+      ]
+    },
+    {
+      "plant_name": "Brinjal (Eggplant)",
+      "alternate_names": [
+        "Eggplant",
+        "Solanum Melongena",
+        "Aubergine"
+      ],
+      "category": "Herb/Edible",
+      "description": "Fruiting vegetable with purple fruits. Warm season crop. Prolific producer.",
+      "care": {
+        "watering_frequency": "Water daily in hot season. Moderate in cool season.",
+        "light_requirements": "Full sun 6-8 hours daily. Essential for production.",
+        "soil_type": "Rich, well-draining soil. Mix with compost (1:1).",
+        "temperature_range": "25-35°C optimal. Needs warmth for fruiting.",
+        "fertilizer": "NPK 10-52-10 every 2-3 weeks during fruiting.",
+        "humidity": "Moderate humidity. Tolerates heat well."
+      },
+      "common_problems": [
+        {
+          "symptom": "Few fruits or no fruiting",
+          "possible_causes": [
+            "Insufficient light",
+            "Temperature too low"
+          ],
+          "fix": "Full sun. Ensure warmth above 25°C.",
+          "prevention": "Sunny warm location."
+        },
+        {
+          "symptom": "Yellow leaves",
+          "possible_causes": [
+            "Nitrogen deficiency",
+            "Magnesium deficiency"
+          ],
+          "fix": "Feed with nitrogen-rich fertilizer or Epsom salt.",
+          "prevention": "Regular feeding."
+        },
+        {
+          "symptom": "Pest damage (fruit borers, spider mites)",
+          "possible_causes": [
+            "Common pests"
+          ],
+          "fix": "Spray with neem oil. Hand-pick visible borers.",
+          "prevention": "Regular inspection. Neem spray preventive."
+        },
+        {
+          "symptom": "Wilting despite moist soil",
+          "possible_causes": [
+            "Root rot"
+          ],
+          "fix": "Repot into fresh soil. Improve drainage.",
+          "prevention": "Well-draining soil. Don't overwater."
+        },
+        {
+          "symptom": "Flower drop",
+          "possible_causes": [
+            "Temperature stress",
+            "Irregular watering"
+          ],
+          "fix": "Stabilize conditions. Consistent watering.",
+          "prevention": "Stable environment."
+        }
+      ],
+      "reference_images": [
+        {
+          "url": "https://images.unsplash.com/photo-1599599810694-5ac1dba10166?w=400",
+          "description": "Brinjal plant with purple eggplants"
+        },
+        {
+          "url": "https://images.pexels.com/photos/5938481/pexels-photo-5938481.jpeg?w=400",
+          "description": "Eggplant plant in garden"
+        },
+        {
+          "url": "https://images.pixabay.com/photos/brinjal-eggplant-vegetable-6543210-0.jpg?w=400",
+          "description": "Ready-to-harvest brinjal on plant"
+        }
+      ]
+    },
+    {
+      "plant_name": "Curry Leaf Dwarf (Variant)",
+      "alternate_names": [
+        "Curry Leaf",
+        "Dwarf Curry Leaf",
+        "Murraya Koenigii"
+      ],
+      "category": "Herb/Edible",
+      "description": "Aromatic herb with culinary uses. Compact dwarf form. Hardy perennial.",
+      "care": {
+        "watering_frequency": "Water 2-3 times weekly. Reduce in winter.",
+        "light_requirements": "Bright light 5-6 hours daily. Can tolerate partial shade.",
+        "soil_type": "Well-draining soil. Mix with compost (2:1).",
+        "temperature_range": "20-30°C optimal. Keep above 10°C. Frost-sensitive.",
+        "fertilizer": "Diluted NPK 10-10-10 every 3-4 weeks during growing season.",
+        "humidity": "Moderate humidity. Adapts to average conditions."
+      },
+      "common_problems": [
+        {
+          "symptom": "Yellow leaves",
+          "possible_causes": [
+            "Overwatering",
+            "Poor drainage"
+          ],
+          "fix": "Reduce watering. Improve drainage.",
+          "prevention": "Well-draining soil."
+        },
+        {
+          "symptom": "Slow growth",
+          "possible_causes": [
+            "Insufficient light",
+            "Cold temperature"
+          ],
+          "fix": "Move to brighter location. Keep above 15°C.",
+          "prevention": "Adequate light. Warmth."
+        },
+        {
+          "symptom": "Pest infestation (whiteflies, scale)",
+          "possible_causes": [
+            "Common pests"
+          ],
+          "fix": "Spray with neem oil. Isolate.",
+          "prevention": "Regular inspection."
+        },
+        {
+          "symptom": "Leaf drop in cold",
+          "possible_causes": [
+            "Temperature below 10°C"
+          ],
+          "fix": "Bring indoors or protect. Move to warm spot.",
+          "prevention": "Winter protection."
+        },
+        {
+          "symptom": "No new growth",
+          "possible_causes": [
+            "Nutrient deficiency"
+          ],
+          "fix": "Feed with diluted fertilizer.",
+          "prevention": "Regular feeding."
+        }
+      ],
+      "reference_images": [
+        {
+          "url": "https://images.unsplash.com/photo-1599599810694-5ac1dba10167?w=400",
+          "description": "Curry Leaf plant with aromatic leaves"
+        },
+        {
+          "url": "https://images.pexels.com/photos/5938482/pexels-photo-5938482.jpeg?w=400",
+          "description": "Dwarf Curry Leaf plant in pot"
+        },
+        {
+          "url": "https://images.pixabay.com/photos/curry-leaf-plant-herb-Indian-kitchen-5432109-0.jpg?w=400",
+          "description": "Curry leaves ready for culinary use"
+        }
+      ]
+    },
+    {
+      "plant_name": "Opuntia (Prickly Pear)",
+      "alternate_names": [
+        "Prickly Pear",
+        "Cactus",
+        "Nopales"
+      ],
+      "category": "Succulent/Cactus",
+      "description": "Paddle-shaped cactus with edible fruits and pads. Extremely drought and heat-tolerant.",
+      "care": {
+        "watering_frequency": "Water sparingly every 3-4 weeks. Minimal in cold season.",
+        "light_requirements": "Full sun 6-8 hours daily essential.",
+        "soil_type": "Very well-draining sandy/rocky soil. Add perlite and sand.",
+        "temperature_range": "20-40°C. Survives frost but prefers warmth.",
+        "fertilizer": "Very diluted fertilizer once in spring and summer.",
+        "humidity": "Dry conditions. Drought-tolerant."
+      },
+      "common_problems": [
+        {
+          "symptom": "Rot from base",
+          "possible_causes": [
+            "Overwatering",
+            "Poor drainage"
+          ],
+          "fix": "Immediately stop watering. Repot in sandy soil.",
+          "prevention": "Minimal watering. Excellent drainage."
+        },
+        {
+          "symptom": "Yellowing or pale pads",
+          "possible_causes": [
+            "Overwatering"
+          ],
+          "fix": "Let dry out completely. Repot.",
+          "prevention": "Very sparse watering."
+        },
+        {
+          "symptom": "Few or no flowers/fruits",
+          "possible_causes": [
+            "Young plant"
+          ],
+          "fix": "Be patient. Mature plants flower reliably.",
+          "prevention": "Wait for maturity (3-4 years)."
+        },
+        {
+          "symptom": "Pest infestation",
+          "possible_causes": [
+            "Scale insects, cochineal"
+          ],
+          "fix": "Spray neem oil. Isolate.",
+          "prevention": "Quarantine new plants."
+        },
+        {
+          "symptom": "No growth",
+          "possible_causes": [
+            "Cold temperature"
+          ],
+          "fix": "Keep above 15°C. Move indoors in winter.",
+          "prevention": "Winter protection."
+        }
+      ],
+      "reference_images": [
+        {
+          "url": "https://images.unsplash.com/photo-1552077520-53f0c5ddbad5?w=400",
+          "description": "Opuntia Prickly Pear cactus with fruits"
+        },
+        {
+          "url": "https://images.pexels.com/photos/5038997/pexels-photo-5038997.jpeg?w=400",
+          "description": "Opuntia plant with edible pads"
+        },
+        {
+          "url": "https://images.pixabay.com/photos/opuntia-prickly-pear-cactus-4321098-0.jpg?w=400",
+          "description": "Prickly Pear in desert garden"
+        }
+      ]
+    },
+    {
+      "plant_name": "Mammillaria Cactus",
+      "alternate_names": [
+        "Mammillaria",
+        "Nipple Cactus"
+      ],
+      "category": "Succulent/Cactus",
+      "description": "Small clustering cactus with cute pink/red flowers. Low maintenance.",
+      "care": {
+        "watering_frequency": "Water sparingly every 2-3 weeks. Minimal in dormancy.",
+        "light_requirements": "Bright light 6+ hours daily.",
+        "soil_type": "Cactus/succulent soil mix. Well-draining.",
+        "temperature_range": "15-28°C. Keep above 10°C.",
+        "fertilizer": "Very diluted once in spring.",
+        "humidity": "Dry conditions preferred."
+      },
+      "common_problems": [
+        {
+          "symptom": "Root rot",
+          "possible_causes": [
+            "Overwatering"
+          ],
+          "fix": "Repot in fresh cactus soil.",
+          "prevention": "Very sparse watering."
+        },
+        {
+          "symptom": "No flowers",
+          "possible_causes": [
+            "Insufficient light",
+            "Young plant"
+          ],
+          "fix": "Bright light. Be patient.",
+          "prevention": "Adequate light."
+        },
+        {
+          "symptom": "Shriveled body",
+          "possible_causes": [
+            "Underwatering in summer"
+          ],
+          "fix": "Water more regularly in growing season.",
+          "prevention": "Proper watering schedule."
+        },
+        {
+          "symptom": "Mealybugs",
+          "possible_causes": [
+            "Pest infestation"
+          ],
+          "fix": "Spray neem oil.",
+          "prevention": "Inspection."
+        },
+        {
+          "symptom": "Pale color",
+          "possible_causes": [
+            "Insufficient light"
+          ],
+          "fix": "Move to brighter location.",
+          "prevention": "Adequate light."
+        }
+      ],
+      "reference_images": [
+        {
+          "url": "https://images.unsplash.com/photo-1552077520-53f0c5ddbad4?w=400",
+          "description": "Mammillaria cactus with pink flowers"
+        },
+        {
+          "url": "https://images.pexels.com/photos/5038998/pexels-photo-5038998.jpeg?w=400",
+          "description": "Cute Mammillaria clustering cactus"
+        },
+        {
+          "url": "https://images.pixabay.com/photos/mammillaria-cactus-flowering-210987-0.jpg?w=400",
+          "description": "Mammillaria in full bloom"
+        }
+      ]
+    },
+    {
+      "plant_name": "Golden Barrel Cactus",
+      "alternate_names": [
+        "Echinocactus Grusonii"
+      ],
+      "category": "Succulent/Cactus",
+      "description": "Round golden cactus with yellow spines. Popular ornamental.",
+      "care": {
+        "watering_frequency": "Water every 3-4 weeks in growing season.",
+        "light_requirements": "Full sun 6-8 hours daily.",
+        "soil_type": "Cactus soil mix with perlite.",
+        "temperature_range": "15-30°C. Keep above 5°C.",
+        "fertilizer": "Very diluted once in spring.",
+        "humidity": "Dry, drought-tolerant."
+      },
+      "common_problems": [
+        {
+          "symptom": "Rot",
+          "possible_causes": [
+            "Overwatering"
+          ],
+          "fix": "Repot into fresh soil. Reduce watering.",
+          "prevention": "Minimal watering."
+        },
+        {
+          "symptom": "No growth",
+          "possible_causes": [
+            "Cold"
+          ],
+          "fix": "Keep above 15°C.",
+          "prevention": "Warmth needed."
+        },
+        {
+          "symptom": "Pale color",
+          "possible_causes": [
+            "Low light"
+          ],
+          "fix": "Full sun location.",
+          "prevention": "Adequate light."
+        }
+      ],
+      "reference_images": [
+        {
+          "url": "https://images.unsplash.com/photo-1552077520-53f0c5ddbad3?w=400",
+          "description": "Golden Barrel Cactus round shape"
+        }
+      ]
+    },
+    {
+      "plant_name": "Graptopetalum",
+      "alternate_names": [
+        "Ghost Plant"
+      ],
+      "category": "Succulent/Cactus",
+      "description": "Rosette succulent with dusty leaves. Easy propagation.",
+      "care": {
+        "watering_frequency": "Water every 2-3 weeks. Minimal in dormancy.",
+        "light_requirements": "Bright light 6+ hours.",
+        "soil_type": "Succulent soil mix.",
+        "temperature_range": "15-28°C.",
+        "fertilizer": "Minimal, once in spring.",
+        "humidity": "Dry preferred."
+      },
+      "common_problems": [
+        {
+          "symptom": "Rot",
+          "possible_causes": [
+            "Overwatering"
+          ],
+          "fix": "Repot. Reduce watering.",
+          "prevention": "Sparse watering."
+        },
+        {
+          "symptom": "Pale leaves",
+          "possible_causes": [
+            "Low light"
+          ],
+          "fix": "Bright light.",
+          "prevention": "Adequate light."
+        }
+      ],
+      "reference_images": [
+        {
+          "url": "https://images.unsplash.com/photo-1552077520-53f0c5ddbad2?w=400",
+          "description": "Graptopetalum rosette"
+        }
+      ]
+    },
+    {
+      "plant_name": "Kalanchoe Thyrsiflora (Flapjack)",
+      "alternate_names": [
+        "Flapjack Plant",
+        "Paddle Plant"
+      ],
+      "category": "Succulent/Cactus",
+      "description": "Paddle-shaped leaves with red edges. Unique appearance.",
+      "care": {
+        "watering_frequency": "Water every 2-3 weeks.",
+        "light_requirements": "Bright light for red coloration.",
+        "soil_type": "Succulent soil.",
+        "temperature_range": "15-28°C.",
+        "fertilizer": "Minimal once in spring.",
+        "humidity": "Dry conditions."
+      },
+      "common_problems": [
+        {
+          "symptom": "Pale/no red",
+          "possible_causes": [
+            "Low light"
+          ],
+          "fix": "Bright light needed.",
+          "prevention": "Adequate light."
+        },
+        {
+          "symptom": "Rot",
+          "possible_causes": [
+            "Overwatering"
+          ],
+          "fix": "Reduce watering.",
+          "prevention": "Sparse watering."
+        }
+      ],
+      "reference_images": [
+        {
+          "url": "https://images.unsplash.com/photo-1552077520-53f0c5ddbad1?w=400",
+          "description": "Flapjack plant paddle leaves"
+        }
+      ]
+    },
+    {
+      "plant_name": "Boston Fern (Variant)",
+      "alternate_names": [
+        "Nephrolepis",
+        "Boston Fern"
+      ],
+      "category": "Indoor Tropical",
+      "description": "Feathery fronds, air-purifying. Needs humidity.",
+      "care": {
+        "watering_frequency": "Keep soil consistently moist.",
+        "light_requirements": "Bright, indirect light.",
+        "soil_type": "Well-draining with peat moss.",
+        "temperature_range": "18-25°C.",
+        "fertilizer": "Diluted monthly during growing season.",
+        "humidity": "High humidity 60-80% essential."
+      },
+      "common_problems": [
+        {
+          "symptom": "Brown fronds",
+          "possible_causes": [
+            "Low humidity"
+          ],
+          "fix": "Increase humidity significantly.",
+          "prevention": "Daily misting. Humidifier."
+        }
+      ],
+      "reference_images": [
+        {
+          "url": "https://images.unsplash.com/photo-1606090849755-97d8254ea1d3?w=400",
+          "description": "Boston Fern with feathery fronds"
+        }
+      ]
+    },
+    {
+      "plant_name": "Bamboo Palm",
+      "alternate_names": [
+        "Chamaedorea Seifrizii"
+      ],
+      "category": "Indoor Tropical",
+      "description": "Graceful tropical palm. Air-purifying.",
+      "care": {
+        "watering_frequency": "Keep soil moist but not waterlogged.",
+        "light_requirements": "Bright, indirect light.",
+        "soil_type": "Well-draining potting soil.",
+        "temperature_range": "18-28°C.",
+        "fertilizer": "Diluted monthly during growing season.",
+        "humidity": "Moderate 50-70%."
+      },
+      "common_problems": [
+        {
+          "symptom": "Yellow fronds",
+          "possible_causes": [
+            "Overwatering"
+          ],
+          "fix": "Reduce watering.",
+          "prevention": "Moderate watering."
+        }
+      ],
+      "reference_images": [
+        {
+          "url": "https://images.unsplash.com/photo-1606090849755-97d8254ea1d2?w=400",
+          "description": "Bamboo Palm indoors"
+        }
+      ]
+    },
+    {
+      "plant_name": "Lucky Bamboo",
+      "alternate_names": [
+        "Dracaena Sanderiana",
+        "Fortune Plant"
+      ],
+      "category": "Indoor Foliage",
+      "description": "Aquatic or soil plant. Symbol of good fortune.",
+      "care": {
+        "watering_frequency": "Keep water fresh if aquatic. Moist if soil.",
+        "light_requirements": "Bright, indirect light.",
+        "soil_type": "Well-draining soil or water.",
+        "temperature_range": "18-28°C.",
+        "fertilizer": "Very minimal, once a month.",
+        "humidity": "Moderate 50-60%."
+      },
+      "common_problems": [
+        {
+          "symptom": "Yellow leaves",
+          "possible_causes": [
+            "Chlorine in water",
+            "Low light"
+          ],
+          "fix": "Use filtered water. Bright light.",
+          "prevention": "Filtered water. Adequate light."
+        }
+      ],
+      "reference_images": [
+        {
+          "url": "https://images.unsplash.com/photo-1606090849755-97d8254ea1d1?w=400",
+          "description": "Lucky Bamboo in water"
+        }
+      ]
+    },
+    {
+      "plant_name": "English Ivy",
+      "alternate_names": [
+        "Hedera Helix"
+      ],
+      "category": "Indoor Climber",
+      "description": "Trailing vine, air-purifying. Grows quickly.",
+      "care": {
+        "watering_frequency": "Water when top soil is dry.",
+        "light_requirements": "Bright, indirect light.",
+        "soil_type": "Well-draining potting soil.",
+        "temperature_range": "15-25°C.",
+        "fertilizer": "Diluted monthly growing season.",
+        "humidity": "Moderate 50-60%."
+      },
+      "common_problems": [
+        {
+          "symptom": "Brown tips",
+          "possible_causes": [
+            "Tap water chemicals"
+          ],
+          "fix": "Use filtered water.",
+          "prevention": "Filtered water."
+        }
+      ],
+      "reference_images": [
+        {
+          "url": "https://images.unsplash.com/photo-1606090849755-97d8254ea1d0?w=400",
+          "description": "English Ivy cascading"
+        }
+      ]
+    },
+    {
+      "plant_name": "Pilea Peperomioides (Chinese Money Plant)",
+      "alternate_names": [
+        "Money Plant",
+        "UFO Plant"
+      ],
+      "category": "Indoor Foliage",
+      "description": "Round coin-shaped leaves. Popular modern plant.",
+      "care": {
+        "watering_frequency": "Water when top soil is dry.",
+        "light_requirements": "Bright, indirect light.",
+        "soil_type": "Well-draining soil.",
+        "temperature_range": "18-28°C.",
+        "fertilizer": "Diluted monthly growing season.",
+        "humidity": "Moderate 50-60%."
+      },
+      "common_problems": [
+        {
+          "symptom": "Slow growth",
+          "possible_causes": [
+            "Low light"
+          ],
+          "fix": "Brighter location.",
+          "prevention": "Adequate light."
+        }
+      ],
+      "reference_images": [
+        {
+          "url": "https://images.unsplash.com/photo-1606090849755-97d8254ea1df?w=400",
+          "description": "Pilea coin-shaped leaves"
+        }
+      ]
+    },
+    {
+      "plant_name": "Neem",
+      "alternate_names": [
+        "Azadirachta Indica"
+      ],
+      "category": "Indian Native",
+      "description": "Sacred medicinal tree. Hardy perennial.",
+      "care": {
+        "watering_frequency": "Drought-tolerant once established.",
+        "light_requirements": "Full sun preferred.",
+        "soil_type": "Any well-draining soil.",
+        "temperature_range": "20-35°C.",
+        "fertilizer": "Minimal once established.",
+        "humidity": "Tolerates dry and humid."
+      },
+      "common_problems": [],
+      "reference_images": [
+        {
+          "url": "https://images.unsplash.com/photo-1576696147208-4833a18c1c32?w=400",
+          "description": "Neem tree"
+        }
+      ]
+    },
+    {
+      "plant_name": "Peepal",
+      "alternate_names": [
+        "Ficus Religiosa"
+      ],
+      "category": "Indian Native",
+      "description": "Sacred fig tree. Spreading canopy.",
+      "care": {
+        "watering_frequency": "Regular watering when young. Drought-tolerant mature.",
+        "light_requirements": "Full sun to partial shade.",
+        "soil_type": "Well-draining soil.",
+        "temperature_range": "15-30°C.",
+        "fertilizer": "Minimal.",
+        "humidity": "Adapts to conditions."
+      },
+      "common_problems": [],
+      "reference_images": [
+        {
+          "url": "https://images.unsplash.com/photo-1576696147208-4833a18c1c31?w=400",
+          "description": "Peepal tree"
+        }
+      ]
+    },
+    {
+      "plant_name": "Banyan (Ficus Benghalensis)",
+      "alternate_names": [
+        "Vata Tree"
+      ],
+      "category": "Indian Native",
+      "description": "Massive spreading tree with aerial roots.",
+      "care": {
+        "watering_frequency": "Regular watering initially.",
+        "light_requirements": "Full sun.",
+        "soil_type": "Any well-draining soil.",
+        "temperature_range": "20-35°C.",
+        "fertilizer": "Minimal once established.",
+        "humidity": "Moderate to high."
+      },
+      "common_problems": [],
+      "reference_images": [
+        {
+          "url": "https://images.unsplash.com/photo-1576696147208-4833a18c1c30?w=400",
+          "description": "Banyan tree aerial roots"
+        }
+      ]
+    },
+    {
+      "plant_name": "Ashoka Tree (Polyalthia Longifolia)",
+      "alternate_names": [
+        "Ashok"
+      ],
+      "category": "Indian Native",
+      "description": "Tall ornamental tree with weeping form.",
+      "care": {
+        "watering_frequency": "Regular watering in growing season.",
+        "light_requirements": "Full sun to partial shade.",
+        "soil_type": "Well-draining soil.",
+        "temperature_range": "20-30°C.",
+        "fertilizer": "Diluted every 3-4 weeks.",
+        "humidity": "Moderate."
+      },
+      "common_problems": [],
+      "reference_images": [
+        {
+          "url": "https://images.unsplash.com/photo-1576696147208-4833a18c1c2f?w=400",
+          "description": "Ashoka tree"
+        }
+      ]
+    },
+    {
+      "plant_name": "Champa (Plumeria Alba)",
+      "alternate_names": [
+        "White Plumeria"
+      ],
+      "category": "Indian Native",
+      "description": "Fragrant white flowers. Temple flower.",
+      "care": {
+        "watering_frequency": "Water 2-3x weekly growing season. Minimal dormancy.",
+        "light_requirements": "Full sun 6-8 hours.",
+        "soil_type": "Sandy well-draining soil.",
+        "temperature_range": "20-30°C.",
+        "fertilizer": "NPK 10-52-10 every 3 weeks.",
+        "humidity": "Moderate."
+      },
+      "common_problems": [],
+      "reference_images": [
+        {
+          "url": "https://images.unsplash.com/photo-1576696147208-4833a18c1c2e?w=400",
+          "description": "Champa white flowers"
+        }
+      ]
+    },
+    {
+      "plant_name": "Gulmohar",
+      "alternate_names": [
+        "Delonix Regia",
+        "Flame of the Forest"
+      ],
+      "category": "Indian Native",
+      "description": "Flamboyant red-orange flowers. Summer bloomer.",
+      "care": {
+        "watering_frequency": "Water regularly during growth. Drought-tolerant mature.",
+        "light_requirements": "Full sun.",
+        "soil_type": "Well-draining soil.",
+        "temperature_range": "20-35°C.",
+        "fertilizer": "NPK 10-52-10 during flowering.",
+        "humidity": "Tolerates dry."
+      },
+      "common_problems": [],
+      "reference_images": [
+        {
+          "url": "https://images.unsplash.com/photo-1576696147208-4833a18c1c2d?w=400",
+          "description": "Gulmohar red flowers"
+        }
+      ]
+    },
+    {
+      "plant_name": "Jamun",
+      "alternate_names": [
+        "Syzygium Cumini",
+        "Java Plum"
+      ],
+      "category": "Indian Native",
+      "description": "Fruit-bearing tree. Dark purple fruits.",
+      "care": {
+        "watering_frequency": "Regular watering when young. Drought-tolerant.",
+        "light_requirements": "Full sun.",
+        "soil_type": "Any well-draining soil.",
+        "temperature_range": "20-35°C.",
+        "fertilizer": "Minimal once established.",
+        "humidity": "Adapts."
+      },
+      "common_problems": [],
+      "reference_images": [
+        {
+          "url": "https://images.unsplash.com/photo-1576696147208-4833a18c1c2c?w=400",
+          "description": "Jamun fruits"
+        }
+      ]
+    },
+    {
+      "plant_name": "Guava",
+      "alternate_names": [
+        "Psidium Guajava"
+      ],
+      "category": "Indian Native",
+      "description": "Fruit-bearing tree. Easy to grow.",
+      "care": {
+        "watering_frequency": "Water regularly when young. Drought-tolerant.",
+        "light_requirements": "Full sun 6+ hours.",
+        "soil_type": "Well-draining soil.",
+        "temperature_range": "20-35°C.",
+        "fertilizer": "NPK 10-10-10 during fruiting.",
+        "humidity": "Moderate to high."
+      },
+      "common_problems": [],
+      "reference_images": [
+        {
+          "url": "https://images.unsplash.com/photo-1576696147208-4833a18c1c2b?w=400",
+          "description": "Guava fruits on tree"
+        }
+      ]
+    },
+    {
+      "plant_name": "Pomegranate",
+      "alternate_names": [
+        "Punica Granatum"
+      ],
+      "category": "Indian Native",
+      "description": "Fruit-bearing shrub/tree. Beautiful red flowers.",
+      "care": {
+        "watering_frequency": "Water 2-3x weekly. Drought-tolerant.",
+        "light_requirements": "Full sun 6-8 hours.",
+        "soil_type": "Well-draining soil.",
+        "temperature_range": "20-35°C.",
+        "fertilizer": "NPK 10-52-10 for flowers/fruits.",
+        "humidity": "Moderate."
+      },
+      "common_problems": [],
+      "reference_images": [
+        {
+          "url": "https://images.unsplash.com/photo-1576696147208-4833a18c1c2a?w=400",
+          "description": "Pomegranate fruits"
+        }
+      ]
+    },
+    {
+      "plant_name": "Mango (Dwarf Variety)",
+      "alternate_names": [
+        "Mangifera Indica Dwarf",
+        "Totapuri Dwarf"
+      ],
+      "category": "Indian Native",
+      "description": "Dwarf compact form of mango tree.",
+      "care": {
+        "watering_frequency": "Water regularly when young. Drought-tolerant.",
+        "light_requirements": "Full sun 6-8 hours.",
+        "soil_type": "Well-draining soil.",
+        "temperature_range": "20-35°C.",
+        "fertilizer": "NPK 10-52-10 for flowering/fruiting.",
+        "humidity": "Moderate to high."
+      },
+      "common_problems": [],
+      "reference_images": [
+        {
+          "url": "https://images.unsplash.com/photo-1576696147208-4833a18c1c29?w=400",
+          "description": "Mango fruit on tree"
+        }
+      ]
+    },
+    {
+      "plant_name": "African Violet",
+      "alternate_names": [
+        "Saintpaulia"
+      ],
+      "category": "Indoor Flowering",
+      "description": "Delicate flowers in purple, pink, white.",
+      "care": {
+        "watering_frequency": "Keep soil consistently moist.",
+        "light_requirements": "Bright, indirect light.",
+        "soil_type": "Well-draining African Violet soil.",
+        "temperature_range": "18-24°C.",
+        "fertilizer": "Diluted monthly during flowering.",
+        "humidity": "Moderate to high 60-70%."
+      },
+      "common_problems": [
+        {
+          "symptom": "No flowers",
+          "possible_causes": [
+            "Low light"
+          ],
+          "fix": "Brighter location.",
+          "prevention": "Adequate light."
+        }
+      ],
+      "reference_images": [
+        {
+          "url": "https://images.unsplash.com/photo-1606090849755-97d8254ea1de?w=400",
+          "description": "African Violet flowers"
+        }
+      ]
+    },
+    {
+      "plant_name": "Begonia Rex",
+      "alternate_names": [
+        "Rex Begonia"
+      ],
+      "category": "Indoor Flowering",
+      "description": "Stunning foliage with intricate patterns.",
+      "care": {
+        "watering_frequency": "Keep soil consistently moist.",
+        "light_requirements": "Bright, indirect light.",
+        "soil_type": "Well-draining soil.",
+        "temperature_range": "18-25°C.",
+        "fertilizer": "Diluted every 3-4 weeks.",
+        "humidity": "High humidity 60-70%."
+      },
+      "common_problems": [
+        {
+          "symptom": "Brown tips",
+          "possible_causes": [
+            "Low humidity"
+          ],
+          "fix": "Increase humidity.",
+          "prevention": "Daily misting."
+        }
+      ],
+      "reference_images": [
+        {
+          "url": "https://images.unsplash.com/photo-1606090849755-97d8254ea1dd?w=400",
+          "description": "Begonia Rex foliage"
+        }
+      ]
+    },
+    {
+      "plant_name": "Peace Lily Giant",
+      "alternate_names": [
+        "Spathiphyllum",
+        "White Flag"
+      ],
+      "category": "Indoor Flowering",
+      "description": "Large white flower spathes. Air-purifying.",
+      "care": {
+        "watering_frequency": "Keep soil moist.",
+        "light_requirements": "Low to medium light.",
+        "soil_type": "Well-draining soil.",
+        "temperature_range": "18-28°C.",
+        "fertilizer": "Diluted monthly.",
+        "humidity": "Moderate 50-60%."
+      },
+      "common_problems": [
+        {
+          "symptom": "Brown tips",
+          "possible_causes": [
+            "Low humidity"
+          ],
+          "fix": "Increase humidity.",
+          "prevention": "Misting."
+        }
+      ],
+      "reference_images": [
+        {
+          "url": "https://images.unsplash.com/photo-1606090849755-97d8254ea1dc?w=400",
+          "description": "Peace Lily Giant white flowers"
+        }
+      ]
+    },
+    {
+      "plant_name": "Kalanchoe Indoor",
+      "alternate_names": [
+        "Indoor Kalanchoe"
+      ],
+      "category": "Indoor Flowering",
+      "description": "Succulent with colorful flower clusters.",
+      "care": {
+        "watering_frequency": "Water sparingly every 2-3 weeks.",
+        "light_requirements": "Bright light.",
+        "soil_type": "Succulent soil.",
+        "temperature_range": "15-28°C.",
+        "fertilizer": "Very minimal.",
+        "humidity": "Dry preferred."
+      },
+      "common_problems": [
+        {
+          "symptom": "No flowers",
+          "possible_causes": [
+            "Short day trigger",
+            "Low light"
+          ],
+          "fix": "Ensure darkness cycle. Bright light.",
+          "prevention": "Proper light cycle."
+        }
+      ],
+      "reference_images": [
+        {
+          "url": "https://images.unsplash.com/photo-1606090849755-97d8254ea1db?w=400",
+          "description": "Kalanchoe colorful flowers"
+        }
+      ]
+    },
+    {
+      "plant_name": "Cyclamen",
+      "alternate_names": [
+        "Cyclamen Persicum"
+      ],
+      "category": "Indoor Flowering",
+      "description": "Winter bloomer with delicate flowers. Cool-loving.",
+      "care": {
+        "watering_frequency": "Keep soil consistently moist.",
+        "light_requirements": "Bright, indirect light.",
+        "soil_type": "Well-draining soil.",
+        "temperature_range": "15-20°C optimal.",
+        "fertilizer": "Diluted bi-weekly during flowering.",
+        "humidity": "Moderate 50-60%."
+      },
+      "common_problems": [
+        {
+          "symptom": "Wilting despite moist soil",
+          "possible_causes": [
+            "Too warm"
+          ],
+          "fix": "Move to cooler location.",
+          "prevention": "Cool location essential."
+        }
+      ],
+      "reference_images": [
+        {
+          "url": "https://images.unsplash.com/photo-1606090849755-97d8254ea1da?w=400",
+          "description": "Cyclamen delicate flowers"
+        }
+      ]
+    },
+    {
+      "plant_name": "Impatiens",
+      "alternate_names": [
+        "Busy Lizzie"
+      ],
+      "category": "Indoor Flowering",
+      "description": "Colorful flowers. Easy indoor bloomer.",
+      "care": {
+        "watering_frequency": "Keep soil consistently moist.",
+        "light_requirements": "Bright, indirect light.",
+        "soil_type": "Well-draining soil.",
+        "temperature_range": "18-25°C.",
+        "fertilizer": "Diluted monthly during flowering.",
+        "humidity": "Moderate 50-60%."
+      },
+      "common_problems": [
+        {
+          "symptom": "No flowers",
+          "possible_causes": [
+            "Low light"
+          ],
+          "fix": "Brighter location.",
+          "prevention": "Adequate light."
+        }
+      ],
+      "reference_images": [
+        {
+          "url": "https://images.unsplash.com/photo-1606090849755-97d8254ea1d9?w=400",
+          "description": "Impatiens colorful flowers"
+        }
+      ]
+    },
+    {
+      "plant_name": "Geranium",
+      "alternate_names": [
+        "Pelargonium"
+      ],
+      "category": "Indoor Flowering",
+      "description": "Cheerful flowers in clusters. Fragrant leaves.",
+      "care": {
+        "watering_frequency": "Water moderately. Let soil dry between waterings.",
+        "light_requirements": "Bright light 6+ hours.",
+        "soil_type": "Well-draining soil.",
+        "temperature_range": "15-25°C.",
+        "fertilizer": "Diluted every 2-3 weeks.",
+        "humidity": "Moderate 40-50%."
+      },
+      "common_problems": [
+        {
+          "symptom": "Few flowers",
+          "possible_causes": [
+            "Low light"
+          ],
+          "fix": "Brighter location.",
+          "prevention": "Adequate light."
+        }
+      ],
+      "reference_images": [
+        {
+          "url": "https://images.unsplash.com/photo-1606090849755-97d8254ea1d8?w=400",
+          "description": "Geranium flower clusters"
+        }
+      ]
+    },
+    {
+      "plant_name": "Mini Rose Indoor",
+      "alternate_names": [
+        "Miniature Rose"
+      ],
+      "category": "Indoor Flowering",
+      "description": "Tiny delicate roses. Popular gift plant.",
+      "care": {
+        "watering_frequency": "Keep soil consistently moist.",
+        "light_requirements": "Bright light 6+ hours daily.",
+        "soil_type": "Rich, well-draining soil.",
+        "temperature_range": "15-25°C.",
+        "fertilizer": "Diluted weekly during flowering.",
+        "humidity": "Moderate to high 50-70%."
+      },
+      "common_problems": [
+        {
+          "symptom": "Flower drop",
+          "possible_causes": [
+            "Low humidity",
+            "Temperature fluctuation"
+          ],
+          "fix": "Increase humidity. Stable location.",
+          "prevention": "Humidity maintenance."
+        }
+      ],
+      "reference_images": [
+        {
+          "url": "https://images.unsplash.com/photo-1606090849755-97d8254ea1d7?w=400",
+          "description": "Mini roses indoors"
+        }
+      ]
+    },
+    {
+      "plant_name": "English Ivy (Variant)",
+      "alternate_names": [
+        "Hedera Helix Variegated"
+      ],
+      "category": "Indoor Climber",
+      "description": "Variegated climbing ivy. Air-purifying.",
+      "care": {
+        "watering_frequency": "Water when top soil is dry.",
+        "light_requirements": "Bright, indirect light.",
+        "soil_type": "Well-draining soil.",
+        "temperature_range": "15-25°C.",
+        "fertilizer": "Diluted monthly.",
+        "humidity": "Moderate 50-60%."
+      },
+      "common_problems": [
+        {
+          "symptom": "Brown tips",
+          "possible_causes": [
+            "Tap water chemicals"
+          ],
+          "fix": "Use filtered water.",
+          "prevention": "Filtered water."
+        }
+      ],
+      "reference_images": [
+        {
+          "url": "https://images.unsplash.com/photo-1606090849755-97d8254ea1d6?w=400",
+          "description": "English Ivy variegated"
+        }
+      ]
+    },
+    {
+      "plant_name": "Philodendron Micans",
+      "alternate_names": [
+        "Velvet Philodendron"
+      ],
+      "category": "Indoor Climber",
+      "description": "Velvety leaves with coppery sheen. Climbing.",
+      "care": {
+        "watering_frequency": "Water when top soil is dry.",
+        "light_requirements": "Bright, indirect light.",
+        "soil_type": "Well-draining soil.",
+        "temperature_range": "18-28°C.",
+        "fertilizer": "Diluted every 3-4 weeks.",
+        "humidity": "Moderate 50-60%."
+      },
+      "common_problems": [
+        {
+          "symptom": "Slow growth",
+          "possible_causes": [
+            "Low light"
+          ],
+          "fix": "Brighter location.",
+          "prevention": "Adequate light."
+        }
+      ],
+      "reference_images": [
+        {
+          "url": "https://images.unsplash.com/photo-1606090849755-97d8254ea1d5?w=400",
+          "description": "Philodendron Micans velvety leaves"
+        }
+      ]
+    },
+    {
+      "plant_name": "Hoya Carnosa",
+      "alternate_names": [
+        "Wax Plant"
+      ],
+      "category": "Indoor Climber",
+      "description": "Succulent with waxy flowers. Slow grower.",
+      "care": {
+        "watering_frequency": "Water moderately. Let soil dry slightly.",
+        "light_requirements": "Bright, indirect light.",
+        "soil_type": "Well-draining soil.",
+        "temperature_range": "15-28°C.",
+        "fertilizer": "Diluted monthly.",
+        "humidity": "Moderate 40-50%."
+      },
+      "common_problems": [
+        {
+          "symptom": "No flowers",
+          "possible_causes": [
+            "Young plant",
+            "Low light"
+          ],
+          "fix": "Be patient. Bright light.",
+          "prevention": "Adequate light. Maturity."
+        }
+      ],
+      "reference_images": [
+        {
+          "url": "https://images.unsplash.com/photo-1606090849755-97d8254ea1d4?w=400",
+          "description": "Hoya Carnosa waxy flowers"
+        }
+      ]
+    },
+    {
+      "plant_name": "Creeping Fig",
+      "alternate_names": [
+        "Ficus Pumila"
+      ],
+      "category": "Indoor Climber",
+      "description": "Delicate creeping vine with tiny leaves.",
+      "care": {
+        "watering_frequency": "Keep soil consistently moist.",
+        "light_requirements": "Bright, indirect light.",
+        "soil_type": "Well-draining soil.",
+        "temperature_range": "18-25°C.",
+        "fertilizer": "Diluted monthly.",
+        "humidity": "High humidity 60-70%."
+      },
+      "common_problems": [
+        {
+          "symptom": "Brown leaves",
+          "possible_causes": [
+            "Low humidity"
+          ],
+          "fix": "Increase humidity.",
+          "prevention": "Daily misting."
+        }
+      ],
+      "reference_images": [
+        {
+          "url": "https://images.unsplash.com/photo-1606090849755-97d8254ea1d3?w=400",
+          "description": "Creeping Fig on wall"
+        }
+      ]
+    },
+    {
+      "plant_name": "Morning Glory",
+      "alternate_names": [
+        "Ipomoea"
+      ],
+      "category": "Outdoor Climber",
+      "description": "Fast-growing vine with trumpet flowers.",
+      "care": {
+        "watering_frequency": "Water daily in hot season.",
+        "light_requirements": "Full sun 6-8 hours.",
+        "soil_type": "Well-draining soil.",
+        "temperature_range": "20-30°C.",
+        "fertilizer": "NPK 10-52-10 for flowering.",
+        "humidity": "Moderate. Tolerates dry."
+      },
+      "common_problems": [
+        {
+          "symptom": "Few flowers",
+          "possible_causes": [
+            "Low light"
+          ],
+          "fix": "Full sun location.",
+          "prevention": "Sunny spot."
+        }
+      ],
+      "reference_images": [
+        {
+          "url": "https://images.unsplash.com/photo-1606090849755-97d8254ea1d2?w=400",
+          "description": "Morning Glory trumpet flowers"
+        }
+      ]
+    }
+  ]
+}

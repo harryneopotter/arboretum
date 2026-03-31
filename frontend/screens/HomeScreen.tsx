@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   View,
   Text,
@@ -7,11 +7,46 @@ import {
   TouchableOpacity,
   Image,
   TextInput,
+  ActivityIndicator,
 } from 'react-native';
-import { Search, Scan, Activity, Wind, Leaf } from 'lucide-react-native';
+import { Search, Scan, Activity, Wind, Leaf, Sun, Droplet, CloudRain } from 'lucide-react-native';
 import { Label, AmbientCard } from '../components';
 import { colors } from '../theme';
-import { useStore } from '../store';
+import { useStore, SearchResult } from '../store';
+import { api } from '../api/client';
+import { getPlantImage } from '../utils';
+
+// North India seasons: Dec-Feb Winter, Mar-May Summer, Jun-Sep Monsoon, Oct-Nov Autumn
+function getSeasonalInsight(): { icon: React.ReactNode; title: string; text: string } {
+  const month = new Date().getMonth(); // 0 = Jan
+  if (month >= 11 || month <= 1) {
+    return {
+      icon: <Wind size={24} color={colors.primaryDark} strokeWidth={1.5} />,
+      title: 'Winter Dormancy',
+      text: 'Reduce watering as light drops. Move frost-sensitive plants indoors and away from cold drafts.',
+    };
+  }
+  if (month >= 2 && month <= 4) {
+    return {
+      icon: <Sun size={24} color={colors.primaryDark} strokeWidth={1.5} />,
+      title: 'Spring Growth',
+      text: 'Ideal time to repot and fertilise. Increase watering gradually as temperatures rise.',
+    };
+  }
+  if (month >= 5 && month <= 8) {
+    return {
+      icon: <CloudRain size={24} color={colors.primaryDark} strokeWidth={1.5} />,
+      title: 'Monsoon Watch',
+      text: 'Check soil moisture before watering — roots can rot fast. Improve drainage and watch for fungal spots.',
+    };
+  }
+  // Oct–Nov: Autumn
+  return {
+    icon: <Leaf size={24} color={colors.primaryDark} strokeWidth={1.5} />,
+    title: 'Autumn Transition',
+    text: 'Ease up on fertiliser as growth slows. A great time to propagate cuttings before winter.',
+  };
+}
 
 const featuredPlants = [
   { name: 'Ficus Elastica', sub: 'Rubber Plant', img: require('../assets/images/ficus.jpg') },
@@ -19,8 +54,23 @@ const featuredPlants = [
 ];
 
 export default function HomeScreen({ navigate }: { navigate: (s: string) => void }) {
-  const { searchPlants, searchResults, savedPlants, isLoading } = useStore();
+  const { searchPlants, searchResults, savedPlants, isLoading, loadPlant } = useStore();
   const [searchText, setSearchText] = useState('');
+  const [curatedPlants, setCuratedPlants] = useState<SearchResult[]>([]);
+  const [curatedLoading, setCuratedLoading] = useState(true);
+
+  useEffect(() => {
+    let mounted = true;
+    api.search('tropical indoor houseplants', 6).then((results) => {
+      if (mounted) {
+        setCuratedPlants(results);
+        setCuratedLoading(false);
+      }
+    }).catch(() => {
+      if (mounted) setCuratedLoading(false);
+    });
+    return () => { mounted = false; };
+  }, []);
 
   const handleSearch = async () => {
     if (!searchText.trim()) return;
@@ -104,35 +154,59 @@ export default function HomeScreen({ navigate }: { navigate: (s: string) => void
       <View style={styles.collectionSection}>
         <View style={styles.collectionHeader}>
           <Text style={styles.sectionTitle}>Curated Collection</Text>
-          {isLoading && <Label>Loading...</Label>}
+          {(isLoading || curatedLoading) && <Label>Loading...</Label>}
         </View>
         <ScrollView horizontal showsHorizontalScrollIndicator={false}>
-          {featuredPlants.map((plant, i) => (
-            <TouchableOpacity 
-              key={i} 
-              style={styles.plantCard} 
-              onPress={() => navigate('PROFILE')}
-            >
-              <Image source={plant.img} style={styles.plantImage} />
-              <Label style={styles.plantLabel}>{plant.sub}</Label>
-              <Text style={styles.plantName}>{plant.name}</Text>
-            </TouchableOpacity>
-          ))}
+          {curatedLoading ? (
+            <View style={styles.curatedLoader}>
+              <ActivityIndicator size="small" color={colors.primary} />
+            </View>
+          ) : curatedPlants.length > 0 ? (
+            curatedPlants.map((plant, i) => (
+              <TouchableOpacity
+                key={plant.slug || i}
+                style={styles.plantCard}
+                onPress={async () => {
+                  await loadPlant(plant.slug);
+                  navigate('PROFILE');
+                }}
+              >
+                <Image source={getPlantImage(plant.slug || plant.plant_name)} style={styles.plantImage} />
+                <Label style={styles.plantLabel}>{plant.category || 'Houseplant'}</Label>
+                <Text style={styles.plantName}>{plant.plant_name}</Text>
+              </TouchableOpacity>
+            ))
+          ) : (
+            featuredPlants.map((plant, i) => (
+              <TouchableOpacity
+                key={i}
+                style={styles.plantCard}
+                onPress={() => navigate('PROFILE')}
+              >
+                <Image source={plant.img} style={styles.plantImage} />
+                <Label style={styles.plantLabel}>{plant.sub}</Label>
+                <Text style={styles.plantName}>{plant.name}</Text>
+              </TouchableOpacity>
+            ))
+          )}
         </ScrollView>
       </View>
 
       <View style={styles.seasonalSection}>
         <Text style={styles.sectionTitle}>Seasonal Insights</Text>
         <AmbientCard>
-          <View style={styles.insightRow}>
-            <View style={styles.windIcon}>
-              <Wind size={24} color={colors.primaryDark} strokeWidth={1.5} />
-            </View>
-            <View>
-              <Text style={styles.insightTitle}>Winter Dormancy</Text>
-              <Text style={styles.insightText}>Reduce watering as light drops.</Text>
-            </View>
-          </View>
+          {(() => {
+            const insight = getSeasonalInsight();
+            return (
+              <View style={styles.insightRow}>
+                <View style={styles.windIcon}>{insight.icon}</View>
+                <View style={styles.insightBody}>
+                  <Text style={styles.insightTitle}>{insight.title}</Text>
+                  <Text style={styles.insightText}>{insight.text}</Text>
+                </View>
+              </View>
+            );
+          })()}
         </AmbientCard>
       </View>
 
@@ -166,12 +240,14 @@ const styles = StyleSheet.create({
   collectionSection: { marginTop: 32, paddingLeft: 24 },
   collectionHeader: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', paddingRight: 24, marginBottom: 16 },
   sectionTitle: { fontSize: 22, fontWeight: '500', color: colors.text },
+  curatedLoader: { width: 240, height: 256, alignItems: 'center', justifyContent: 'center' },
   plantCard: { width: 240, marginRight: 16 },
   plantImage: { height: 256, borderRadius: 24, width: '100%' },
   plantLabel: { marginVertical: 8 },
   plantName: { fontSize: 18, fontWeight: '500', color: colors.text },
   seasonalSection: { marginTop: 24, paddingHorizontal: 24, marginBottom: 32 },
-  insightRow: { flexDirection: 'row', gap: 16 },
+  insightRow: { flexDirection: 'row', gap: 16, alignItems: 'flex-start' },
+  insightBody: { flex: 1 },
   windIcon: { width: 48, height: 48, backgroundColor: '#e8ece6', borderRadius: 16, alignItems: 'center', justifyContent: 'center' },
   insightTitle: { fontSize: 18, fontWeight: '500', color: colors.text, marginBottom: 4 },
   insightText: { color: colors.textMuted, fontSize: 14 },

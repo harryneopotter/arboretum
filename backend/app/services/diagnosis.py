@@ -5,7 +5,7 @@ Diagnosis service for plant problem matching.
 import re
 from typing import Optional
 from app.services.qdrant_client import get_qdrant
-from app.services.text_embeddings import get_text_embedding, get_sparse_embedding
+from app.utils.text_blob_parser import enrich_payload
 
 
 class DiagnosisService:
@@ -13,8 +13,6 @@ class DiagnosisService:
 
     def __init__(self):
         self.qdrant = get_qdrant()
-        self.text_embed = get_text_embedding()
-        self.sparse_embed = get_sparse_embedding()
 
     async def diagnose(
         self,
@@ -37,9 +35,9 @@ class DiagnosisService:
         if not plant:
             return None
 
-        # Parse problems from text_blob
-        text_blob = plant.get("text_blob", "")
-        problems = self._extract_problems(text_blob)
+        # Enrich payload so common_problems is populated from text_blob if needed
+        plant = enrich_payload(plant)
+        problems = plant.get("common_problems") or []
 
         if not problems:
             return None
@@ -73,38 +71,19 @@ class DiagnosisService:
         return None
 
     async def _get_plant_by_slug(self, slug: str) -> dict | None:
-        """Fetch plant payload by slug using scroll."""
-        import requests
+        """Fetch plant payload by slug using QdrantService filter."""
         from app.config import get_settings
         settings = get_settings()
 
-        offset = None
-        while True:
-            body = {"limit": 100, "with_payload": True, "with_vectors": False}
-            if offset:
-                body["offset"] = offset
-
-            resp = requests.post(
-                f"{settings.qdrant_url}/collections/{settings.plants_collection}/points/scroll",
-                headers={"api-key": settings.qdrant_api_key, "Content-Type": "application/json"},
-                json=body,
-            )
-            if resp.status_code != 200:
-                break
-
-            data = resp.json().get("result", {})
-            points = data.get("points", [])
-
-            for point in points:
-                payload = point.get("payload", {})
-                if payload.get("slug") == slug:
-                    return payload
-
-            next_page = data.get("next_page_offset")
-            if not next_page:
-                break
-            offset = next_page
-
+        points = await self.qdrant.scroll_points(
+            collection=settings.plants_collection,
+            filter_conditions={
+                "must": [{"key": "slug", "match": {"value": slug}}]
+            },
+            limit=1,
+        )
+        if points:
+            return points[0].get("payload")
         return None
 
     def _extract_problems(self, text_blob: str) -> list[dict]:

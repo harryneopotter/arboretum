@@ -15,7 +15,7 @@ import { useStore } from '../store';
 import { getPlantImage } from '../utils';
 
 export default function ProfileScreen({ navigate }: { navigate: (s: string) => void }) {
-  const { currentPlant, savePlant, removePlant, isSaved } = useStore();
+  const { currentPlant, savePlant, removePlant, isSaved, previousScreen } = useStore();
 
   if (!currentPlant) {
     return (
@@ -37,7 +37,7 @@ export default function ProfileScreen({ navigate }: { navigate: (s: string) => v
 
   return (
     <View style={styles.container}>
-      <TouchableOpacity style={styles.backBtn} onPress={() => navigate('RESULTS')}>
+      <TouchableOpacity style={styles.backBtn} onPress={() => navigate(previousScreen || 'HOME')}>
         <ArrowLeft size={24} color={colors.surface} strokeWidth={1.5} />
       </TouchableOpacity>
 

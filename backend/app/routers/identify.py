@@ -8,8 +8,11 @@ from app.services.qdrant_client import get_qdrant
 from app.services.image_embeddings import get_image_embedding
 from app.config import get_settings
 from app.utils.slugify import slugify
+from app.utils.text_blob_parser import enrich_payload
 
 router = APIRouter(prefix="/identify", tags=["Image Identification"])
+
+CONFIDENCE_THRESHOLD = 0.3
 
 
 @router.post("", response_model=IdentifyResponse)
@@ -21,7 +24,8 @@ async def identify_plant(request: IdentifyRequest):
     1. Decode base64 image
     2. Generate CLIP embedding (512 dims)
     3. Search plant-images collection
-    4. Return top 3 matches with full plant data
+    4. Look up full plant profile by exact slug
+    5. Return top 3 matches with plant data; flag uncertain if best score is low
     """
     try:
         settings = get_settings()
@@ -39,43 +43,49 @@ async def identify_plant(request: IdentifyRequest):
         )
 
         if not image_results:
-            return IdentifyResponse(matches=[], plant=None)
+            return IdentifyResponse(matches=[], plant=None, message="No matches found")
 
-        # Build matches
+        # Build matches — image payloads use plant_slug (set by ingest_plants.py)
         matches = []
-        best_plant_id = None
+        best_slug = None
 
         for result in image_results:
             payload = result.get("payload", {})
-            slug = payload.get("slug") or payload.get("plant_id") or slugify(payload.get("plant_name", ""))
+            slug = (
+                payload.get("plant_slug")
+                or payload.get("slug")
+                or slugify(payload.get("plant_name", ""))
+            )
             matches.append(IdentifyMatch(
                 slug=slug,
-                plant_id=payload.get("plant_id", ""),
                 plant_name=payload.get("plant_name", ""),
                 score=result.get("score", 0),
                 image_url=payload.get("image_url"),
             ))
-            if best_plant_id is None:
-                best_plant_id = payload.get("plant_id") or slug or payload.get("plant_name")
+            if best_slug is None:
+                best_slug = slug
 
-        # Fetch full plant profile
-        plant_data = None
-        if best_plant_id:
-            # Search plants collection for the identified plant
-            from app.services.text_embeddings import get_text_embedding
-            text_service = get_text_embedding()
-
-            # Embed plant name to do a quick search
-            plant_vector = await text_service.embed(best_plant_id.replace("_", " "))
-            
-            plant_results = await qdrant.search_dense_sparse(
-                collection=settings.plants_collection,
-                dense_vector=plant_vector,
-                limit=1,
+        # Low-confidence: return matches but no plant profile, signal uncertainty
+        best_score = matches[0].score if matches else 0
+        if best_score < CONFIDENCE_THRESHOLD:
+            return IdentifyResponse(
+                matches=matches,
+                plant=None,
+                message="Low confidence — try a clearer photo",
             )
 
-            if plant_results:
-                plant_data = plant_results[0].get("payload")
+        # Fetch full plant profile by exact slug lookup
+        plant_data = None
+        if best_slug:
+            plant_points = await qdrant.scroll_points(
+                collection=settings.plants_collection,
+                filter_conditions={
+                    "must": [{"key": "slug", "match": {"value": best_slug}}]
+                },
+                limit=1,
+            )
+            if plant_points:
+                plant_data = enrich_payload(plant_points[0].get("payload", {}))
 
         return IdentifyResponse(matches=matches, plant=plant_data)
 

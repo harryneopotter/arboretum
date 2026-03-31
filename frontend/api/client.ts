@@ -43,7 +43,61 @@ type DiagnosisProblem = {
   prevention: string;
 };
 
+type UserProfile = {
+  name: string;
+  email: string;
+  location: string;
+  bio: string;
+  avatar_url?: string;
+};
+
 export const api = {
+  // User: profile
+  user: {
+    getProfile: async (deviceId: string): Promise<UserProfile | null> => {
+      try {
+        const res = await fetch(`${API_URL}/user/${deviceId}/profile`);
+        if (!res.ok) return null;
+        return await res.json();
+      } catch { return null; }
+    },
+    updateProfile: async (deviceId: string, profile: Partial<UserProfile>): Promise<void> => {
+      try {
+        await fetch(`${API_URL}/user/${deviceId}/profile`, {
+          method: 'PUT',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(profile),
+        });
+      } catch { /* offline – local already updated */ }
+    },
+    getSaved: async (deviceId: string): Promise<string[]> => {
+      try {
+        const res = await fetch(`${API_URL}/user/${deviceId}/saved`);
+        if (!res.ok) return [];
+        return await res.json();
+      } catch { return []; }
+    },
+    savePlant: async (deviceId: string, plantId: string): Promise<void> => {
+      try {
+        await fetch(`${API_URL}/user/${deviceId}/saved/${encodeURIComponent(plantId)}`, { method: 'POST' });
+      } catch { /* offline – local already updated */ }
+    },
+    removePlant: async (deviceId: string, plantId: string): Promise<void> => {
+      try {
+        await fetch(`${API_URL}/user/${deviceId}/saved/${encodeURIComponent(plantId)}`, { method: 'DELETE' });
+      } catch { /* offline – local already updated */ }
+    },
+    addHistory: async (deviceId: string, entry: { plant_id?: string; plant_name?: string; symptom: string; result?: object }): Promise<void> => {
+      try {
+        await fetch(`${API_URL}/user/${deviceId}/history`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(entry),
+        });
+      } catch { /* offline */ }
+    },
+  },
+
   // Search plants by text
   search: async (query: string, limit: number = 10): Promise<SearchResult[]> => {
     try {

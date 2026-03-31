@@ -23,11 +23,17 @@ from sentence_transformers import SentenceTransformer
 # =============================================================================
 # CONFIGURATION
 # =============================================================================
-QDRANT_URL = "https://27aff9e6-8dae-4699-8803-9ee4fd06af81.eu-central-1-0.aws.cloud.qdrant.io"
-QDRANT_API_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2Nlc3MiOlt7ImNvbGxlY3Rpb24iOiJwbGFudHMiLCJhY2Nlc3MiOiJydyJ9LHsiY29sbGVjdGlvbiI6InBsYW50LWltYWdlcyIsImFjY2VzcyI6InJ3In1dLCJleHAiOjE3NzcxNTcwNzZ9.4LibSPRSJmJ9FQcGTB6OnYfR7sYuNlGJE5qm2RHQfkk"
+import os
+from dotenv import load_dotenv
 
-DATA_FILE = "/home/.z/chat-uploads/north_india_plant_care_guide_v1.1-2d77d796f9ae.json"
-IMAGES_DIR = Path("/home/workspace/north_india_plant_guide/images")
+load_dotenv(dotenv_path=Path(__file__).parent / "app" / ".env")
+
+QDRANT_URL = os.getenv("QDRANT_URL", "https://27aff9e6-8dae-4699-8803-9ee4fd06af81.eu-central-1-0.aws.cloud.qdrant.io")
+QDRANT_API_KEY = os.getenv("QDRANT_API_KEY", "")
+OPENAI_API_KEY = os.getenv("OPENAI_API_KEY", "")
+
+DATA_FILE = Path(__file__).parent.parent / "files" / "north_india_plant_guide" / "north_india_plant_care_guide_v1.1.json"
+IMAGES_DIR = Path(__file__).parent.parent / "files" / "images"
 
 PLANTS_COLLECTION = "plants"
 IMAGES_COLLECTION = "plant-images"
@@ -131,15 +137,24 @@ def build_text_blob(plant: dict) -> str:
 class EmbeddingGenerator:
     def __init__(self):
         print("Loading embedding models...")
-        self.dense_model = SentenceTransformer('sentence-transformers/all-MiniLM-L12-v2')
         self.clip_model = SentenceTransformer('clip-ViT-B-32')
+        if not OPENAI_API_KEY:
+            raise RuntimeError("OPENAI_API_KEY is required for ingest. Set it in backend/app/.env")
+        self.openai_headers = {
+            "Authorization": f"Bearer {OPENAI_API_KEY}",
+            "Content-Type": "application/json",
+        }
         print("Models loaded successfully.")
-    
+
     def get_dense_embedding(self, text: str) -> list[float]:
-        """Generate dense embedding (384-dim mapped to 1536)."""
-        embedding = self.dense_model.encode(text, normalize_embeddings=True)
-        full_embedding = (embedding.tolist() * (1536 // 384 + 1))[:1536]
-        return full_embedding
+        """Generate OpenAI text-embedding-3-small vector (1536-dim)."""
+        resp = requests.post(
+            "https://api.openai.com/v1/embeddings",
+            headers=self.openai_headers,
+            json={"input": text[:8192], "model": "text-embedding-3-small", "dimensions": 1536},
+        )
+        resp.raise_for_status()
+        return resp.json()["data"][0]["embedding"]
     
     def get_sparse_embedding(self, text: str) -> dict:
         """Generate sparse BM25-style embedding."""
@@ -231,6 +246,11 @@ def ingest_text_data(client: QdrantClient, embedder: EmbeddingGenerator, plants:
             "plant_name": plant['plant_name'],
             "category": plant.get('category', ''),
             "slug": slugify(plant['plant_name']),
+            "alternate_names": plant.get('alternate_names', []),
+            "description": plant.get('description', ''),
+            "care": plant.get('care', {}),
+            "common_problems": plant.get('common_problems', []),
+            "reference_images": plant.get('reference_images', []),
             "text_blob": text_blob
         }
         
@@ -327,7 +347,6 @@ def test_text_search(client: QdrantClient, embedder: EmbeddingGenerator):
     print(f"Query: '{query}'")
     
     dense_vec = embedder.get_dense_embedding(query)
-    
     results = http_search(PLANTS_COLLECTION, DENSE_VECTOR_NAME, dense_vec, limit=5)
     
     print("\nTop 5 Text Search Results:")

@@ -17,3 +17,7 @@ android/local.properties
 dist
 build
 .DS_Store
+
+# Secrets
+.env
+backend/app/.env

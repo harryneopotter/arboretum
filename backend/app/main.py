@@ -6,14 +6,16 @@ Run with: uvicorn app.main:app --reload
 
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from app.routers import identify_router, search_router, diagnose_router, plant_router
+from app.routers import identify_router, search_router, diagnose_router, plant_router, user_router
 from app.config import get_settings
+from app.database import init_db
 
 # =============================================================================
 # App Initialization
 # =============================================================================
 
 settings = get_settings()
+init_db()  # ensure SQLite tables exist on startup
 
 app = FastAPI(
     title="Plant Care API",
@@ -43,6 +45,7 @@ app.include_router(identify_router)
 app.include_router(search_router)
 app.include_router(diagnose_router)
 app.include_router(plant_router)
+app.include_router(user_router)
 
 # =============================================================================
 # Health Check

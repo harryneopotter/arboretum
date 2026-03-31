@@ -49,6 +49,7 @@ class IdentifyResponse(BaseModel):
     """Response for image identification."""
     matches: list[IdentifyMatch]
     plant: Optional[dict] = None
+    message: Optional[str] = None
 
 
 class SearchResponseItem(BaseModel):
