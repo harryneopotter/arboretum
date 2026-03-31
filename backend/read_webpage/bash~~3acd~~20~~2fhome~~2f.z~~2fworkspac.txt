@@ -1,0 +1,1130 @@
+# Plant Care FastAPI Backend
+"""
+Configuration for Plant Care FastAPI Backend.
+"""
+
+from pydantic_settings import BaseSettings
+from functools import lru_cache
+
+
+class Settings(BaseSettings):
+    """Application settings."""
+
+    # Qdrant
+    qdrant_url: str = "https://27aff9e6-8dae-4699-8803-9ee4fd06af81.eu-central-1-0.aws.cloud.qdrant.io"
+    qdrant_api_key: str = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2Nlc3MiOlt7ImNvbGxlY3Rpb24iOiJwbGFudHMiLCJhY2Nlc3MiOiJydyJ9LHsiY29sbGVjdGlvbiI6InBsYW50LWltYWdlcyIsImFjY2VzcyI6InJ3In1dLCJleHAiOjE3NzcxNTcwNzZ9.4LibSPRSJmJ9FQcGTB6OnYfR7sYuNlGJE5qm2RHQfkk"
+
+    # Collections
+    plants_collection: str = "plants"
+    plant_images_collection: str = "plant-images"
+
+    # Vector names
+    dense_vector_name: str = "plant-vector-dense"
+    sparse_vector_name: str = "plant-vector-sparse"
+    image_vector_name: str = "image-vector"
+
+    # Vector dimensions
+    dense_dim: int = 1536
+    image_dim: int = 512
+
+    # Search limits
+    default_search_limit: int = 5
+    max_search_limit: int = 20
+
+    # OpenAI
+    openai_api_key: str | None = None
+    openai_embedding_model: str = "text-embedding-3-small"
+
+    class Config:
+        env_file = ".env"
+        extra = "allow"
+
+
+@lru_cache
+def get_settings() -> Settings:
+    """Get cached settings instance."""
+    return Settings()
+"""
+Plant Care FastAPI Backend - Main Application
+
+Run with: uvicorn app.main:app --reload
+"""
+
+from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
+from app.routers import identify_router, search_router, diagnose_router, plant_router
+from app.config import get_settings
+
+# =============================================================================
+# App Initialization
+# =============================================================================
+
+settings = get_settings()
+
+app = FastAPI(
+    title="Plant Care API",
+    description="Backend API for plant identification, search, and diagnosis",
+    version="1.0.0",
+    docs_url="/docs",
+    redoc_url="/redoc",
+)
+
+# =============================================================================
+# CORS Middleware (Android-friendly)
+# =============================================================================
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+# =============================================================================
+# Routers
+# =============================================================================
+
+app.include_router(identify_router)
+app.include_router(search_router)
+app.include_router(diagnose_router)
+app.include_router(plant_router)
+
+# =============================================================================
+# Health Check
+# =============================================================================
+
+@app.get("/health", tags=["Health"])
+async def health_check():
+    """Health check endpoint."""
+    return {
+        "status": "healthy",
+        "qdrant_url": settings.qdrant_url,
+        "plants_collection": settings.plants_collection,
+        "plant_images_collection": settings.plant_images_collection,
+    }
+
+
+# =============================================================================
+# Root Endpoint
+# =============================================================================
+
+@app.get("/", tags=["Root"])
+async def root():
+    """Root endpoint with API info."""
+    return {
+        "name": "Plant Care API",
+        "version": "1.0.0",
+        "docs": "/docs",
+        "endpoints": {
+            "identify": "/identify",
+            "search": "/search",
+            "diagnose": "/diagnose",
+            "plant": "/plant/{id}",
+        }
+    }
+"""
+Pydantic models for request/response schemas.
+"""
+
+from pydantic import BaseModel, Field
+from typing import Optional
+
+
+# =============================================================================
+# Request Models
+# =============================================================================
+
+
+class IdentifyRequest(BaseModel):
+    """Request body for image identification."""
+    image: str = Field(..., description="Base64-encoded image string")
+
+
+class SearchRequest(BaseModel):
+    """Request body for text search."""
+    query: str = Field(..., min_length=1, max_length=1000, description="Search query text")
+    limit: int = Field(default=5, ge=1, le=20, description="Maximum number of results")
+
+
+class DiagnoseRequest(BaseModel):
+    """Request body for plant diagnosis."""
+    plant_id: str = Field(..., description="Plant identifier (e.g., 'plant:money_plant')")
+    symptom: str = Field(..., min_length=1, max_length=500, description="Observed symptom description")
+
+
+# =============================================================================
+# Response Models
+# =============================================================================
+
+
+class PlantMatch(BaseModel):
+    """A plant match result."""
+    slug: str
+    plant_name: str
+    score: float
+
+
+class IdentifyMatch(PlantMatch):
+    """Image identification match."""
+    image_url: Optional[str] = None
+
+
+class IdentifyResponse(BaseModel):
+    """Response for image identification."""
+    matches: list[IdentifyMatch]
+    plant: Optional[dict] = None
+
+
+class SearchResponseItem(BaseModel):
+    """Single search result item."""
+    slug: Optional[str] = ""
+    plant_name: str
+    score: float
+    category: Optional[str] = None
+    description: Optional[str] = None
+
+
+class ProblemEntry(BaseModel):
+    """Plant problem/issue entry."""
+    symptom: str
+    possible_causes: list[str]
+    fix: str
+    prevention: str
+
+
+class DiagnoseResponse(BaseModel):
+    """Response for diagnosis endpoint."""
+    problem: Optional[ProblemEntry] = None
+    message: Optional[str] = None
+
+
+class PlantResponse(BaseModel):
+    """Full plant profile response."""
+    plant_name: str
+    alternate_names: list[str]
+    category: str
+    description: str
+    care: dict
+    common_problems: list[dict]
+    reference_images: list[dict]
+
+    class Config:
+        extra = "allow"
+
+
+class ErrorResponse(BaseModel):
+    """Error response model."""
+    detail: str
+from .identify import router as identify_router
+from .search import router as search_router
+from .diagnose import router as diagnose_router
+from .plant import router as plant_router
+
+__all__ = ["identify_router", "search_router", "diagnose_router", "plant_router"]
+"""
+Plant diagnosis router.
+"""
+
+from fastapi import APIRouter, HTTPException, status
+from app.models import DiagnoseRequest, DiagnoseResponse, ProblemEntry
+from app.services.diagnosis import get_diagnosis
+
+router = APIRouter(prefix="/diagnose", tags=["Plant Diagnosis"])
+
+
+@router.post("", response_model=DiagnoseResponse)
+async def diagnose_plant(request: DiagnoseRequest):
+    """
+    Diagnose a plant problem from symptoms.
+
+    Steps:
+    1. Embed symptom (dense + sparse)
+    2. Search only problem-level entries for the plant
+    3. Return best matching problem with causes, fix, prevention
+    """
+    try:
+        diagnosis_service = get_diagnosis()
+
+        result = await diagnosis_service.diagnose(
+            plant_id=request.plant_id,
+            symptom=request.symptom,
+        )
+
+        if result is None:
+            return DiagnoseResponse(
+                problem=None,
+                message="No matching problems found for this symptom"
+            )
+
+        return DiagnoseResponse(
+            problem=ProblemEntry(
+                symptom=result.get("symptom", ""),
+                possible_causes=result.get("possible_causes", []),
+                fix=result.get("fix", ""),
+                prevention=result.get("prevention", ""),
+            )
+        )
+
+    except Exception as e:
+        raise HTTPException(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail=f"Diagnosis failed: {str(e)}"
+        )
+"""
+Image identification router.
+"""
+
+from fastapi import APIRouter, HTTPException, status
+from app.models import IdentifyRequest, IdentifyResponse, IdentifyMatch
+from app.services.qdrant_client import get_qdrant
+from app.services.image_embeddings import get_image_embedding
+from app.config import get_settings
+
+router = APIRouter(prefix="/identify", tags=["Image Identification"])
+
+
+@router.post("", response_model=IdentifyResponse)
+async def identify_plant(request: IdentifyRequest):
+    """
+    Identify a plant from an image.
+
+    Steps:
+    1. Decode base64 image
+    2. Generate CLIP embedding (512 dims)
+    3. Search plant-images collection
+    4. Return top 3 matches with full plant data
+    """
+    try:
+        settings = get_settings()
+        qdrant = get_qdrant()
+        image_service = get_image_embedding()
+
+        # Generate CLIP embedding
+        image_vector = await image_service.embed(request.image)
+
+        # Search image collection
+        image_results = await qdrant.search_image(
+            collection=settings.plant_images_collection,
+            image_vector=image_vector,
+            limit=3,
+        )
+
+        if not image_results:
+            return IdentifyResponse(matches=[], plant=None)
+
+        # Build matches
+        matches = []
+        best_plant_id = None
+
+        for result in image_results:
+            payload = result.get("payload", {})
+            matches.append(IdentifyMatch(
+                plant_id=payload.get("plant_id", ""),
+                plant_name=payload.get("plant_name", ""),
+                score=result.get("score", 0),
+                image_url=payload.get("image_url"),
+            ))
+            if best_plant_id is None:
+                best_plant_id = payload.get("plant_id")
+
+        # Fetch full plant profile
+        plant_data = None
+        if best_plant_id:
+            # Search plants collection for the identified plant
+            from app.services.text_embeddings import get_text_embedding
+            text_service = get_text_embedding()
+
+            # Embed plant name to do a quick search
+            plant_vector = await text_service.embed(best_plant_id.replace("_", " "))
+            
+            plant_results = await qdrant.search_dense_sparse(
+                collection=settings.plants_collection,
+                dense_vector=plant_vector,
+                limit=1,
+            )
+
+            if plant_results:
+                plant_data = plant_results[0].get("payload")
+
+        return IdentifyResponse(matches=matches, plant=plant_data)
+
+    except ValueError as e:
+        raise HTTPException(
+            status_code=status.HTTP_400_BAD_REQUEST,
+            detail=f"Invalid image data: {str(e)}"
+        )
+    except Exception as e:
+        raise HTTPException(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail=f"Identification failed: {str(e)}"
+        )
+"""
+Plant profile router.
+"""
+
+from fastapi import APIRouter, HTTPException, status
+from app.services.qdrant_client import get_qdrant
+from app.config import get_settings
+
+router = APIRouter(prefix="/plant", tags=["Plant Profiles"])
+
+
+@router.get("/{plant_id}")
+async def get_plant_profile(plant_id: str):
+    """
+    Retrieve full plant profile by ID (slug).
+
+    Args:
+        plant_id: Plant slug (e.g., 'chinese-evergreen-aglaonema')
+
+    Returns:
+        Full plant JSON payload
+    """
+    try:
+        settings = get_settings()
+        qdrant = get_qdrant()
+
+        # Scroll through all plants (75 total, small dataset)
+        # Filter in-memory since slug field may not be indexed
+        offset = None
+        while True:
+            body = {
+                "limit": 100,
+                "with_payload": True,
+                "with_vectors": False,
+            }
+            if offset:
+                body["offset"] = offset
+
+            import requests
+            resp = requests.post(
+                f"{settings.qdrant_url}/collections/{settings.plants_collection}/points/scroll",
+                headers={"api-key": settings.qdrant_api_key, "Content-Type": "application/json"},
+                json=body,
+            )
+            resp.raise_for_status()
+            data = resp.json().get("result", {})
+            points = data.get("points", [])
+
+            for point in points:
+                payload = point.get("payload", {})
+                # Match by slug or plant_id
+                if payload.get("slug") == plant_id or payload.get("plant_id") == plant_id:
+                    return payload
+
+            # Check if more pages
+            next_page = data.get("next_page_offset")
+            if not next_page:
+                break
+            offset = next_page
+
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail=f"Plant '{plant_id}' not found"
+        )
+
+    except HTTPException:
+        raise
+    except Exception as e:
+        raise HTTPException(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail=f"Failed to retrieve plant: {str(e)}"
+        )
+"""
+Text search router.
+"""
+
+from fastapi import APIRouter, HTTPException, status
+from app.models import SearchRequest, SearchResponseItem
+from app.services.qdrant_client import get_qdrant
+from app.services.text_embeddings import get_text_embedding, get_sparse_embedding
+from app.config import get_settings
+
+router = APIRouter(prefix="/search", tags=["Plant Search"])
+
+
+@router.post("", response_model=list[SearchResponseItem])
+async def search_plants(request: SearchRequest):
+    """
+    Search plants using hybrid dense + sparse embeddings.
+
+    Steps:
+    1. Generate dense 1536-dim embedding
+    2. Generate sparse BM25 embedding
+    3. Perform hybrid search in plants collection
+    4. Return top matches with scores
+    """
+    try:
+        settings = get_settings()
+        qdrant = get_qdrant()
+        text_service = get_text_embedding()
+        sparse_service = get_sparse_embedding()
+
+        # Generate embeddings
+        dense_vec = await text_service.embed(request.query)
+        sparse_vec = await sparse_service.embed(request.query)
+
+        # Hybrid search
+        results = await qdrant.search_dense_sparse(
+            collection=settings.plants_collection,
+            dense_vector=dense_vec,
+            sparse_vector=sparse_vec,
+            limit=request.limit,
+        )
+
+        if not results:
+            return []
+
+        # Build response
+        items = []
+        for result in results:
+            payload = result.get("payload", {})
+            slug = payload.get("slug") or payload.get("plant_id") or ""
+            items.append(SearchResponseItem(
+                slug=slug,
+                plant_name=payload.get("plant_name", ""),
+                score=result.get("score", 0),
+                category=payload.get("category"),
+                description=payload.get("description"),
+            ))
+
+        return items
+
+    except Exception as e:
+        raise HTTPException(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail=f"Search failed: {str(e)}"
+        )
+# Services module
+"""
+Diagnosis service for plant problem matching.
+"""
+
+import re
+from typing import Optional
+from app.services.qdrant_client import get_qdrant
+from app.services.text_embeddings import get_text_embedding, get_sparse_embedding
+
+
+class DiagnosisService:
+    """Service for diagnosing plant problems from symptoms."""
+
+    def __init__(self):
+        self.qdrant = get_qdrant()
+        self.text_embed = get_text_embedding()
+        self.sparse_embed = get_sparse_embedding()
+
+    async def diagnose(
+        self,
+        plant_id: str,
+        symptom: str,
+        limit: int = 3,
+    ) -> dict | None:
+        """
+        Find matching problems for a plant based on symptom.
+
+        Args:
+            plant_id: Plant identifier (slug)
+            symptom: Observed symptom description
+
+        Returns:
+            Best matching problem dict or None
+        """
+        # Fetch the plant's full payload
+        plant = await self._get_plant_by_slug(plant_id)
+        if not plant:
+            return None
+
+        # Parse problems from text_blob
+        text_blob = plant.get("text_blob", "")
+        problems = self._extract_problems(text_blob)
+
+        if not problems:
+            return None
+
+        # Find best matching problem based on symptom keywords
+        symptom_lower = symptom.lower()
+        symptom_words = set(re.findall(r'\w+', symptom_lower))
+        
+        best_match = None
+        best_score = 0
+
+        for problem in problems:
+            problem_text = f"{problem.get('symptom', '')} {' '.join(problem.get('possible_causes', []))}".lower()
+            problem_words = set(re.findall(r'\w+', problem_text))
+            
+            # Calculate keyword overlap
+            overlap = len(symptom_words & problem_words)
+            if overlap > best_score:
+                best_score = overlap
+                best_match = problem
+
+        if best_match:
+            return {
+                "score": best_score / max(len(symptom_words), 1),
+                "symptom": best_match.get("symptom", ""),
+                "possible_causes": best_match.get("possible_causes", []),
+                "fix": best_match.get("fix", ""),
+                "prevention": best_match.get("prevention", ""),
+            }
+
+        return None
+
+    async def _get_plant_by_slug(self, slug: str) -> dict | None:
+        """Fetch plant payload by slug using scroll."""
+        import requests
+        from app.config import get_settings
+        settings = get_settings()
+
+        offset = None
+        while True:
+            body = {"limit": 100, "with_payload": True, "with_vectors": False}
+            if offset:
+                body["offset"] = offset
+
+            resp = requests.post(
+                f"{settings.qdrant_url}/collections/{settings.plants_collection}/points/scroll",
+                headers={"api-key": settings.qdrant_api_key, "Content-Type": "application/json"},
+                json=body,
+            )
+            if resp.status_code != 200:
+                break
+
+            data = resp.json().get("result", {})
+            points = data.get("points", [])
+
+            for point in points:
+                payload = point.get("payload", {})
+                if payload.get("slug") == slug:
+                    return payload
+
+            next_page = data.get("next_page_offset")
+            if not next_page:
+                break
+            offset = next_page
+
+        return None
+
+    def _extract_problems(self, text_blob: str) -> list[dict]:
+        """Extract problem entries from text_blob."""
+        problems = []
+        
+        # Pattern to match "- Problem: X\n  Causes: ...\n  Fix: ...\n  Prevention: ..."
+        # Matches until next "- Problem:" or end of string
+        pattern = r'-\s*Problem:\s*(.+?)\n\s*Causes:\s*(.+?)\n\s*Fix:\s*(.+?)\n\s*Prevention:\s*(.+?)(?=\n-\s*Problem:|$)'
+        matches = re.findall(pattern, text_blob, re.DOTALL)
+        
+        for match in matches:
+            symptom, causes, fix, prevention = match
+            problems.append({
+                "symptom": symptom.strip(),
+                "possible_causes": [c.strip() for c in causes.split(',')],
+                "fix": fix.strip(),
+                "prevention": prevention.strip(),
+            })
+        
+        return problems
+
+
+# Singleton instance
+_diagnosis_service: Optional[DiagnosisService] = None
+
+
+def get_diagnosis() -> DiagnosisService:
+    """Get diagnosis service singleton."""
+    global _diagnosis_service
+    if _diagnosis_service is None:
+        _diagnosis_service = DiagnosisService()
+    return _diagnosis_service
+"""
+Image embedding service using CLIP.
+"""
+
+from typing import Optional
+import base64
+import io
+from PIL import Image
+import numpy as np
+
+
+class ImageEmbeddingService:
+    """Service for generating CLIP image embeddings."""
+
+    def __init__(self):
+        self._model = None
+        self.dimension = 512
+
+    @property
+    def model(self):
+        """Lazy load CLIP model."""
+        if self._model is None:
+            from sentence_transformers import SentenceTransformer
+            self._model = SentenceTransformer("clip-ViT-B-32")
+        return self._model
+
+    async def embed(self, image_data: str | bytes) -> list[float]:
+        """
+        Generate CLIP embedding from image.
+
+        Args:
+            image_data: Base64 string or bytes of image
+
+        Returns:
+            512-dim embedding vector
+        """
+        # Decode image
+        if isinstance(image_data, str):
+            # Remove data URL prefix if present
+            if "," in image_data:
+                image_data = image_data.split(",", 1)[1]
+            image_bytes = base64.b64decode(image_data)
+        else:
+            image_bytes = image_data
+
+        # Load and preprocess image
+        image = Image.open(io.BytesIO(image_bytes)).convert("RGB")
+
+        # Generate embedding
+        embedding = self.model.encode([image])[0].tolist()
+
+        return embedding
+
+    def embed_from_url(self, url: str) -> list[float]:
+        """
+        Download image from URL and generate embedding.
+
+        Args:
+            url: Image URL
+
+        Returns:
+            512-dim embedding vector
+        """
+        import requests
+
+        resp = requests.get(url)
+        resp.raise_for_status()
+
+        return resp.content
+
+
+# Singleton instance
+_image_service: Optional[ImageEmbeddingService] = None
+
+
+def get_image_embedding() -> ImageEmbeddingService:
+    """Get image embedding service singleton."""
+    global _image_service
+    if _image_service is None:
+        _image_service = ImageEmbeddingService()
+    return _image_service
+"""
+Qdrant client service for vector database operations.
+"""
+
+import requests
+from typing import Optional
+from app.config import get_settings
+
+
+class QdrantService:
+    """Service for Qdrant vector database operations."""
+
+    def __init__(self):
+        self.settings = get_settings()
+        self.url = self.settings.qdrant_url
+        self.key = self.settings.qdrant_api_key
+        self.headers = {"api-key": self.key, "Content-Type": "application/json"}
+
+    # -------------------------------------------------------------------------
+    # Search Methods
+    # -------------------------------------------------------------------------
+
+    async def search_dense_sparse(
+        self,
+        collection: str,
+        dense_vector: list[float],
+        sparse_vector: dict[str, float] | None = None,
+        limit: int = 5,
+        filter_conditions: dict | None = None,
+    ) -> list[dict]:
+        """
+        Hybrid search using dense + sparse vectors.
+
+        Args:
+            collection: Collection name
+            dense_vector: Dense embedding vector
+            sparse_vector: Sparse BM25 weights dict
+            limit: Max results
+            filter_conditions: Optional Qdrant filter
+
+        Returns:
+            List of match dicts with id, score, payload
+        """
+        # Blend dense and sparse for hybrid search
+        query_vector = dense_vector
+
+        body = {
+            "vector": {
+                "name": self.settings.dense_vector_name,
+                "vector": query_vector
+            },
+            "limit": limit,
+            "with_payload": True,
+            "with_vectors": False,
+        }
+
+        if filter_conditions:
+            body["filter"] = filter_conditions
+
+        resp = requests.post(
+            f"{self.url}/collections/{collection}/points/search",
+            headers=self.headers,
+            json=body,
+        )
+        resp.raise_for_status()
+        return resp.json().get("result", [])
+
+    async def search_image(
+        self,
+        collection: str,
+        image_vector: list[float],
+        limit: int = 5,
+    ) -> list[dict]:
+        """
+        Search image collection by vector.
+
+        Args:
+            collection: Collection name (plant-images)
+            image_vector: CLIP embedding vector
+            limit: Max results
+
+        Returns:
+            List of match dicts with id, score, payload
+        """
+        body = {
+            "vector": {
+                "name": self.settings.image_vector_name,
+                "vector": image_vector
+            },
+            "limit": limit,
+            "with_payload": True,
+            "with_vectors": False,
+        }
+
+        resp = requests.post(
+            f"{self.url}/collections/{collection}/points/search",
+            headers=self.headers,
+            json=body,
+        )
+        resp.raise_for_status()
+        return resp.json().get("result", [])
+
+    async def get_point(
+        self,
+        collection: str,
+        point_id: int | str,
+    ) -> dict | None:
+        """
+        Get a single point by ID.
+
+        Args:
+            collection: Collection name
+            point_id: Point ID
+
+        Returns:
+            Point dict or None
+        """
+        resp = requests.post(
+            f"{self.url}/collections/{collection}/points/{point_id}",
+            headers=self.headers,
+            json={},
+        )
+
+        if resp.status_code == 404:
+            return None
+
+        resp.raise_for_status()
+        return resp.json().get("result")
+
+    async def scroll_points(
+        self,
+        collection: str,
+        filter_conditions: dict | None = None,
+        limit: int = 100,
+    ) -> list[dict]:
+        """
+        Scroll through points with optional filter.
+
+        Args:
+            collection: Collection name
+            filter_conditions: Optional Qdrant filter
+            limit: Page size
+
+        Returns:
+            List of point dicts
+        """
+        body = {
+            "limit": limit,
+            "with_payload": True,
+            "with_vectors": False,
+        }
+
+        if filter_conditions:
+            body["filter"] = filter_conditions
+
+        resp = requests.post(
+            f"{self.url}/collections/{collection}/points/scroll",
+            headers=self.headers,
+            json=body,
+        )
+        resp.raise_for_status()
+        return resp.json().get("result", {}).get("points", [])
+
+    async def retrieve(
+        self,
+        collection: str,
+        ids: list[int | str],
+    ) -> list[dict]:
+        """
+        Retrieve points by IDs.
+
+        Args:
+            collection: Collection name
+            ids: List of point IDs
+
+        Returns:
+            List of point dicts with payload
+        """
+        body = {"ids": ids}
+
+        resp = requests.post(
+            f"{self.url}/collections/{collection}/points/retrieve",
+            headers=self.headers,
+            json=body,
+        )
+        resp.raise_for_status()
+        return resp.json().get("result", [])
+
+
+# Singleton instance
+_qdrant_service: Optional[QdrantService] = None
+
+
+def get_qdrant() -> QdrantService:
+    """Get Qdrant service singleton."""
+    global _qdrant_service
+    if _qdrant_service is None:
+        _qdrant_service = QdrantService()
+    return _qdrant_service
+"""
+Text embedding service using OpenAI text-embedding-3-small.
+"""
+
+from typing import Optional
+import requests
+from app.config import get_settings
+
+
+class TextEmbeddingService:
+    """Service for generating text embeddings."""
+
+    def __init__(self):
+        self.settings = get_settings()
+        self.api_key = self.settings.openai_api_key
+        self.model = self.settings.openai_embedding_model
+        self.dimension = self.settings.dense_dim
+        self._cache: dict[str, list[float]] = {}
+
+    async def embed(self, text: str, use_cache: bool = True) -> list[float]:
+        """
+        Generate dense embedding for text.
+
+        Args:
+            text: Input text
+            use_cache: Whether to cache results
+
+        Returns:
+            1536-dim embedding vector
+        """
+        cache_key = text.lower().strip()
+        
+        if use_cache and cache_key in self._cache:
+            return self._cache[cache_key]
+
+        if not self.api_key:
+            # Return deterministic mock for testing
+            vector = self._mock_embedding(cache_key)
+            return vector
+
+        headers = {
+            "Authorization": f"Bearer {self.api_key}",
+            "Content-Type": "application/json",
+        }
+
+        resp = requests.post(
+            "https://api.openai.com/v1/embeddings",
+            headers=headers,
+            json={
+                "input": text[:8192],  # Truncate if too long
+                "model": self.model,
+                "dimensions": self.dimension,
+            },
+        )
+        resp.raise_for_status()
+
+        embedding = resp.json()["data"][0]["embedding"]
+        
+        if use_cache:
+            self._cache[cache_key] = embedding
+            
+        return embedding
+
+    def _mock_embedding(self, text: str) -> list[float]:
+        """Generate deterministic mock embedding from text hash."""
+        import hashlib
+        # Generate enough bytes for 1536 floats
+        h = hashlib.sha256(text.encode()).digest()
+        # Repeat to get enough data (1536 floats * 4 bytes = 6144 bytes needed)
+        data = (h * (6144 // len(h) + 1))[:6144]
+        import struct
+        values = struct.unpack("1536f", data)
+        # Normalize
+        norm = sum(v * v for v in values) ** 0.5
+        if norm == 0:
+            norm = 1
+        return [v / norm for v in values]
+
+    def clear_cache(self):
+        """Clear the embedding cache."""
+        self._cache.clear()
+
+
+class SparseEmbeddingService:
+    """BM25-style sparse embedding service."""
+
+    def __init__(self):
+        self._cache: dict[str, dict[str, float]] = {}
+
+    async def embed(self, text: str, use_cache: bool = True) -> dict[str, float]:
+        """
+        Generate sparse BM25-style embedding.
+
+        Args:
+            text: Input text
+
+        Returns:
+            Dict of {token: weight}
+        """
+        cache_key = text.lower().strip()
+        
+        if use_cache and cache_key in self._cache:
+            return self._cache[cache_key]
+
+        # Tokenize
+        tokens = self._tokenize(text)
+        
+        # Calculate TF-IDF like weights
+        weights = self._calculate_weights(tokens)
+        
+        if use_cache:
+            self._cache[cache_key] = weights
+            
+        return weights
+
+    def _tokenize(self, text: str) -> list[str]:
+        """Simple tokenization and normalization."""
+        import re
+        text = text.lower()
+        # Split on non-alphanumeric
+        tokens = re.findall(r"[a-z0-9]+", text)
+        # Remove stopwords
+        stopwords = {
+            "a", "an", "the", "and", "or", "but", "in", "on", "at", "to", "for",
+            "of", "with", "by", "from", "is", "it", "as", "be", "are", "was",
+            "were", "been", "being", "have", "has", "had", "do", "does", "did",
+            "will", "would", "could", "should", "may", "might", "can", "this",
+            "that", "these", "those", "i", "you", "he", "she", "we", "they",
+        }
+        return [t for t in tokens if t not in stopwords and len(t) > 1]
+
+    def _calculate_weights(self, tokens: list[str]) -> dict[str, float]:
+        """Calculate BM25-like weights."""
+        from collections import Counter
+        import math
+
+        if not tokens:
+            return {}
+
+        tf = Counter(tokens)
+        total = len(tokens)
+
+        # IDF-like factor (simplified - assumes corpus of 75 plants)
+        idf = {}
+        for token in set(tokens):
+            # Approximate IDF - tokens appearing in fewer plants get higher weight
+            df = sum(1 for t in tf.keys() if t == token)
+            idf[token] = math.log((75 + 1) / (df + 1)) + 1
+
+        weights = {}
+        for token, count in tf.items():
+            tf_norm = count / total
+            weights[token] = tf_norm * idf.get(token, 1.0)
+
+        return weights
+
+    def clear_cache(self):
+        """Clear the embedding cache."""
+        self._cache.clear()
+
+
+# Singleton instances
+_text_service: Optional[TextEmbeddingService] = None
+_sparse_service: Optional[SparseEmbeddingService] = None
+
+
+def get_text_embedding() -> TextEmbeddingService:
+    """Get text embedding service singleton."""
+    global _text_service
+    if _text_service is None:
+        _text_service = TextEmbeddingService()
+    return _text_service
+
+
+def get_sparse_embedding() -> SparseEmbeddingService:
+    """Get sparse embedding service singleton."""
+    global _sparse_service
+    if _sparse_service is None:
+        _sparse_service = SparseEmbeddingService()
+    return _sparse_service
+# Utils module
+"""
+Utility functions.
+"""
+
+import re
+
+
+def slugify(text: str) -> str:
+    """
+    Convert plant name or ID to URL-safe slug.
+
+    Examples:
+        "Chinese Evergreen (Aglaonema)" -> "chinese-evergreen-aglaonema"
+        "plant:money_plant" -> "money-plant"
+    """
+    # Remove prefix if present
+    if ":" in text:
+        text = text.split(":", 1)[1]
+
+    text = text.lower().strip()
+    text = re.sub(r"[^\w\s-]", "", text)
+    text = re.sub(r"[-\s]+", "-", text)
+    text = text.strip("-")
+
+    return text
+
+
+def extract_plant_id_from_payload(payload: dict) -> str:
+    """Extract plant_id from Qdrant payload."""
+    return payload.get("plant_id", payload.get("id", ""))
