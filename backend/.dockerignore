@@ -1,0 +1,14 @@
+.venv
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache
+.mypy_cache
+.uv-cache
+arboretum.db
+server.log
+_uvicorn.out.log
+_uvicorn.err.log
+read_webpage
+*.log

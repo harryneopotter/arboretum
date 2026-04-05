@@ -1,3 +1,7 @@
+# Python cache
+__pycache__/
+*.pyc
+
 # Dependency install and cache directories
 node_modules
 .npm-cache
@@ -21,3 +25,26 @@ build
 # Secrets
 .env
 backend/app/.env
+backend/arboretum.db
+backend/.venv
+backend/.uv-cache
+scripts/
+issues/
+ backend/app/routers/telemetry.py
+frontend/.npm-cache
+APP_REVIEW.md
+frontend/node_modules
+frontend/android
+frontend/android-home
+backend/server.log
+backend/*.log
+backend/read_webpage/
+.android/
+.android-home/
+.github/skills/
+.gradle-home
+.npm-cache
+.npm-tmp
+.tmp
+.uv-cache
+admin/

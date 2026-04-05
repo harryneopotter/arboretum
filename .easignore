@@ -1,0 +1,37 @@
+# Root-level local caches and build artifacts
+.uv-cache/
+.gradle-home/
+.npm-cache/
+.npm-tmp/
+.tmp/
+.android/
+.android-home/
+.git/
+.github/
+issues/
+
+# Backend local environments/artifacts
+backend/.venv/
+backend/venv/
+backend/.uv-cache/
+backend/__pycache__/
+backend/.pytest_cache/
+backend/*.db
+backend/**/*.pyc
+
+# Frontend local environments/artifacts
+frontend/node_modules/
+frontend/.npm-cache/
+frontend/.expo/
+frontend/.gradle/
+frontend/android-home/
+frontend/.android-home/
+frontend/android/.gradle/
+frontend/android/.cxx/
+frontend/android/app/.cxx/
+frontend/android/app/build/
+frontend/android/build/
+frontend/android/local.properties
+frontend/ios/Pods/
+frontend/ios/build/
+frontend/**/*.log
