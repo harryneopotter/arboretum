@@ -6,16 +6,14 @@ Run with: uvicorn app.main:app --reload
 
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from app.routers import identify_router, search_router, diagnose_router, plant_router, user_router
+from app.routers import identify_router, search_router, diagnose_router, plant_router, user_router, telemetry_router
 from app.config import get_settings
-from app.database import init_db
 
 # =============================================================================
 # App Initialization
 # =============================================================================
 
 settings = get_settings()
-init_db()  # ensure SQLite tables exist on startup
 
 app = FastAPI(
     title="Plant Care API",
@@ -24,6 +22,13 @@ app = FastAPI(
     docs_url="/docs",
     redoc_url="/redoc",
 )
+
+
+@app.on_event("startup")
+async def startup_event():
+    # Keep startup lightweight for Cloud Run. Database schema creation and
+    # model loading happen lazily on the first request that needs them.
+    return
 
 # =============================================================================
 # CORS Middleware (Android-friendly)
@@ -46,6 +51,7 @@ app.include_router(search_router)
 app.include_router(diagnose_router)
 app.include_router(plant_router)
 app.include_router(user_router)
+app.include_router(telemetry_router)
 
 # =============================================================================
 # Health Check
@@ -77,6 +83,7 @@ async def root():
             "identify": "/identify",
             "search": "/search",
             "diagnose": "/diagnose",
+            "events": "/events",
             "plant": "/plant/{id}",
         }
     }

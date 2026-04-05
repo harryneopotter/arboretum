@@ -15,8 +15,8 @@ async def diagnose_plant(request: DiagnoseRequest):
     Diagnose a plant problem from symptoms.
 
     Steps:
-    1. Embed symptom (dense + sparse)
-    2. Search only problem-level entries for the plant
+    1. Load problem entries for the selected plant
+    2. Score each problem with semantic similarity + keyword overlap
     3. Return best matching problem with causes, fix, prevention
     """
     try:

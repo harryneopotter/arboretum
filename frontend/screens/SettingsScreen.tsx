@@ -10,17 +10,18 @@ export default function SettingsScreen({ navigate }: { navigate: (s: string) => 
   const { profile, savedPlants } = useStore();
   const [backendHealthy, setBackendHealthy] = useState<boolean | null>(null);
 
-  const loadHealth = async (isMounted = true) => {
+  const loadHealth = async (onResult?: (healthy: boolean) => void) => {
     const healthy = await api.health();
-    if (isMounted) {
-      setBackendHealthy(healthy);
-    }
+    if (onResult) onResult(healthy);
+    else setBackendHealthy(healthy);
   };
 
   useEffect(() => {
     let mounted = true;
 
-    loadHealth(mounted);
+    loadHealth((healthy) => {
+      if (mounted) setBackendHealthy(healthy);
+    });
 
     return () => {
       mounted = false;

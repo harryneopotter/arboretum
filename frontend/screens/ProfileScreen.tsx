@@ -12,7 +12,7 @@ import { ArrowLeft, Droplet, Sun, Heart } from 'lucide-react-native';
 import { Label } from '../components';
 import { colors } from '../theme';
 import { useStore } from '../store';
-import { getPlantImage } from '../utils';
+import { getBestPlantImage } from '../utils';
 
 export default function ProfileScreen({ navigate }: { navigate: (s: string) => void }) {
   const { currentPlant, savePlant, removePlant, isSaved, previousScreen } = useStore();
@@ -20,8 +20,8 @@ export default function ProfileScreen({ navigate }: { navigate: (s: string) => v
   if (!currentPlant) {
     return (
       <View style={styles.container}>
-        <TouchableOpacity onPress={() => navigate('HOME')}>
-          <ArrowLeft size={24} />
+        <TouchableOpacity style={styles.backBtn} onPress={() => navigate('HOME')}>
+          <ArrowLeft size={24} color={colors.surface} strokeWidth={1.5} />
         </TouchableOpacity>
         <Text>Loading...</Text>
       </View>
@@ -30,9 +30,7 @@ export default function ProfileScreen({ navigate }: { navigate: (s: string) => v
 
   const plantId = currentPlant.slug || currentPlant.id || 'unknown';
   const saved = isSaved(plantId);
-  const heroImage = currentPlant.image_url
-    ? { uri: currentPlant.image_url }
-    : getPlantImage(currentPlant.slug || currentPlant.plant_name);
+  const heroImage = getBestPlantImage(currentPlant);
   const commonProblems = currentPlant.common_problems || [];
 
   return (
@@ -65,12 +63,6 @@ export default function ProfileScreen({ navigate }: { navigate: (s: string) => v
           <View style={styles.tags}>
             <View style={styles.tag}><Text style={styles.tagText}>Easy Care</Text></View>
             <View style={styles.tag}><Text style={styles.tagText}>Air Purifying</Text></View>
-          </View>
-
-          <View style={styles.tabs}>
-            <Text style={styles.tabActive}>Overview</Text>
-            <Text style={styles.tab}>Care</Text>
-            <Text style={styles.tab}>Problems</Text>
           </View>
 
           <View style={styles.careCard}>
@@ -164,9 +156,6 @@ const styles = StyleSheet.create({
   tags: { flexDirection: 'row', flexWrap: 'wrap', gap: 8, marginBottom: 24 },
   tag: { backgroundColor: colors.surfaceAlt, paddingHorizontal: 14, paddingVertical: 6, borderRadius: 16 },
   tagText: { fontSize: 13, fontWeight: '500', color: colors.text },
-  tabs: { flexDirection: 'row', gap: 24, marginBottom: 24, borderBottomWidth: 1, borderBottomColor: 'rgba(25,28,26,0.1)', paddingBottom: 12 },
-  tab: { fontSize: 16, color: colors.textMuted },
-  tabActive: { fontSize: 16, fontWeight: '600', color: colors.primary },
   careCard: { flexDirection: 'row', gap: 16, backgroundColor: colors.surface, borderRadius: 24, padding: 24, marginBottom: 16 },
   careIcon: { width: 48, height: 48, backgroundColor: '#e8ece6', borderRadius: 24, alignItems: 'center', justifyContent: 'center' },
   careTitle: { fontSize: 16, fontWeight: '600', color: colors.text, marginBottom: 4 },

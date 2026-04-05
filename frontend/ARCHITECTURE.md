@@ -118,7 +118,7 @@ Layer `surface_container_lowest` (#ffffff) on `surface_container_low` (#f2f4f0).
 | **ResultsScreen** | Display ID matches | Identify scan | Best match (98%), secondary matches, retake | ✅ IMPLEMENTED |
 | **ProfileScreen** | Plant care summary | Results View | Hero image, care cards, origin, "Full Care Guide" button | ✅ IMPLEMENTED |
 | **FullCareGuideScreen** | Extended care details | Profile | 5 care sections, troubleshooting, pro tips | ✅ IMPLEMENTED |
-| **DiagnosisScreen** | Problem ID placeholder | Home Diagnose | Coming soon placeholder | ✅ IMPLEMENTED |
+| **DiagnosisScreen** | Symptom diagnosis | Home Diagnose | Symptom input, backend diagnosis result, fallback guidance | ✅ IMPLEMENTED |
 | **SettingsScreen** | User preferences | Bottom nav | Profile card (tappable), preferences, about | ✅ IMPLEMENTED |
 | **EditProfileScreen** | Edit user profile | Settings Profile | Avatar, form fields, save/cancel | ✅ IMPLEMENTED |
 
@@ -140,7 +140,7 @@ All critical screens for MVP have been implemented. The app now has a complete u
 8. **Full Care Guide** → extended details
 9. **Settings** → preferences
 10. **Edit Profile** → user info management
-11. **Diagnosis** → (placeholder for future)
+11. **Diagnosis** → API-backed symptom analysis
 
 ---
 

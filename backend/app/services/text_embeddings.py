@@ -3,7 +3,7 @@ Text embedding service using OpenAI text-embedding-3-small.
 """
 
 from typing import Optional
-import requests
+import httpx
 from app.config import get_settings
 
 
@@ -43,16 +43,18 @@ class TextEmbeddingService:
             "Content-Type": "application/json",
         }
 
-        resp = requests.post(
-            "https://api.openai.com/v1/embeddings",
-            headers=headers,
-            json={
-                "input": text[:8192],  # Truncate if too long
-                "model": self.model,
-                "dimensions": self.dimension,
-            },
-        )
-        resp.raise_for_status()
+        timeout = httpx.Timeout(connect=5.0, read=30.0, write=30.0, pool=5.0)
+        async with httpx.AsyncClient(timeout=timeout) as client:
+            resp = await client.post(
+                "https://api.openai.com/v1/embeddings",
+                headers=headers,
+                json={
+                    "input": text[:8192],  # Truncate if too long
+                    "model": self.model,
+                    "dimensions": self.dimension,
+                },
+            )
+            resp.raise_for_status()
 
         embedding = resp.json()["data"][0]["embedding"]
         

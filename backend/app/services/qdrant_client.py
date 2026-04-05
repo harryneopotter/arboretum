@@ -2,7 +2,7 @@
 Qdrant client service for vector database operations.
 """
 
-import requests
+import httpx
 from typing import Optional
 from app.config import get_settings
 
@@ -15,6 +15,18 @@ class QdrantService:
         self.url = self.settings.qdrant_url
         self.key = self.settings.qdrant_api_key
         self.headers = {"api-key": self.key, "Content-Type": "application/json"}
+        self.timeout = httpx.Timeout(connect=5.0, read=30.0, write=30.0, pool=5.0)
+
+    async def _request_json(self, method: str, path: str, json: dict | None = None) -> dict:
+        async with httpx.AsyncClient(timeout=self.timeout) as client:
+            response = await client.request(
+                method=method,
+                url=f"{self.url}{path}",
+                headers=self.headers,
+                json=json,
+            )
+            response.raise_for_status()
+            return response.json()
 
     # -------------------------------------------------------------------------
     # Search Methods
@@ -29,41 +41,37 @@ class QdrantService:
         filter_conditions: dict | None = None,
     ) -> list[dict]:
         """
-        Hybrid search using dense + sparse vectors.
+        Search using dense vectors.
 
         Args:
             collection: Collection name
             dense_vector: Dense embedding vector
-            sparse_vector: Sparse BM25 weights dict
+            sparse_vector: Reserved for future use
             limit: Max results
             filter_conditions: Optional Qdrant filter
 
         Returns:
             List of match dicts with id, score, payload
         """
-        # Blend dense and sparse for hybrid search
-        query_vector = dense_vector
-
         body = {
             "vector": {
                 "name": self.settings.dense_vector_name,
-                "vector": query_vector
+                "vector": dense_vector
             },
             "limit": limit,
             "with_payload": True,
-            "with_vectors": False,
+            "with_vector": False,
         }
 
         if filter_conditions:
             body["filter"] = filter_conditions
 
-        resp = requests.post(
-            f"{self.url}/collections/{collection}/points/search",
-            headers=self.headers,
+        response = await self._request_json(
+            "POST",
+            f"/collections/{collection}/points/search",
             json=body,
         )
-        resp.raise_for_status()
-        return resp.json().get("result", [])
+        return response.get("result", [])
 
     async def search_image(
         self,
@@ -89,16 +97,15 @@ class QdrantService:
             },
             "limit": limit,
             "with_payload": True,
-            "with_vectors": False,
+            "with_vector": False,
         }
 
-        resp = requests.post(
-            f"{self.url}/collections/{collection}/points/search",
-            headers=self.headers,
+        response = await self._request_json(
+            "POST",
+            f"/collections/{collection}/points/search",
             json=body,
         )
-        resp.raise_for_status()
-        return resp.json().get("result", [])
+        return response.get("result", [])
 
     async def get_point(
         self,
@@ -115,17 +122,20 @@ class QdrantService:
         Returns:
             Point dict or None
         """
-        resp = requests.post(
-            f"{self.url}/collections/{collection}/points/{point_id}",
-            headers=self.headers,
-            json={},
-        )
+        try:
+            response = await self._request_json(
+                "GET",
+                f"/collections/{collection}/points/{point_id}",
+            )
+        except httpx.HTTPStatusError as exc:
+            if exc.response.status_code == 404:
+                return None
+            raise
 
-        if resp.status_code == 404:
+        if not response:
             return None
 
-        resp.raise_for_status()
-        return resp.json().get("result")
+        return response.get("result")
 
     async def scroll_points(
         self,
@@ -147,19 +157,18 @@ class QdrantService:
         body = {
             "limit": limit,
             "with_payload": True,
-            "with_vectors": False,
+            "with_vector": False,
         }
 
         if filter_conditions:
             body["filter"] = filter_conditions
 
-        resp = requests.post(
-            f"{self.url}/collections/{collection}/points/scroll",
-            headers=self.headers,
+        response = await self._request_json(
+            "POST",
+            f"/collections/{collection}/points/scroll",
             json=body,
         )
-        resp.raise_for_status()
-        return resp.json().get("result", {}).get("points", [])
+        return response.get("result", {}).get("points", [])
 
     async def retrieve(
         self,
@@ -178,13 +187,12 @@ class QdrantService:
         """
         body = {"ids": ids}
 
-        resp = requests.post(
-            f"{self.url}/collections/{collection}/points/retrieve",
-            headers=self.headers,
+        response = await self._request_json(
+            "POST",
+            f"/collections/{collection}/points/retrieve",
             json=body,
         )
-        resp.raise_for_status()
-        return resp.json().get("result", [])
+        return response.get("result", [])
 
 
 # Singleton instance

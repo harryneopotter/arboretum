@@ -7,14 +7,27 @@ import {
   TouchableOpacity,
   Image,
   TextInput,
-  ActivityIndicator,
+  Alert,
 } from 'react-native';
 import { Search, Scan, Activity, Wind, Leaf, Sun, Droplet, CloudRain } from 'lucide-react-native';
 import { Label, AmbientCard } from '../components';
 import { colors } from '../theme';
-import { useStore, SearchResult } from '../store';
+import { useStore } from '../store';
 import { api } from '../api/client';
-import { getPlantImage } from '../utils';
+import { getBestPlantImage } from '../utils';
+
+type CuratedPlant = {
+  slug: string;
+  plant_name: string;
+  category?: string;
+  description?: string;
+  image_url?: string;
+  reference_images?: Array<{
+    url?: string;
+    image_url?: string;
+    path?: string;
+  }>;
+};
 
 // North India seasons: Dec-Feb Winter, Mar-May Summer, Jun-Sep Monsoon, Oct-Nov Autumn
 function getSeasonalInsight(): { icon: React.ReactNode; title: string; text: string } {
@@ -53,22 +66,57 @@ const featuredPlants = [
   { name: 'Calathea Ornata', sub: 'Pinstripe', img: require('../assets/images/calathea.jpg') },
 ];
 
+const CURATED_SEEDS: CuratedPlant[] = [
+  { slug: 'parlour-palm', plant_name: 'Parlour Palm', category: 'Indoor Tropical', description: 'Graceful indoor palm with feathery fronds.' },
+  { slug: 'kalanchoe-indoor', plant_name: 'Kalanchoe Indoor', category: 'Indoor Flowering', description: 'Succulent with colorful flower clusters.' },
+  { slug: 'bamboo-palm', plant_name: 'Bamboo Palm', category: 'Indoor Tropical', description: 'Graceful tropical palm with airy fronds.' },
+  { slug: 'boston-fern-variant', plant_name: 'Boston Fern (Variant)', category: 'Indoor Tropical', description: 'Feathery fronds, air-purifying, and humidity-loving.' },
+  { slug: 'monstera-adansonii', plant_name: 'Monstera Adansonii', category: 'Indoor Climber', description: 'Compact Monstera with fenestrated leaves.' },
+  { slug: 'kentia-palm', plant_name: 'Kentia Palm', category: 'Indoor Tropical', description: 'Elegant tall palm with graceful fronds.' },
+];
+
 export default function HomeScreen({ navigate }: { navigate: (s: string) => void }) {
-  const { searchPlants, searchResults, savedPlants, isLoading, loadPlant } = useStore();
+  const { savedPlants, isLoading, loadPlant, loadPlantError, currentPlant, searchPlants } = useStore();
   const [searchText, setSearchText] = useState('');
-  const [curatedPlants, setCuratedPlants] = useState<SearchResult[]>([]);
+  const [curatedPlants, setCuratedPlants] = useState<CuratedPlant[]>(CURATED_SEEDS);
   const [curatedLoading, setCuratedLoading] = useState(true);
 
   useEffect(() => {
     let mounted = true;
-    api.search('tropical indoor houseplants', 6).then((results) => {
-      if (mounted) {
-        setCuratedPlants(results);
-        setCuratedLoading(false);
+    const loadCuratedPlants = async () => {
+      try {
+        const hydrated = await Promise.allSettled(
+          CURATED_SEEDS.map(async (seed) => {
+            const profile = await api.getPlant(seed.slug);
+            return profile
+              ? {
+                  slug: profile.slug || seed.slug,
+                  plant_name: profile.plant_name || seed.plant_name,
+                  category: profile.category || seed.category,
+                  description: profile.description || seed.description,
+                  image_url: profile.image_url,
+                  reference_images: profile.reference_images,
+                }
+              : seed;
+          })
+        );
+        if (mounted) {
+          setCuratedPlants(
+            hydrated.map((result, index) =>
+              result.status === 'fulfilled' && result.value
+                ? result.value
+                : CURATED_SEEDS[index]
+            )
+          );
+        }
+      } catch {
+        if (mounted) setCuratedPlants(CURATED_SEEDS);
+      } finally {
+        if (mounted) setCuratedLoading(false);
       }
-    }).catch(() => {
-      if (mounted) setCuratedLoading(false);
-    });
+    };
+
+    loadCuratedPlants();
     return () => { mounted = false; };
   }, []);
 
@@ -81,10 +129,11 @@ export default function HomeScreen({ navigate }: { navigate: (s: string) => void
   return (
     <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
       <View style={styles.header}>
-        <View>
-          <Label>The Arboretum</Label>
-          <Text style={styles.title}>Plant Care</Text>
-        </View>
+        <Image
+          source={require('../assets/logo.png')}
+          style={styles.brandLogo}
+          resizeMode="contain"
+        />
         <Image 
           source={require('../assets/images/avatar.jpg')} 
           style={styles.avatar} 
@@ -126,7 +175,19 @@ export default function HomeScreen({ navigate }: { navigate: (s: string) => void
 
         <TouchableOpacity 
           style={styles.diagnoseCard}
-          onPress={() => navigate('DIAGNOSIS')}
+          onPress={() => {
+            if (currentPlant) {
+              navigate('DIAGNOSIS');
+              return;
+            }
+            if (savedPlants.length > 0) {
+              Alert.alert('Choose a plant first', 'Open one of your saved plants to run diagnosis.');
+              navigate('MY_PLANTS');
+              return;
+            }
+            Alert.alert('Identify a plant first', 'Capture or search a plant before diagnosing issues.');
+            navigate('IDENTIFY');
+          }}
         >
           <View>
             <Label style={styles.comingSoonLabel}>Plant Health</Label>
@@ -157,21 +218,24 @@ export default function HomeScreen({ navigate }: { navigate: (s: string) => void
           {(isLoading || curatedLoading) && <Label>Loading...</Label>}
         </View>
         <ScrollView horizontal showsHorizontalScrollIndicator={false}>
-          {curatedLoading ? (
-            <View style={styles.curatedLoader}>
-              <ActivityIndicator size="small" color={colors.primary} />
-            </View>
-          ) : curatedPlants.length > 0 ? (
+          {curatedPlants.length > 0 ? (
             curatedPlants.map((plant, i) => (
               <TouchableOpacity
                 key={plant.slug || i}
                 style={styles.plantCard}
                 onPress={async () => {
-                  await loadPlant(plant.slug);
-                  navigate('PROFILE');
+                  const loadedPlant = await loadPlant(plant.slug);
+                  if (loadedPlant) {
+                    navigate('PROFILE');
+                  } else {
+                    Alert.alert('Plant unavailable', loadPlantError || 'This plant profile could not be loaded right now.');
+                  }
                 }}
               >
-                <Image source={getPlantImage(plant.slug || plant.plant_name)} style={styles.plantImage} />
+                <Image
+                  source={getBestPlantImage(plant)}
+                  style={styles.plantImage}
+                />
                 <Label style={styles.plantLabel}>{plant.category || 'Houseplant'}</Label>
                 <Text style={styles.plantName}>{plant.plant_name}</Text>
               </TouchableOpacity>
@@ -217,8 +281,8 @@ export default function HomeScreen({ navigate }: { navigate: (s: string) => void
 
 const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: colors.background },
-  header: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', padding: 24, paddingTop: 48 },
-  title: { fontSize: 32, fontWeight: '600', color: colors.text, marginTop: 8 },
+  header: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', padding: 24, paddingTop: 48, gap: 16 },
+  brandLogo: { width: 230, height: 76, flexShrink: 1 },
   avatar: { width: 48, height: 48, borderRadius: 24 },
   searchContainer: { paddingHorizontal: 24, marginBottom: 24 },
   searchBox: { flexDirection: 'row', alignItems: 'center', backgroundColor: colors.surfaceAlt, borderRadius: 16, padding: 16 },
@@ -240,7 +304,6 @@ const styles = StyleSheet.create({
   collectionSection: { marginTop: 32, paddingLeft: 24 },
   collectionHeader: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', paddingRight: 24, marginBottom: 16 },
   sectionTitle: { fontSize: 22, fontWeight: '500', color: colors.text },
-  curatedLoader: { width: 240, height: 256, alignItems: 'center', justifyContent: 'center' },
   plantCard: { width: 240, marginRight: 16 },
   plantImage: { height: 256, borderRadius: 24, width: '100%' },
   plantLabel: { marginVertical: 8 },

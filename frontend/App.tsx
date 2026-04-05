@@ -1,7 +1,7 @@
-import React from 'react';
-import { View, StyleSheet } from 'react-native';
+import React, { useEffect } from 'react';
+import { View, StyleSheet, BackHandler } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
-import { SafeAreaProvider } from 'react-native-safe-area-context';
+import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 import { AppProvider, useStore, Screen } from './store';
 import { TouchableOpacity } from 'react-native';
 import { Home, Camera, Activity, Settings, Leaf } from 'lucide-react-native';
@@ -33,16 +33,27 @@ function AppContent() {
   const {
     currentScreen,
     navigate,
-    searchResults,
-    isSearching,
-    searchPlants,
+    goBack,
     identificationResults,
     identifiedPlant,
+    identificationMessage,
     identifyImage,
-    currentPlant,
-    savedPlants,
+    loadPlant,
     isLoading,
   } = useStore();
+
+  useEffect(() => {
+    const onHardwareBack = () => {
+      if (currentScreen !== 'HOME' && currentScreen !== 'ONBOARDING') {
+        goBack();
+        return true;
+      }
+      return false;
+    };
+
+    const subscription = BackHandler.addEventListener('hardwareBackPress', onHardwareBack);
+    return () => subscription.remove();
+  }, [currentScreen, goBack]);
 
   const renderScreen = () => {
     switch (currentScreen) {
@@ -69,6 +80,15 @@ function AppContent() {
             matches={identificationResults}
             bestMatch={identifiedPlant}
             isLoading={isLoading}
+            message={identificationMessage}
+            onSelectMatch={async (slug) => {
+              const loaded = await loadPlant(slug);
+              if (loaded) {
+                navigate('PROFILE');
+                return true;
+              }
+              return false;
+            }}
           />
         );
 
@@ -114,7 +134,7 @@ function AppContent() {
   const isMyPlantsFlow = currentScreen === 'MY_PLANTS';
 
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container} edges={['top', 'bottom']}>
       <StatusBar style="dark" />
       
       <View style={styles.content}>
@@ -146,7 +166,7 @@ function AppContent() {
           })}
         </View>
       )}
-    </View>
+    </SafeAreaView>
   );
 }
 

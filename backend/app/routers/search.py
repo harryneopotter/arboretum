@@ -5,7 +5,7 @@ Text search router.
 from fastapi import APIRouter, HTTPException, status
 from app.models import SearchRequest, SearchResponseItem
 from app.services.qdrant_client import get_qdrant
-from app.services.text_embeddings import get_text_embedding, get_sparse_embedding
+from app.services.text_embeddings import get_text_embedding
 from app.config import get_settings
 
 router = APIRouter(prefix="/search", tags=["Plant Search"])
@@ -14,29 +14,25 @@ router = APIRouter(prefix="/search", tags=["Plant Search"])
 @router.post("", response_model=list[SearchResponseItem])
 async def search_plants(request: SearchRequest):
     """
-    Search plants using hybrid dense + sparse embeddings.
+    Search plants using dense semantic embeddings.
 
     Steps:
     1. Generate dense 1536-dim embedding
-    2. Generate sparse BM25 embedding
-    3. Perform hybrid search in plants collection
-    4. Return top matches with scores
+    2. Search plants collection by dense vector similarity
+    3. Return top matches with scores
     """
     try:
         settings = get_settings()
         qdrant = get_qdrant()
         text_service = get_text_embedding()
-        sparse_service = get_sparse_embedding()
 
-        # Generate embeddings
+        # Generate dense embedding
         dense_vec = await text_service.embed(request.query)
-        sparse_vec = await sparse_service.embed(request.query)
 
-        # Hybrid search
+        # Dense semantic search
         results = await qdrant.search_dense_sparse(
             collection=settings.plants_collection,
             dense_vector=dense_vec,
-            sparse_vector=sparse_vec,
             limit=request.limit,
         )
 

@@ -1,89 +1,37 @@
-# Arboretum App - Status Summary
+# Arboretum App Status
 
-## ✅ Complete (Wired to Backend)
+## Current State
 
-| Screen | API Connection | Data Flow |
-|--------|----------------|-----------|
-| **HomeScreen** | ✅ useStore | Search input → API → SearchResultsScreen |
-| **SearchResultsScreen** | ✅ useStore | Displays live search results from Qdrant |
-| **ProfileScreen** | ✅ useStore | Shows `currentPlant` data with save/unsave |
+The app is in beta-hardening mode. Core screens and backend wiring are in place, but release readiness depends on runtime stability and full UX behavior validation on a physical Android device.
 
-## ⚠️ Partially Wired (Needs Backend Enhancement)
+## Implemented Flows
 
-| Screen | Missing | Current State |
-|--------|---------|---------------|
-| **IdentifyScreen** | Image upload | Needs camera → base64 → /identify endpoint |
-| **ResultsScreen** | API results | Mock data (needs identifyImage response) |
-| **MyPlantsScreen** | Saved plants persist | In-memory only (needs AsyncStorage) |
+- Onboarding -> Home
+- Search -> Search Results -> Profile -> Full Care Guide
+- Identify -> Results -> Profile
+- Save/unsave plants -> My Plants
+- Profile edit -> local + backend profile sync
+- Diagnosis flow with backend response rendering
+- Beta telemetry posting for core actions
 
-## 📱 UI Complete (Static Screens)
+## Hardening Work Completed
 
-| Screen | Features |
-|--------|----------|
-| **OnboardingScreen** | 3-slide intro, Get Started CTA |
-| **DiagnosisScreen** | Placeholder (Coming Soon) |
-| **EditProfileScreen** | Form fields (not persisted) |
-| **FullCareGuideScreen** | Extended plant details (static data) |
-| **SettingsScreen** | Profile, preferences, about lists |
+- Search/identify/profile client now surfaces real request errors instead of silently converting failures to empty data.
+- Results screen supports selecting secondary identify candidates.
+- Home diagnosis shortcut now guides users to select/identify a plant first.
+- My Plants now shows unavailable saved items and supports retry loading.
+- Hardware back handling uses app-level history instead of always forcing Home.
+- Backend telemetry routes enforce enable flag and admin-token protection.
+- Backend hot-path Qdrant and embedding HTTP calls use async clients.
 
-## 🔧 Architecture
+## Still Required Before Broad Beta
 
-```
-Frontend (React Native/Expo)
-├── App.tsx - Main with navigation state
-├── store/index.ts - Global state (React Context)
-│   ├── searchPlants(query) → calls api.search()
-│   ├── loadPlant(id) → calls api.getPlant()
-│   ├── identifyImage(img) → calls api.identify()
-│   └── savedPlants[] + savePlant()/removePlant()
-│
-├── api/client.ts - HTTP client to FastAPI
-│   └── API_URL defaults to localhost on web/PC and 10.0.2.2 on Android
-│
-└── screens/*.tsx - All 11 screens
+- Cloud Run smoke validation under real device traffic (search/identify/diagnose latency).
+- End-to-end UI pass to confirm every visible control has intentional behavior.
+- Final copy review for product claims vs actual model/data capability.
+- APK regression pass after backend redeploy.
 
-Backend (FastAPI + Qdrant)
-├── /search - Hybrid dense + sparse search
-├── /identify - CLIP embedding + image search
-├── /plant/{id} - Full plant profile
-└── /health - Status check
-```
+## Validation Commands
 
-## 🚀 Next Steps
-
-1. **Start the Backend**
-   ```bash
-   cd /home/.z/workspaces/con_pFL0ToqgSlwYoFcE
-   uvicorn app.main:app --host 0.0.0.0 --port 8000
-   ```
-
-2. **Run the App**
-   ```bash
-   cd /home/workspace/plant-app/arboretum
-   npx expo start --android
-   ```
-
-3. **Complete Wiring**
-   - Wire IdentifyScreen to `identifyImage(imageBase64)`
-   - Wire ResultsScreen to use `identificationResults`
-   - Add AsyncStorage for persisted saved plants
-
-## 📊 Design Document
-
-See `ARCHITECTURE.md` for complete design system:
-- Tonal layering (#f8faf6 > #f2f4f0 > #ffffff)
-- "No-line" rule (no borders)
-- Typography: Inter, Editorial hierarchy
-- Spacing: 4px base unit
-
-## 🎯 Flow Completion
-
-```
-ONBOARDING → HOME ──┬── Search → SearchResults → Profile → FullCareGuide
-                    ├── Identify → [CAMERA] → Results → Profile
-                    ├── MyPlants (collection)
-                    ├── Diagnosis (WIP)
-                    └── Settings → EditProfile
-```
-
-All navigation flows implemented, 3 screens fully wired to backend.
+- `cd frontend && npx tsc --noEmit`
+- `python -m compileall backend\\app -q`

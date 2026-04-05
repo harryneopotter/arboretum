@@ -5,6 +5,7 @@ import {
   StyleSheet,
   ScrollView,
   TouchableOpacity,
+  Alert,
 } from 'react-native';
 import { ArrowLeft } from 'lucide-react-native';
 import { Label, AmbientCard } from '../components';
@@ -12,11 +13,15 @@ import { colors } from '../theme';
 import { useStore } from '../store';
 
 export default function SearchResultsScreen({ navigate }: { navigate: (s: string) => void }) {
-  const { searchQuery, searchResults, loadPlant, isSearching } = useStore();
+  const { searchQuery, searchResults, loadPlant, isSearching, searchError, loadPlantError } = useStore();
 
   const handleSelect = async (slug: string) => {
-    await loadPlant(slug);
-    navigate('PROFILE');
+    const loaded = await loadPlant(slug);
+    if (loaded) {
+      navigate('PROFILE');
+    } else {
+      Alert.alert('Plant unavailable', loadPlantError || 'This plant profile could not be loaded right now.');
+    }
   };
 
   return (
@@ -35,9 +40,18 @@ export default function SearchResultsScreen({ navigate }: { navigate: (s: string
       </View>
 
       <ScrollView style={styles.results} showsVerticalScrollIndicator={false}>
+        {searchError ? (
+          <View style={styles.errorCard}>
+            <Text style={styles.errorTitle}>Search unavailable</Text>
+            <Text style={styles.errorText}>{searchError}</Text>
+          </View>
+        ) : null}
+
         {searchResults.length === 0 && !isSearching && (
           <View style={styles.empty}>
-            <Text style={styles.emptyText}>No plants found matching your search.</Text>
+            <Text style={styles.emptyText}>
+              {searchError ? 'Could not run search right now.' : 'No plants found matching your search.'}
+            </Text>
             <Text style={styles.emptySub}>Try different keywords like plant names, symptoms, or care needs.</Text>
           </View>
         )}
@@ -83,6 +97,9 @@ const styles = StyleSheet.create({
   query: { fontSize: 24, fontWeight: '600', color: colors.text },
   loading: { marginLeft: 8, color: colors.primaryDark, fontSize: 14 },
   results: { paddingHorizontal: 24 },
+  errorCard: { backgroundColor: colors.surfaceAlt, borderRadius: 16, padding: 16, marginBottom: 16 },
+  errorTitle: { fontSize: 16, fontWeight: '700', color: colors.text, marginBottom: 6 },
+  errorText: { color: colors.textMuted, lineHeight: 20 },
   empty: { alignItems: 'center', padding: 40 },
   emptyText: { fontSize: 18, fontWeight: '500', color: colors.text, textAlign: 'center' },
   emptySub: { marginTop: 8, color: colors.textMuted, textAlign: 'center' },

@@ -7,10 +7,12 @@ import {
   TouchableOpacity,
   TextInput,
   Image,
+  Alert,
 } from 'react-native';
 import { ArrowLeft, Camera, Check } from 'lucide-react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useStore } from '../store';
+import * as ImagePicker from 'expo-image-picker';
 
 const colors = {
   primary: '#23472b',
@@ -30,12 +32,14 @@ export default function EditProfileScreen({ navigate }: { navigate: (s: string) 
   const [email, setEmail] = useState(profile.email);
   const [location, setLocation] = useState(profile.location);
   const [bio, setBio] = useState(profile.bio);
+  const [avatarUrl, setAvatarUrl] = useState(profile.avatarUrl || '');
 
   useEffect(() => {
     setName(profile.name);
     setEmail(profile.email);
     setLocation(profile.location);
     setBio(profile.bio);
+    setAvatarUrl(profile.avatarUrl || '');
   }, [profile]);
 
   const handleSave = () => {
@@ -44,8 +48,26 @@ export default function EditProfileScreen({ navigate }: { navigate: (s: string) 
       email,
       location,
       bio,
+      avatarUrl: avatarUrl || undefined,
     });
     navigate('SETTINGS');
+  };
+
+  const handlePickAvatar = async () => {
+    const { status } = await ImagePicker.requestMediaLibraryPermissionsAsync();
+    if (status !== 'granted') {
+      Alert.alert('Permission needed', 'Gallery access is required to change your profile photo.');
+      return;
+    }
+    const result = await ImagePicker.launchImageLibraryAsync({
+      mediaTypes: ['images'],
+      allowsEditing: true,
+      quality: 0.8,
+      aspect: [1, 1],
+    });
+    if (!result.canceled && result.assets[0]?.uri) {
+      setAvatarUrl(result.assets[0].uri);
+    }
   };
 
   return (
@@ -66,10 +88,10 @@ export default function EditProfileScreen({ navigate }: { navigate: (s: string) 
         <View style={styles.avatarSection}>
           <View style={styles.avatarContainer}>
             <Image
-              source={{ uri: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&q=80' }}
+              source={avatarUrl ? { uri: avatarUrl } : require('../assets/images/avatar.jpg')}
               style={styles.avatar}
             />
-            <TouchableOpacity style={styles.cameraButton}>
+            <TouchableOpacity style={styles.cameraButton} onPress={handlePickAvatar}>
               <Camera size={16} color={colors.primary} strokeWidth={2} />
             </TouchableOpacity>
           </View>

@@ -1,21 +1,25 @@
 import React from 'react';
-import { View, Text, StyleSheet, ScrollView, TouchableOpacity, Image, ActivityIndicator } from 'react-native';
+import { View, Text, StyleSheet, ScrollView, TouchableOpacity, Image, ActivityIndicator, Alert } from 'react-native';
 import { Camera } from 'lucide-react-native';
 import { Label, Button } from '../components';
 import { colors } from '../theme';
 import { Plant, SearchResult } from '../store';
-import { getPlantImage } from '../utils';
+import { getBestPlantImage } from '../utils';
 
 export default function ResultsScreen({ 
   navigate, 
   matches, 
   bestMatch, 
-  isLoading 
+  isLoading,
+  message,
+  onSelectMatch,
 }: { 
   navigate: (s: string) => void, 
   matches: SearchResult[], 
   bestMatch: Plant | null,
-  isLoading: boolean
+  isLoading: boolean,
+  message?: string | null,
+  onSelectMatch: (slug: string) => Promise<boolean>,
 }) {
   if (isLoading) {
     return (
@@ -26,9 +30,10 @@ export default function ResultsScreen({
     );
   }
 
-  const secondaryMatches = matches.slice(1, 3);
+  const primaryCandidate = matches[0] || null;
+  const secondaryMatches = bestMatch ? matches.slice(1, 4) : matches.slice(0, 4);
   const bestMatchScore = matches[0]?.score ?? 0;
-  const bestMatchSource = bestMatch?.image_url ? { uri: bestMatch.image_url } : getPlantImage(bestMatch?.slug || bestMatch?.plant_name || 'monstera');
+  const bestMatchSource = getBestPlantImage(bestMatch || undefined);
 
   return (
     <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
@@ -38,7 +43,9 @@ export default function ResultsScreen({
           <Text style={styles.badgeText}>Analysis Complete</Text>
         </View>
         <Text style={styles.title}>Identification Results</Text>
-        <Text style={styles.subtitle}>{matches.length} potential matches found</Text>
+        <Text style={styles.subtitle}>
+          {message || `${matches.length} potential matches found`}
+        </Text>
       </View>
 
       <View style={styles.resultsContainer}>
@@ -64,7 +71,17 @@ export default function ResultsScreen({
         {secondaryMatches.length > 0 && (
           <View style={styles.secondaryContainer}>
             {secondaryMatches.map((match, i) => (
-              <View key={i} style={styles.secondaryMatch}>
+              <TouchableOpacity
+                key={match.slug || i}
+                style={styles.secondaryMatch}
+                activeOpacity={0.85}
+                onPress={async () => {
+                  const ok = await onSelectMatch(match.slug);
+                  if (!ok) {
+                    Alert.alert('Plant unavailable', 'Could not open this candidate profile right now.');
+                  }
+                }}
+              >
                 <View style={{ flex: 1 }}>
                   <Label style={{ color: colors.textMutedLight, fontSize: 10, marginBottom: 4 }}>
                     {match.category || 'Related Species'}
@@ -72,8 +89,14 @@ export default function ResultsScreen({
                   <Text style={styles.secondaryName}>{match.plant_name}</Text>
                 </View>
                 <Text style={styles.secondaryConf}>{Math.round(match.score * 100)}%</Text>
-              </View>
+              </TouchableOpacity>
             ))}
+          </View>
+        )}
+
+        {!bestMatch && primaryCandidate && (
+          <View style={styles.retakeContainer}>
+            <Text style={styles.retakeText}>No confident best match yet. Try selecting a candidate above or retake with better lighting.</Text>
           </View>
         )}
 

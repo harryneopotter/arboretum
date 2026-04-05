@@ -8,7 +8,8 @@ A React Native (Expo) Android app for plant identification and care.
 - **Search & Browse** - Search the botanical database
 - **My Plants Collection** - Track your personal plant collection
 - **Care Guides** - Detailed care instructions for each plant
-- **Problem Diagnosis** - Identify plant health issues (coming soon)
+- **Problem Diagnosis** - Identify plant health issues using the backend diagnosis flow
+- **Beta Telemetry** - Logs core beta/dev actions and response summaries for admin review
 
 ## Screens (11 Total)
 
@@ -20,7 +21,7 @@ A React Native (Expo) Android app for plant identification and care.
 6. **ResultsScreen** - Display identification matches with confidence scores
 7. **ProfileScreen** - Plant details with care summary
 8. **FullCareGuideScreen** - Extended care details and troubleshooting
-9. **DiagnosisScreen** - Problem identification placeholder
+9. **DiagnosisScreen** - Problem diagnosis backed by backend data
 10. **SettingsScreen** - User preferences and app info
 11. **EditProfileScreen** - Edit user profile information
 
@@ -111,25 +112,27 @@ ONBOARDING → HOME (first launch)
 - React Native Safe Area Context
 - Expo Camera & Image Picker
 
-## Status: Ready for Testing
+## Status: Beta Hardening In Progress
 
-All screens implemented and fully navigable. The app includes:
-- Bottom tab navigation with smart highlight rules
-- Mock data for search results and plant profiles
-- Full onboarding flow
-- Working search → results → profile → care guide flow
+Core screens are implemented and backend-connected, with active hardening for reliability and UX integrity. Current build includes:
+- Search, identify, profile, and diagnosis flows backed by FastAPI/Qdrant
+- Saved plants and profile sync by device ID
+- Beta/dev telemetry for core actions
+- Explicit error states for search/profile loading failures
+- Candidate selection in identify results when top confidence is low
 
 ## Next Steps
 
-1. Connect to your FastAPI backend (`con_pFL0ToqgSlwYoFcE`)
-2. Integrate Qdrant for image/text search
-3. Add real camera functionality (currently mock)
-4. Persist user plants to storage
+1. Redeploy backend and verify Cloud Run latency/timeout behavior on real device traffic
+2. Install and test the APK on a physical Android device
+3. Complete broad UI regression pass so every visible control has intended behavior
+4. Add automated tests and release checks
 
 ## Local API URL
 
-- Web/PC and Android defaults to `http://100.84.92.33:8000`
+- Web/PC and Android defaults to `https://arboretum-backend-1088270338886.us-central1.run.app`
 - Override with `EXPO_PUBLIC_API_URL` if your backend runs elsewhere
+- Set `EXPO_PUBLIC_BETA_LOGGING=false` only if you want to disable telemetry locally
 
 ---
 

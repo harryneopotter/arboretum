@@ -3,8 +3,10 @@ Diagnosis service for plant problem matching.
 """
 
 import re
+import math
 from typing import Optional
 from app.services.qdrant_client import get_qdrant
+from app.services.text_embeddings import get_text_embedding
 from app.utils.text_blob_parser import enrich_payload
 
 
@@ -13,6 +15,7 @@ class DiagnosisService:
 
     def __init__(self):
         self.qdrant = get_qdrant()
+        self.text_service = get_text_embedding()
 
     async def diagnose(
         self,
@@ -42,26 +45,33 @@ class DiagnosisService:
         if not problems:
             return None
 
-        # Find best matching problem based on symptom keywords
+        symptom_embedding = await self.text_service.embed(symptom)
+
+        # Find best matching problem using semantic score + keyword overlap.
         symptom_lower = symptom.lower()
         symptom_words = set(re.findall(r'\w+', symptom_lower))
-        
+
         best_match = None
-        best_score = 0
+        best_score = -1.0
 
         for problem in problems:
-            problem_text = f"{problem.get('symptom', '')} {' '.join(problem.get('possible_causes', []))}".lower()
+            problem_text = f"{problem.get('symptom', '')} {' '.join(problem.get('possible_causes', []))}"
+            problem_embedding = await self.text_service.embed(problem_text)
+            semantic_score = self._cosine_similarity(symptom_embedding, problem_embedding)
+
+            problem_text = problem_text.lower()
             problem_words = set(re.findall(r'\w+', problem_text))
-            
-            # Calculate keyword overlap
-            overlap = len(symptom_words & problem_words)
-            if overlap > best_score:
-                best_score = overlap
+
+            overlap = len(symptom_words & problem_words) / max(len(symptom_words), 1)
+            score = (semantic_score * 0.7) + (overlap * 0.3)
+
+            if score > best_score:
+                best_score = score
                 best_match = problem
 
         if best_match:
             return {
-                "score": best_score / max(len(symptom_words), 1),
+                "score": max(best_score, 0.0),
                 "symptom": best_match.get("symptom", ""),
                 "possible_causes": best_match.get("possible_causes", []),
                 "fix": best_match.get("fix", ""),
@@ -86,25 +96,15 @@ class DiagnosisService:
             return points[0].get("payload")
         return None
 
-    def _extract_problems(self, text_blob: str) -> list[dict]:
-        """Extract problem entries from text_blob."""
-        problems = []
-        
-        # Pattern to match "- Problem: X\n  Causes: ...\n  Fix: ...\n  Prevention: ..."
-        # Matches until next "- Problem:" or end of string
-        pattern = r'-\s*Problem:\s*(.+?)\n\s*Causes:\s*(.+?)\n\s*Fix:\s*(.+?)\n\s*Prevention:\s*(.+?)(?=\n-\s*Problem:|$)'
-        matches = re.findall(pattern, text_blob, re.DOTALL)
-        
-        for match in matches:
-            symptom, causes, fix, prevention = match
-            problems.append({
-                "symptom": symptom.strip(),
-                "possible_causes": [c.strip() for c in causes.split(',')],
-                "fix": fix.strip(),
-                "prevention": prevention.strip(),
-            })
-        
-        return problems
+    def _cosine_similarity(self, left: list[float], right: list[float]) -> float:
+        if not left or not right or len(left) != len(right):
+            return 0.0
+        dot = sum(a * b for a, b in zip(left, right))
+        left_norm = math.sqrt(sum(a * a for a in left))
+        right_norm = math.sqrt(sum(b * b for b in right))
+        if left_norm == 0 or right_norm == 0:
+            return 0.0
+        return dot / (left_norm * right_norm)
 
 
 # Singleton instance

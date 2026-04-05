@@ -9,6 +9,13 @@ from functools import lru_cache
 class Settings(BaseSettings):
     """Application settings."""
 
+    # Database
+    database_url: str | None = None
+    db_user: str | None = None
+    db_pass: str | None = None
+    db_name: str | None = None
+    db_host: str | None = None
+
     # Qdrant
     qdrant_url: str = "https://27aff9e6-8dae-4699-8803-9ee4fd06af81.eu-central-1-0.aws.cloud.qdrant.io"
     qdrant_api_key: str = ""
@@ -33,6 +40,10 @@ class Settings(BaseSettings):
     # OpenAI
     openai_api_key: str | None = None
     openai_embedding_model: str = "text-embedding-3-small"
+
+    # Beta telemetry / admin access
+    admin_log_token: str | None = None
+    beta_telemetry_enabled: bool = True
 
     class Config:
         env_file = ".env"

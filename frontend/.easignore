@@ -1,19 +1,41 @@
 # Dependency install and cache directories
-node_modules
-.npm-cache
-.expo
-.gradle
-android-home
+node_modules/
+.npm-cache/
+.expo/
+.gradle/
+android-home/
+.android-home/
 
-# Android build output and local native state
-android/.gradle
-android/.cxx
-android/app/build
-android/build
+# Android/iOS build output and local native state
+android/.gradle/
+android/.cxx/
+android/app/.cxx/
+android/app/build/
+android/build/
 android/local.properties
+ios/Pods/
+ios/build/
+
+# Catch nested/native artifacts explicitly
+**/.gradle/
+**/.cxx/
+**/build/
+**/.externalNativeBuild/
+**/tmp/
 
 # Generic local artifacts
 *.log
-dist
-build
+dist/
+build/
+coverage/
 .DS_Store
+*.db
+*.pyc
+__pycache__/
+*.iml
+*.apk
+*.aab
+
+# VCS and local/editor state not needed by EAS
+.git/
+.idea/

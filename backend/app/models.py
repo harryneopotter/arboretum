@@ -2,6 +2,8 @@
 Pydantic models for request/response schemas.
 """
 
+from datetime import datetime
+
 from pydantic import BaseModel, Field
 from typing import Optional
 
@@ -73,6 +75,36 @@ class DiagnoseResponse(BaseModel):
     """Response for diagnosis endpoint."""
     problem: Optional[ProblemEntry] = None
     message: Optional[str] = None
+
+
+class TelemetryEventIn(BaseModel):
+    """Beta/dev telemetry event captured from the app."""
+    device_id: Optional[str] = None
+    session_id: Optional[str] = None
+    screen: Optional[str] = None
+    action: str = Field(..., min_length=1, max_length=120)
+    target: Optional[str] = None
+    status: Optional[str] = None
+    source: Optional[str] = Field(default="frontend")
+    request_data: Optional[dict] = None
+    response_data: Optional[dict] = None
+    error_text: Optional[str] = None
+
+
+class TelemetryEventOut(BaseModel):
+    """Stored telemetry event."""
+    id: int
+    device_id: Optional[str] = None
+    session_id: Optional[str] = None
+    screen: Optional[str] = None
+    action: str
+    target: Optional[str] = None
+    status: Optional[str] = None
+    source: Optional[str] = None
+    request_data: Optional[dict] = None
+    response_data: Optional[dict] = None
+    error_text: Optional[str] = None
+    created_at: Optional[datetime] = None
 
 
 class PlantResponse(BaseModel):

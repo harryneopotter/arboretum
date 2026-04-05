@@ -63,8 +63,8 @@ export default function IdentifyScreen({ navigate, identifyPlant }: { navigate: 
       await identifyPlant(base64Image);
       navigate('RESULTS');
     } catch (e) {
-      Alert.alert('Failed to identify', 'Please try again with better lighting');
-      setCapturedImage(null);
+      const message = e instanceof Error && e.message ? e.message : 'Please try again with better lighting';
+      Alert.alert('Failed to identify', message);
     } finally {
       setIsAnalyzing(false);
     }
@@ -123,7 +123,7 @@ export default function IdentifyScreen({ navigate, identifyPlant }: { navigate: 
       )}
 
       <Text style={styles.aiNote}>
-        AI identifies 12,000+ species
+        AI-powered plant matching
       </Text>
     </View>
   );

@@ -137,7 +137,7 @@ def build_text_blob(plant: dict) -> str:
 class EmbeddingGenerator:
     def __init__(self):
         print("Loading embedding models...")
-        self.clip_model = SentenceTransformer('clip-ViT-B-32')
+        self.clip_model = SentenceTransformer('sentence-transformers/clip-ViT-B-32')
         if not OPENAI_API_KEY:
             raise RuntimeError("OPENAI_API_KEY is required for ingest. Set it in backend/app/.env")
         self.openai_headers = {

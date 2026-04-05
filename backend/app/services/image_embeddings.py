@@ -2,11 +2,13 @@
 Image embedding service using CLIP.
 """
 
+import os
 from typing import Optional
+import asyncio
 import base64
 import io
 from PIL import Image
-import numpy as np
+import httpx
 
 
 class ImageEmbeddingService:
@@ -15,13 +17,17 @@ class ImageEmbeddingService:
     def __init__(self):
         self._model = None
         self.dimension = 512
+        self.model_name = os.getenv(
+            "CLIP_MODEL_NAME",
+            "sentence-transformers/clip-ViT-B-32",
+        )
 
     @property
     def model(self):
         """Lazy load CLIP model."""
         if self._model is None:
             from sentence_transformers import SentenceTransformer
-            self._model = SentenceTransformer("clip-ViT-B-32")
+            self._model = SentenceTransformer(self.model_name)
         return self._model
 
     async def embed(self, image_data: str | bytes) -> list[float]:
@@ -46,12 +52,14 @@ class ImageEmbeddingService:
         # Load and preprocess image
         image = Image.open(io.BytesIO(image_bytes)).convert("RGB")
 
-        # Generate embedding
-        embedding = self.model.encode([image])[0].tolist()
+        # Run heavy model inference off the event loop.
+        embedding = await asyncio.to_thread(
+            lambda: self.model.encode(image, normalize_embeddings=True).tolist()
+        )
 
         return embedding
 
-    def embed_from_url(self, url: str) -> list[float]:
+    async def embed_from_url(self, url: str) -> list[float]:
         """
         Download image from URL and generate embedding.
 
@@ -61,12 +69,16 @@ class ImageEmbeddingService:
         Returns:
             512-dim embedding vector
         """
-        import requests
+        timeout = httpx.Timeout(connect=5.0, read=30.0, write=30.0, pool=5.0)
+        async with httpx.AsyncClient(timeout=timeout) as client:
+            resp = await client.get(url)
+            resp.raise_for_status()
 
-        resp = requests.get(url)
-        resp.raise_for_status()
-
-        return resp.content
+        image = Image.open(io.BytesIO(resp.content)).convert("RGB")
+        embedding = await asyncio.to_thread(
+            lambda: self.model.encode(image, normalize_embeddings=True).tolist()
+        )
+        return embedding
 
 
 # Singleton instance

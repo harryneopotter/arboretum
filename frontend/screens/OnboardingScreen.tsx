@@ -25,7 +25,7 @@ const ONBOARDING_SLIDES = [
   {
     id: '1',
     title: 'Identify Any Plant',
-    description: 'Snap a photo of any plant or flower. Our AI recognizes over 12,000 species instantly.',
+    description: 'Snap a photo of any plant or flower. Our AI suggests the closest matching species.',
     icon: Camera,
   },
   {
