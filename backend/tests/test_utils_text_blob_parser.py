@@ -35,10 +35,10 @@ class TestParseTextBlob:
         result = parse_text_blob("")
         assert result == {"alternate_names": [], "description": "", "care": {}, "common_problems": []}
 
-    def test_none_handled_via_empty(self):
-        # parse_text_blob checks `if not text_blob`
-        result = parse_text_blob("")
-        assert result["alternate_names"] == []
+    def test_falsy_input_returns_empty_result(self):
+        # parse_text_blob guards with `if not text_blob`; None is also falsy
+        result = parse_text_blob(None)  # type: ignore[arg-type]
+        assert result == {"alternate_names": [], "description": "", "care": {}, "common_problems": []}
 
     def test_alternate_names_parsed(self):
         result = parse_text_blob(FULL_BLOB)

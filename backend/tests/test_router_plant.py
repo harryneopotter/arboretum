@@ -108,4 +108,4 @@ class TestGetPlantProfile:
         resp = client.get("/plant/fern")
         assert resp.status_code == 200
         data = resp.json()
-        assert "fern" in data["description"].lower() or data["description"] != ""
+        assert "fern" in data["description"].lower()

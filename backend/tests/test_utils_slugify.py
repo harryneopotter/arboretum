@@ -36,11 +36,9 @@ class TestSlugify:
     def test_already_valid_slug(self):
         assert slugify("money-plant") == "money-plant"
 
-    def test_underscores_become_hyphens(self):
-        # underscores are word chars, stay as-is then collapse
+    def test_underscores_preserved(self):
+        # Underscores are \w characters so they are not removed or converted
         result = slugify("money_plant")
-        # regex: [-\s]+ → collapse, underscores are \w so kept
-        # actual: "money_plant" stays "money_plant"
         assert result == "money_plant"
 
     def test_empty_string(self):
