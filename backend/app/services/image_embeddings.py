@@ -7,6 +7,7 @@ from typing import Optional
 import asyncio
 import base64
 import io
+import torch
 from PIL import Image
 import httpx
 
@@ -16,68 +17,90 @@ class ImageEmbeddingService:
 
     def __init__(self):
         self._model = None
+        self._processor = None
         self.dimension = 512
         self.model_name = os.getenv(
             "CLIP_MODEL_NAME",
-            "sentence-transformers/clip-ViT-B-32",
+            "openai/clip-vit-base-patch32",
         )
 
     @property
     def model(self):
-        """Lazy load CLIP model."""
+        """Load CLIP model using transformers. Uses pre-bundled model from build if available."""
         if self._model is None:
-            from sentence_transformers import SentenceTransformer
-            self._model = SentenceTransformer(self.model_name)
+            import logging
+            from pathlib import Path
+            import transformers
+
+            logger = logging.getLogger(__name__)
+
+            # Check for pre-bundled model in /root/.cache (from Dockerfile)
+            cache_root = Path(os.getenv("HF_HOME", "/root/.cache/huggingface"))
+            model_cache = cache_root / "hub"
+
+            logger.info(f"Looking for CLIP model in {model_cache}")
+
+            try:
+                from transformers import CLIPModel, CLIPProcessor
+
+                # Try loading from pre-bundled cache first
+                self._processor = CLIPProcessor.from_pretrained(self.model_name)
+                self._model = CLIPModel.from_pretrained(self.model_name)
+                logger.info("CLIP model loaded successfully from cache")
+            except Exception as e:
+                logger.warning(f"CLIP load from cache failed: {e}", exc_info=True)
+                # Fallback: download at runtime (will work if HF_TOKEN is set or rate limit allows)
+                logger.info("Falling back to runtime download...")
+                self._processor = CLIPProcessor.from_pretrained(self.model_name)
+                self._model = CLIPModel.from_pretrained(self.model_name)
         return self._model
 
+    @property
+    def processor(self):
+        """Return processor (triggers model load via model property)."""
+        _ = self.model  # Trigger load if needed
+        return self._processor
+
     async def embed(self, image_data: str | bytes) -> list[float]:
-        """
-        Generate CLIP embedding from image.
+        """Generate CLIP embedding from image."""
+        # Trigger lazy load by accessing the property
+        _ = self.model
+        _ = self.processor
 
-        Args:
-            image_data: Base64 string or bytes of image
-
-        Returns:
-            512-dim embedding vector
-        """
-        # Decode image
         if isinstance(image_data, str):
-            # Remove data URL prefix if present
             if "," in image_data:
                 image_data = image_data.split(",", 1)[1]
             image_bytes = base64.b64decode(image_data)
         else:
             image_bytes = image_data
 
-        # Load and preprocess image
         image = Image.open(io.BytesIO(image_bytes)).convert("RGB")
 
-        # Run heavy model inference off the event loop.
-        embedding = await asyncio.to_thread(
-            lambda: self.model.encode(image, normalize_embeddings=True).tolist()
-        )
+        def _encode():
+            inputs = self._processor(images=image, return_tensors="pt")
+            with torch.no_grad():
+                image_features = self._model.get_image_features(**inputs)
+            return image_features.squeeze().numpy().tolist()
 
+        embedding = await asyncio.to_thread(_encode)
         return embedding
 
     async def embed_from_url(self, url: str) -> list[float]:
-        """
-        Download image from URL and generate embedding.
-
-        Args:
-            url: Image URL
-
-        Returns:
-            512-dim embedding vector
-        """
+        """Download image from URL and generate embedding."""
         timeout = httpx.Timeout(connect=5.0, read=30.0, write=30.0, pool=5.0)
         async with httpx.AsyncClient(timeout=timeout) as client:
             resp = await client.get(url)
             resp.raise_for_status()
 
         image = Image.open(io.BytesIO(resp.content)).convert("RGB")
-        embedding = await asyncio.to_thread(
-            lambda: self.model.encode(image, normalize_embeddings=True).tolist()
-        )
+
+        def _encode():
+            inputs = self._processor(images=image, return_tensors="pt")
+            with torch.no_grad():
+                image_features = self._model.get_image_features(**inputs)
+            return image_features.squeeze().numpy().tolist()
+
+        embedding = await asyncio.to_thread(_encode)
         return embedding
 
 

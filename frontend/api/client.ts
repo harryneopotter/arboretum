@@ -4,7 +4,7 @@
 
 const DEFAULT_API_URL = 'https://arboretum-backend-1088270338886.us-central1.run.app';
 
-const API_URL = process.env.EXPO_PUBLIC_API_URL || DEFAULT_API_URL;
+export const API_URL = process.env.EXPO_PUBLIC_API_URL || DEFAULT_API_URL;
 const BETA_LOGGING_ENABLED = process.env.EXPO_PUBLIC_BETA_LOGGING !== 'false';
 
 export type ApiErrorCode = 'HTTP' | 'NETWORK' | 'TIMEOUT';

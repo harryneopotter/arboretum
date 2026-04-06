@@ -54,7 +54,7 @@ export default function SettingsScreen({ navigate }: { navigate: (s: string) => 
     },
     {
       title: 'App Version',
-      description: '1.0.0',
+      description: '1.0.1',
     },
     {
       title: 'Location',

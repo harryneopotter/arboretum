@@ -1,4 +1,5 @@
 import { ImageSourcePropType } from 'react-native';
+import { API_URL } from '../api/config';
 
 export type PlantImageLike = {
   image_url?: string;
@@ -49,15 +50,11 @@ export function getPlantImage(name: string): ImageSourcePropType {
 }
 
 export function getBestPlantImage(plant?: PlantImageLike): ImageSourcePropType {
-  if (plant?.image_url) {
-    return { uri: plant.image_url };
+  // Use backend proxy for remote images to avoid CORS issues
+  if (plant?.slug) {
+    return { uri: `${API_URL}/plant/image-proxy/${plant.slug}` };
   }
 
-  const firstReference = plant?.reference_images?.[0];
-  const referenceUrl = firstReference?.url || firstReference?.image_url;
-  if (referenceUrl) {
-    return { uri: referenceUrl };
-  }
-
+  // Fallback to local assets if no slug
   return getPlantImage(plant?.slug || plant?.plant_name || 'monstera');
 }
