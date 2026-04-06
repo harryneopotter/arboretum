@@ -121,7 +121,7 @@ def get_history(device_id: str, limit: int = 20):
             SELECT id, plant_id, plant_name, symptom, result_json, created_at
             FROM diagnosis_history
             WHERE device_id = ?
-            ORDER BY created_at DESC
+            ORDER BY created_at DESC, id DESC
             LIMIT ?
             """,
             (device_id, limit),

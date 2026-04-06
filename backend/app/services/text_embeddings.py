@@ -36,6 +36,8 @@ class TextEmbeddingService:
         if not self.api_key:
             # Return deterministic mock for testing
             vector = self._mock_embedding(cache_key)
+            if use_cache:
+                self._cache[cache_key] = vector
             return vector
 
         headers = {
