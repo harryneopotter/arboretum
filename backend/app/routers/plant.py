@@ -3,7 +3,7 @@ Plant profile router.
 """
 
 import httpx
-from fastapi import APIRouter, HTTPException, status
+from fastapi import APIRouter, HTTPException, status, Request
 from fastapi.responses import Response
 from app.services.qdrant_client import get_qdrant
 from app.config import get_settings
@@ -12,13 +12,15 @@ from app.utils.text_blob_parser import enrich_payload
 router = APIRouter(prefix="/plant", tags=["Plant Profiles"])
 
 
-@router.get("/image-proxy/{plant_id}")
-async def proxy_plant_image(plant_id: str):
+@router.api_route("/image-proxy/{plant_id}", methods=["GET", "HEAD"])
+async def proxy_plant_image(plant_id: str, request: Request):
     """
     Proxy plant images through the backend to avoid CORS/network issues.
 
     The frontend should request this endpoint with the plant slug, and we'll
     fetch the image from the original URL and serve it back.
+
+    Supports both GET (with body) and HEAD (headers only) requests.
     """
     try:
         settings = get_settings()
@@ -55,13 +57,34 @@ async def proxy_plant_image(plant_id: str):
         # Determine content type
         content_type = resp.headers.get("content-type", "image/jpeg")
 
-        return Response(
-            content=resp.content,
-            media_type=content_type,
-            headers={
+        # Return headers only for HEAD, full response for GET
+        if request.method == "HEAD":
+            # Include the same headers a GET would provide where possible.
+            # Some clients rely on Content-Length being present for HEAD responses,
+            # so mirror the upstream response's content-length when available.
+            content_length = resp.headers.get("content-length")
+            head_headers = {
                 "Cache-Control": "public, max-age=86400",  # Cache for 1 day
-            },
-        )
+            }
+            if content_length:
+                head_headers["Content-Length"] = content_length
+            # FastAPI will set Content-Type using media_type, but include it
+            # explicitly in headers for clients that inspect headers only.
+            head_headers["Content-Type"] = content_type
+
+            return Response(
+                status_code=200,
+                media_type=content_type,
+                headers=head_headers,
+            )
+        else:
+            return Response(
+                content=resp.content,
+                media_type=content_type,
+                headers={
+                    "Cache-Control": "public, max-age=86400",  # Cache for 1 day
+                },
+            )
 
     except HTTPException:
         raise
