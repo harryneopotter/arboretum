@@ -6,7 +6,15 @@ Run with: uvicorn app.main:app --reload
 
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from app.routers import identify_router, search_router, diagnose_router, plant_router, user_router, telemetry_router
+from fastapi.staticfiles import StaticFiles
+from app.routers import (
+    identify_router,
+    search_router,
+    diagnose_router,
+    plant_router,
+    user_router,
+    telemetry_router,
+)
 from app.config import get_settings
 
 # =============================================================================
@@ -29,6 +37,7 @@ async def startup_event():
     # Keep startup lightweight for Cloud Run. Database schema creation and
     # model loading happen lazily on the first request that needs them.
     return
+
 
 # =============================================================================
 # CORS Middleware (Android-friendly)
@@ -54,8 +63,15 @@ app.include_router(user_router)
 app.include_router(telemetry_router)
 
 # =============================================================================
+# Static Files
+# =============================================================================
+
+app.mount("/static", StaticFiles(directory="app/static"), name="static")
+
+# =============================================================================
 # Health Check
 # =============================================================================
+
 
 @app.get("/health", tags=["Health"])
 async def health_check():
@@ -72,6 +88,7 @@ async def health_check():
 # Root Endpoint
 # =============================================================================
 
+
 @app.get("/", tags=["Root"])
 async def root():
     """Root endpoint with API info."""
@@ -85,5 +102,5 @@ async def root():
             "diagnose": "/diagnose",
             "events": "/events",
             "plant": "/plant/{id}",
-        }
+        },
     }

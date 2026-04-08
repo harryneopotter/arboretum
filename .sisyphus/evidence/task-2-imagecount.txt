@@ -1,0 +1,18 @@
+Processing complete:
+Images processed: 211
+Folders skipped (no images): 2
+Errors: 6
+
+Missing folders (no source images):
+- 23. Plumeria _Frangipani _ Champa_ -> plumeria-frangipani-champa
+- 35. Night Jasmine _Parijat _ Harsingar_ -> night-jasmine-parijat-harsingar
+
+Error details (examples seen during run):
+- files\\images\\30. Bottlebrush _Callistemon_\\image_1.jpg: cannot identify image file
+- files\\images\\37. Spinach _Palak_\\image_1.jpg: cannot identify image file
+- files\\images\\37. Spinach _Palak_\\image_2.jpg: cannot identify image file
+- files\\images\\38. Fenugreek _Methi_\\image_1.jpg: cannot identify image file
+- files\\images\\39. Green Chilli Plant\\image_3.jpg: cannot identify image file
+- files\\images\\41. Brinjal _Eggplant_\\image_3.jpg: cannot identify image file
+
+Note: 211 images processed across 73 source folders. Two folders contained no images and were skipped.
