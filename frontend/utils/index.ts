@@ -1,5 +1,5 @@
 import { ImageSourcePropType } from 'react-native';
-import { API_URL } from '../api/config';
+import { API_URL } from '../api/client';
 
 export type PlantImageLike = {
   image_url?: string;
