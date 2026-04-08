@@ -8,6 +8,7 @@ import {
   Image,
   TextInput,
   Alert,
+  ActivityIndicator,
 } from 'react-native';
 import { Search, Scan, Activity, Wind, Leaf, Sun, Droplet, CloudRain } from 'lucide-react-native';
 import { Label, AmbientCard } from '../components';
@@ -76,7 +77,7 @@ const CURATED_SEEDS: CuratedPlant[] = [
 ];
 
 export default function HomeScreen({ navigate }: { navigate: (s: string) => void }) {
-  const { savedPlants, isLoading, loadPlant, loadPlantError, currentPlant, searchPlants } = useStore();
+  const { savedPlants, isLoading, loadPlant, loadPlantError, currentPlant, searchPlants, isSearching } = useStore();
   const [searchText, setSearchText] = useState('');
   const [curatedPlants, setCuratedPlants] = useState<CuratedPlant[]>(CURATED_SEEDS);
   const [curatedLoading, setCuratedLoading] = useState(true);
@@ -142,7 +143,11 @@ export default function HomeScreen({ navigate }: { navigate: (s: string) => void
 
       <View style={styles.searchContainer}>
         <View style={styles.searchBox}>
-          <Search size={20} color={colors.primaryDark} strokeWidth={1.5} />
+          {isSearching ? (
+            <ActivityIndicator size="small" color={colors.primary} />
+          ) : (
+            <Search size={20} color={colors.primaryDark} strokeWidth={1.5} />
+          )}
           <TextInput 
             style={styles.searchText} 
             placeholder="Search plants or symptoms..."
@@ -151,6 +156,7 @@ export default function HomeScreen({ navigate }: { navigate: (s: string) => void
             onChangeText={setSearchText}
             returnKeyType="search"
             onSubmitEditing={handleSearch}
+            editable={!isSearching}
           />
         </View>
       </View>

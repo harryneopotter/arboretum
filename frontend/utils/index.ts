@@ -50,11 +50,21 @@ export function getPlantImage(name: string): ImageSourcePropType {
 }
 
 export function getBestPlantImage(plant?: PlantImageLike): ImageSourcePropType {
-  // Use backend proxy for remote images to avoid CORS issues
+  // Try local assets first using slug/name mapping
+  if (plant?.slug || plant?.plant_name) {
+    const fallback = getPlantImage(plant.slug || plant.plant_name);
+    // Check if we got something other than the default monstera
+    if (fallback !== PLANT_IMAGES.monstera) {
+      return fallback;
+    }
+  }
+
+  // Fallback to backend proxy for remote images (if Qdrant has reference_images)
+  // Note: proxy must be deployed to Cloud Run first
   if (plant?.slug) {
     return { uri: `${API_URL}/plant/image-proxy/${plant.slug}` };
   }
 
-  // Fallback to local assets if no slug
-  return getPlantImage(plant?.slug || plant?.plant_name || 'monstera');
+  // Final fallback to default
+  return PLANT_IMAGES.monstera;
 }
