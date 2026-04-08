@@ -59,7 +59,9 @@ async function fetchJson<T>(
     if (error instanceof ApiError) {
       throw error;
     }
-    if (error instanceof DOMException && error.name === 'AbortError') {
+    // Check for abort error without using DOMException (not available in RN)
+    const err = error as { name?: string; message?: string };
+    if (err.name === 'AbortError' || err.message?.includes('abort')) {
       throw new ApiError('Request timed out. Please try again.', 'TIMEOUT');
     }
     throw new ApiError('Network request failed. Check your connection.', 'NETWORK');
