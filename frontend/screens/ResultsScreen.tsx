@@ -1,5 +1,6 @@
 import React from 'react';
-import { View, Text, StyleSheet, ScrollView, TouchableOpacity, Image, ActivityIndicator, Alert } from 'react-native';
+import { View, Text, StyleSheet, ScrollView, TouchableOpacity, ActivityIndicator, Alert } from 'react-native';
+import { Image } from 'expo-image';
 import { Camera } from 'lucide-react-native';
 import { Label, Button } from '../components';
 import { colors } from '../theme';
@@ -54,7 +55,7 @@ export default function ResultsScreen({
             <View style={styles.matchBadge}>
               <Text style={styles.matchBadgeText}>{Math.round(bestMatchScore * 100)}% Match</Text>
             </View>
-            <Image source={bestMatchSource} style={styles.bestMatchImage} />
+            <Image source={bestMatchSource} style={styles.bestMatchImage} cachePolicy="disk" />
             <View style={styles.bestMatchContent}>
               <Label>{bestMatch.category || 'Tropical Plant'}</Label>
               <Text style={styles.bestMatchName}>{bestMatch.plant_name}</Text>

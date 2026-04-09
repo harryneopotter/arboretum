@@ -1,15 +1,25 @@
 import React, { useState, useEffect } from 'react';
 import {
+
   View,
+
   Text,
+
   StyleSheet,
+
   ScrollView,
+
   TouchableOpacity,
-  Image,
+
   TextInput,
+
   Alert,
+
   ActivityIndicator,
 } from 'react-native';
+
+import { Image } from 'expo-image';
+
 import { Search, Scan, Activity, Wind, Leaf, Sun, Droplet, CloudRain } from 'lucide-react-native';
 import { Label, AmbientCard } from '../components';
 import { colors } from '../theme';
@@ -238,10 +248,11 @@ export default function HomeScreen({ navigate }: { navigate: (s: string) => void
                   }
                 }}
               >
-                <Image
-                  source={getBestPlantImage(plant)}
-                  style={styles.plantImage}
-                />
+                 <Image
+                   source={getBestPlantImage(plant)}
+                   style={styles.plantImage}
+                   cachePolicy="disk"
+                 />
                 <Label style={styles.plantLabel}>{plant.category || 'Houseplant'}</Label>
                 <Text style={styles.plantName}>{plant.plant_name}</Text>
               </TouchableOpacity>

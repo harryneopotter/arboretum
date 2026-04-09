@@ -1,0 +1,4 @@
+Import changed from 'react-native' to 'expo-image'
+Image component line: <Image source={getBestPlantImage(plant)} style={styles.plantImage} />
+Added cachePolicy="disk" prop: <Image source={getBestPlantImage(plant)} style={styles.plantImage} cachePolicy="disk" />
+TypeScript check: npx tsc --noEmit → 0 errors

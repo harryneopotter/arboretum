@@ -38,3 +38,4 @@ Anomalies: none
 ## 2026-04-08T17:53:00Z - Backend Static Image Verification
 
 Inherited wisdom: StaticFiles are mounted at `/static` and images were committed under `backend/app/static/plant-images/` (211 JPEGs across 73 folders). Two source folders originally lacked images. backend_running: yes; static_status: 200; content_type: image/jpeg; cache_control_present: no; image_bytes: 208554; image_dimensions: 640x480; proxy_status: 405$ts - ProfileScreen now uses expo-image with cachePolicy="disk"; commit pending
+$ts - HomeScreen now uses expo-image with cachePolicy="disk"; commit pending

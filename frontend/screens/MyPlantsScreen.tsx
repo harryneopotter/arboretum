@@ -6,10 +6,10 @@ import {
   StyleSheet,
   ScrollView,
   TouchableOpacity,
-  Image,
   ActivityIndicator,
   Alert,
 } from 'react-native';
+import { Image } from 'expo-image';
 import { Plus, Droplet } from 'lucide-react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { colors } from '../theme';
@@ -131,10 +131,11 @@ export default function MyPlantsScreen({ navigate }: { navigate: (s: string) => 
               activeOpacity={0.8}
             >
               <View style={styles.cardContent}>
-                <Image
-                  source={getBestPlantImage(plant)}
-                  style={styles.plantImage}
-                />
+                 <Image
+                   source={getBestPlantImage(plant)}
+                   style={styles.plantImage}
+                   cachePolicy="disk"
+                 />
                 <View style={styles.plantInfo}>
                   <Text style={styles.plantName}>{plant.plant_name}</Text>
                   <View style={styles.waterInfo}>
