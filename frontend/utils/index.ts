@@ -59,10 +59,9 @@ export function getBestPlantImage(plant?: PlantImageLike): ImageSourcePropType {
     }
   }
 
-  // Fallback to backend proxy for remote images (if Qdrant has reference_images)
-  // Note: proxy must be deployed to Cloud Run first
+  // Use static backend URLs for plant images (served via /static/plant-images/{slug}/image_1.jpg)
   if (plant?.slug) {
-    return { uri: `${API_URL}/plant/image-proxy/${plant.slug}` };
+    return { uri: `${API_URL}/static/plant-images/${plant.slug}/image_1.jpg` };
   }
 
   // Final fallback to default

@@ -1,0 +1,4 @@
+Import changed from 'react-native' to 'expo-image'
+Image component line: <Image source={heroImage} style={styles.heroImage} />
+Added cachePolicy="disk" prop: <Image source={heroImage} style={styles.heroImage} cachePolicy="disk" />
+TypeScript check: npx tsc --noEmit → 0 errors

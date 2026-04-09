@@ -6,8 +6,8 @@ import {
   StyleSheet,
   ScrollView,
   TouchableOpacity,
-  Image,
 } from 'react-native';
+import { Image } from 'expo-image';
 import { ArrowLeft, Droplet, Sun, Heart } from 'lucide-react-native';
 import { Label } from '../components';
 import { colors } from '../theme';
