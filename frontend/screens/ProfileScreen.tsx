@@ -44,7 +44,7 @@ export default function ProfileScreen({ navigate }: { navigate: (s: string) => v
       </TouchableOpacity>
 
       <ScrollView showsVerticalScrollIndicator={false}>
-        <Image source={heroImage} style={styles.heroImage} />
+        <Image source={heroImage} style={styles.heroImage} cachePolicy="disk" />
 
         <View style={styles.content}>
           <Label style={styles.family}>{currentPlant.category || 'Tropical'}</Label>
